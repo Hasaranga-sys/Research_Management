@@ -1,16 +1,20 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 
 const router2 = require("./routes/ResearchRoute");
 
+//pdf
+const dotenv = require("dotenv");
+const fileupload = require('express-fileupload');
 
+dotenv.config();
 
 app.use(cookieParser());
 app.use(express.json());
+
 
 //database password - 6qb48qJBagUji7gg
 
@@ -18,22 +22,10 @@ mongoose.connect("mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.ne
     console.log('succeessfully connected to the database');
 });
 
-// const User = require('./models/User');
+//pdf
+app.use(cors());
+app.use("/user", require("./routes/pdf"))
 
-// const userInput ={
-//     username : "hasa999",
-//     password : "12345",
-//     role : "admin"
-// }
-
-// const user = new User(userInput);
-// user.save((err,document)=>{
-//     if(err){
-//         console.log(err);
-//     }else
-//         console.log(document);
-
-// });
 
 const userRouter = require('./routes/User');
 app.use('/user',userRouter)
@@ -43,7 +35,7 @@ app.use(cors());
 const todoRouter = require('./routes/TodoRoute');
 app.use('/ading',todoRouter)
 
-app.use(cors());
+app.use(cors())
 app.use("/researchtopics",router2)
 
 

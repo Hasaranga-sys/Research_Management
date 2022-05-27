@@ -15,6 +15,11 @@ import Admin from './Components/Admin';
 import AuthProvider from './Context/AuthContext';
 import TestTodo from './Components/TestTodo';
 import ResearchTopicForm from './Components/ResearchTopicForm';
+import FileUploadH from './Components/FileUpload/FileUploadH';
+import AddFile from './Components/FileUpload/AddFile';
+import StudentHome from './Components/Student/StudentHome';
+import TopicRegisterTable from './Components/Student/TopicRegisterTable';
+import TopicRegisterForm from './Components/Student/TopicRegisterForm';
 function App() {
   // const  { user,setUser,isAuthenticated,setIsAuthenticated} = useContext(AuthContext);
   // console.log(user);
@@ -40,8 +45,16 @@ function App() {
         <Route path="/register" element={<Register/>} exact />
         <Route path="/todos" element={<TestTodo/>} exact/>
         <Route path="/admin" element={<Admin/>} exact/>
+
+
+        <Route path='/StudentHome' element={<StudentHome/>} exact/>
+        <Route path='/StudentHome/TopicRegisterTable' element={<TopicRegisterTable/>} exact/>
+        <Route path='/StudentHome/TopicRegisterTable/TopicRegisterForm' element={<TopicRegisterForm/>} exact/>
         
         <Route path="/researchTopic" element={<ResearchTopicForm/>} exact/>
+
+        <Route path='/fileUploadHome' element={<FileUploadH/>} exact/>
+        <Route path='/fileAdd' element={<AddFile/>} exact/>
     </Routes>
     </main>   
     </React.Fragment>   

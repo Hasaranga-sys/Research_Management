@@ -26,6 +26,8 @@ const NavBar = props => {
               </li>
             </Link> */}
             <a className='nav-link active' aria-current="page" href="/">Home</a>
+            <a className='nav-link active' aria-current="page" href="/fileAdd">addfile</a>
+            <a className='nav-link active' aria-current="page" href="/fileUploadHome">HomeFile</a>
             
             <a className="nav-link active" aria-current="page" href="/login">Login</a>
 
@@ -50,6 +52,8 @@ const NavBar = props => {
   const AuthenticatedNavBar = () =>{
     return(
       <>
+      <a className='nav-link active' aria-current="page" href="/fileAdd">addfile</a>
+            <a className='nav-link active' aria-current="page" href="/fileUploadHome">HomeFile</a>
           <Link to="/">
             <li className='nav-item nav-link'>
               Home

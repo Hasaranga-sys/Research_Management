@@ -29,7 +29,7 @@ const Login = (props) => {
                 if(user.role === "admin"){            
                     history('/admin');}
                     else if(user.role === "user"){
-                    history('/user');}
+                    history('/studentHome');}
             }else{
                 setMessage(message);
             }
