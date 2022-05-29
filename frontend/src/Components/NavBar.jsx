@@ -2,9 +2,11 @@ import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
 import AuthService from '../Services/AuthService'
 import {AuthContext} from '../Context/AuthContext'
+import { useNavigate } from 'react-router'
 
 const NavBar = props => {  
   
+  const navigate = useNavigate();
 
   const {isAuthenticated,user,setIsAuthenticated,setUser} = useContext(AuthContext);
 
@@ -13,6 +15,7 @@ const NavBar = props => {
       if(data.success){
         setUser(data.user);
         setIsAuthenticated(false);
+        navigate("/login") ;       
       }
     });
   }
@@ -25,10 +28,14 @@ const NavBar = props => {
                 Home
               </li>
             </Link> */}
+            {/* <li className='nav-item'>
+              <a className='nav-link active' aria-current="page" href="/login">Login</a>
+            </li>
+           */}
             <a className='nav-link active' aria-current="page" href="/">Home</a>
-            <a className='nav-link active' aria-current="page" href="/fileAdd">addfile</a>
+            {/* <a className='nav-link active' aria-current="page" href="/fileAdd">addfile</a>
             <a className='nav-link active' aria-current="page" href="/fileUploadHome">HomeFile</a>
-            
+             */}
             <a className="nav-link active" aria-current="page" href="/login">Login</a>
 
             <a className="nav-link active" aria-current="page" href="/register">Register</a>
@@ -52,30 +59,43 @@ const NavBar = props => {
   const AuthenticatedNavBar = () =>{
     return(
       <>
-      <a className='nav-link active' aria-current="page" href="/fileAdd">addfile</a>
-            <a className='nav-link active' aria-current="page" href="/fileUploadHome">HomeFile</a>
-          <Link to="/">
+      {/* <a className='nav-link active' aria-current="page" href="/fileAdd">addfile</a>
+            <a className='nav-link active' aria-current="page" href="/fileUploadHome">HomeFile</a> */}
+          {/* <Link to="/">
             <li className='nav-item nav-link'>
               Home
             </li>
-          </Link>       
+          </Link>   
+          <li className='nav-item'>
+              <a className='nav-link active' aria-current="page" href="/">Home</a>
+            </li>    
 
           <Link to="/todos">
             <li className='nav-item nav-link'>
               Todos
             </li>
-          </Link>
+          </Link> */}
           {
             user.role === "admin" ?
-              <Link to="/admin">
+
                 <li className='nav-item nav-link'>
-                  Admin
+                    <a className='nav-link' href="/AdminHome">Admin Home</a>
                 </li>
-            </Link> : null        
+
+             : user.role =="user" ? 
+
+                  <li className='nav-item nav-link'>
+                      <a className='nav-link' href="/StudentHome">Student Home</a>
+                  </li>
+                  
+                  : null        
           }
         <button type='button' 
-        className='btn btn-link nav-item nav-link' 
-        onClick={onClickLogoutHandler}>Logout</button>
+                className='btn btn-link nav-item nav-link' 
+                onClick={onClickLogoutHandler}>
+                  {/* <a className='nav-link' href="/login">Logout</a>Logout */}
+                  Logout
+                  </button>
 
       </>
     )
@@ -83,16 +103,19 @@ const NavBar = props => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <div className="container-fluid">
-    <Link to="/">
-      <div className="navbar-brand">Research</div>
-    </Link>  
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <div className="container-fluid">
+{/*     
+        <div className="navbar-brand">Research</div> */}
+        <li className='nav-item'>
+        <span class="fs-5 text-white font-weight-bold">Research Management Tool</span>
+        </li>
+      
    
-    <div className="collapse navbar-collapse" id="navbarText">
-      <ul className="navbar-nav mr-auto ">
-        {!isAuthenticated ?  unAuthenticatedNavBar() : AuthenticatedNavBar()}
-      </ul>
+          <div className="collapse navbar-collapse" id="navbarText">
+             <ul className="navbar-nav mr-auto ">
+                 {!isAuthenticated ?  unAuthenticatedNavBar() : AuthenticatedNavBar()}
+            </ul>
     
     </div>
   </div>

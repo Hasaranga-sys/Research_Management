@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const StudentHome = () => {
+const AdminHome = () => {
   return (
-    <div className='bg-light'>
-        <h2>Welcome</h2>
+    <div>
+         <div>
+        <div className='bg-light'>
+        <h2>Welcome Admin</h2>
             <div className="py-5">
                 <div className="container">
                     <div className="row hidden-md-up">
@@ -14,8 +16,8 @@ const StudentHome = () => {
                             <div className="card-block">
                             <img style={{height: 130, width: 130}} className="card-img-top" src="https://www.pinclipart.com/picdir/big/419-4192970_trusted-service-delivery-partner-executive-agreement-clipart-png.png" alt="Card image cap"/>
                             <h4 className="card-title"></h4>
-                            <Link to="/StudentHome/TopicRegisterTable">
-                            <button className='btn btn-primary' variant="contained">Register Topics</button>   
+                            <Link to="/AdminHome/ViewStudentGroups">
+                            <button className='btn btn-primary' variant="contained">View Student Groups</button>   
                             </Link>             
                             
                             </div>
@@ -27,8 +29,8 @@ const StudentHome = () => {
                             <div className="card-block">
                             <img style={{height: 130, width: 130}} className="card-img-top" src="https://www.pinclipart.com/picdir/big/419-4192970_trusted-service-delivery-partner-executive-agreement-clipart-png.png" alt="Card image cap"/>
                             <h4 className="card-title"></h4>
-                            <Link to="/StudentHome/StudentGroupHome">
-                                <button className='btn btn-primary' variant="contained">Student Groups</button>
+                            <Link to="/StudentHome/StudentGroupsTable">
+                                <button className='btn btn-primary' variant="contained">User Settings</button>
                             </Link>
                                               
                             
@@ -51,7 +53,9 @@ const StudentHome = () => {
                 </div>
             </div>       
      </div>
+    </div>
+    </div>
   )
 }
 
-export default StudentHome
+export default AdminHome

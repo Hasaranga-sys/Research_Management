@@ -20,6 +20,11 @@ import AddFile from './Components/FileUpload/AddFile';
 import StudentHome from './Components/Student/StudentHome';
 import TopicRegisterTable from './Components/Student/TopicRegisterTable';
 import TopicRegisterForm from './Components/Student/TopicRegisterForm';
+import StudentGroupTable from './Components/Student/StudentGroupTable';
+import StudentGroupHome from './Components/Student/StudentGroupHome';
+import AdminHome from './Components/Admin/AdminHome';
+import ViewStudentGroups from './Components/Admin/ViewStudentGroups';
+import AddPanelMembers from './Components/Admin/AddPanelMembers';
 function App() {
   // const  { user,setUser,isAuthenticated,setIsAuthenticated} = useContext(AuthContext);
   // console.log(user);
@@ -43,15 +48,24 @@ function App() {
         <Route  path="/" element={<Home/>} exact/>
         <Route path="/login" element={<Login/>} exact/>
         <Route path="/register" element={<Register/>} exact />
-        <Route path="/todos" element={<TestTodo/>} exact/>
+        <Route path="/todos" element={<Todos/>} exact/>
         <Route path="/admin" element={<Admin/>} exact/>
 
-
+        {/* Student */}
         <Route path='/StudentHome' element={<StudentHome/>} exact/>
         <Route path='/StudentHome/TopicRegisterTable' element={<TopicRegisterTable/>} exact/>
         <Route path='/StudentHome/TopicRegisterTable/TopicRegisterForm' element={<TopicRegisterForm/>} exact/>
+        <Route path='/StudentHome/TopicRegisterTable/TopicRegisterForm/:_id' element={<TopicRegisterForm/>} exact/>
+        
+        <Route path='/StudentHome/StudentGroupHome' element={<StudentGroupHome/>}  exact/>
+        <Route path='/StudentHome/StudentGroupHome/StudentGroupsTable' element={<StudentGroupTable/>} exact/>
         
         <Route path="/researchTopic" element={<ResearchTopicForm/>} exact/>
+
+        {/* Admin */}
+        <Route path='/AdminHome' element={<AdminHome/>} exact/>
+        <Route path='/AdminHome/ViewStudentGroups' element={<ViewStudentGroups/>} exact/>
+        <Route path='/AdminHome/ViewStudentGroups/AddPanelMembers/:_id' element={<AddPanelMembers/>} exact/>
 
         <Route path='/fileUploadHome' element={<FileUploadH/>} exact/>
         <Route path='/fileAdd' element={<AddFile/>} exact/>

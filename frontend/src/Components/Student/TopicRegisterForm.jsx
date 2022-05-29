@@ -1,54 +1,94 @@
-import React, { useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
-import ResearchTopicService from '../../Services/ResearchTopicService';
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import ResearchTopicService from "../../Services/ResearchTopicService";
 
 const TopicRegisterForm = (props) => {
-  const[researchTopic, setResearchTopic] = useState('')
-  const [groupId, setGroupId] = useState("")
-  const [activeStatus, setActiveStatus] = useState("pending");
-  const history = useNavigate()
 
-  const saveResearchTopic = (e) =>{
-      e.preventDefault();
-      const ResearchTopic = {researchTopic,groupId,activeStatus}
-      console.log(ResearchTopic)
+      const [researchTopic, setResearchTopic] = useState([]);
+      const [groupId, setGroupId] = useState("");
+      const [activeStatus, setActiveStatus] = useState("pending");
+      const history = useNavigate();
+      const { _id } = useParams();
 
-      ResearchTopicService.createResearchTopic(ResearchTopic).then((response)=>{
-        history('/StudentHome/TopicRegisterTable')
-          console.log(response.data)
-      })
-  }
+      useEffect(() => {        
+            if (_id) {
+                ResearchTopicService.getResearchTopicById(_id).then((Response) => {
+                setGroupId(Response.data.groupId);
+                setResearchTopic(Response.data.researchTopic);
+              });
+            }
+      }, []);
 
-return (
-  <div className='container'>
-
-    <form onSubmit={e =>{saveResearchTopic(e)}}>
-      <label className="col-sm-2 col-form-label">Group ID</label>
-      <input name='groupId' type='text' onChange={(e) =>setGroupId(e.target.value)} required />
-      <br></br>
-
-      <label className="col-sm-2 col-form-label">Research Topic</label>
-      <input name='researchTopic' type='text' onChange={(e) =>setResearchTopic(e.target.value)} required />
-
-      <input className='submitButton' type='submit' value='submit'/>
-
-    </form>
+        console.log(groupId);
+        console.log(researchTopic);
 
 
 
 
-      {/* <form>
-          <label>ResearchTopic</label>
-          <input type="text" 
-                  name="researchTopic"
-                   id="inputResearchTopic"
-                    value={researchTopic} 
-                    onChange={(e) =>setResearchTopic(e.target.value)} />
+      const saveResearchTopic = (e) => {
+        e.preventDefault();
+        const ResearchTopic ={ 
+              researchTopic, 
+              groupId, 
+              activeStatus };
 
-                    <button onClick={(e)=> saveResearchTopic(e) }>save</button>
-      </form> */}
-  </div>
-)
-}
+        console.log(ResearchTopic);
 
-export default TopicRegisterForm
+          if (_id) {
+            ResearchTopicService.updateResearchTopic(_id, ResearchTopic)
+              .then((res) => {
+                {
+                  console.log(res);
+                  history("/StudentHome/TopicRegisterTable");
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          } else {
+              ResearchTopicService.createResearchTopic(ResearchTopic).then((response) => {
+                  history("/StudentHome/TopicRegisterTable");
+                  console.log(response.data);
+                })
+              .catch((error) => {
+                console.log(error);
+              });
+          }
+        };
+
+      
+
+
+  return (
+    <div className="container">
+      <form
+        onSubmit={(e) => {
+          saveResearchTopic(e);
+        }}
+      >
+        <label className="col-sm-2 col-form-label">Group ID</label>
+        <input
+          name="groupId"
+          type="text"
+                  
+          onChange={(e) =>{setGroupId(e.target.value)}}
+          required
+        />
+        <br></br>
+
+        <label className="col-sm-2 col-form-label">Research Topic</label>
+        <input
+          name="researchTopic"
+          type="text"
+          
+          onChange={(e) =>{setResearchTopic(e.target.value)}}
+          required
+        />
+
+        <input className="submitButton" type="submit" value="submit" />
+      </form>
+    </div>
+  );
+};
+
+export default TopicRegisterForm;

@@ -27,7 +27,7 @@ const Login = (props) => {
                 authContext.setUser(user);
                 authContext.setIsAuthenticated(isAuthenticated);
                 if(user.role === "admin"){            
-                    history('/admin');}
+                    history('/AdminHome');}
                     else if(user.role === "user"){
                     history('/studentHome');}
             }else{

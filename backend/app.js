@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 
 const router2 = require("./routes/ResearchRoute");
+const router3 = require("./routes/StudentGroupRoutes");
 
 //pdf
 const dotenv = require("dotenv");
@@ -37,6 +38,7 @@ app.use('/ading',todoRouter)
 
 app.use(cors())
 app.use("/researchtopics",router2)
+app.use("/studentGroup",router3)
 
 
 app.listen(5000,()=>{
