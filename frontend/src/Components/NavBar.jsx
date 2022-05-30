@@ -90,12 +90,14 @@ const NavBar = props => {
                   
                   : null        
           }
+        
         <button type='button' 
                 className='btn btn-link nav-item nav-link' 
                 onClick={onClickLogoutHandler}>
-                  {/* <a className='nav-link' href="/login">Logout</a>Logout */}
+                 
                   Logout
                   </button>
+                  
 
       </>
     )

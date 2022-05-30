@@ -28,7 +28,7 @@ const StudentGroupHome = () => {
                             <div className="card-block">
                             <img style={{height: 130, width: 130}} className="card-img-top" src="https://www.pinclipart.com/picdir/big/419-4192970_trusted-service-delivery-partner-executive-agreement-clipart-png.png" alt="Card image cap"/>
                             <h4 className="card-title"></h4>
-                            <Link to="/StudentHome/StudentGroupsTable">
+                            <Link to="/StudentHome/StudentGroupHome/AddStudentGroup">
                                 <button className='btn btn-primary' variant="contained">Register Student Group</button>
                             </Link>
                                               

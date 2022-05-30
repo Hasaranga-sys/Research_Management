@@ -1,0 +1,96 @@
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import ResearchTopicService from "../../Services/ResearchTopicService";
+
+const TopicAcceptorReject = () => {
+
+    // const [researchTopic, setResearchTopic] = useState([]);
+    //   const [groupId, setGroupId] = useState("");
+      const [activeStatus, setActiveStatus] = useState("");
+      const history = useNavigate();
+      const { _id } = useParams();
+
+      useEffect(() => {        
+        if (_id) {
+            ResearchTopicService.getResearchTopicById(_id).then((Response) => {
+            // setGroupId(Response.data.groupId);
+            // setResearchTopic(Response.data.researchTopic);
+            setActiveStatus(Response.data.activeStatus);
+          });
+        }
+  }, []);
+
+  const saveResearchTopic = (e) => {
+    e.preventDefault();
+    const ResearchTopic ={ 
+        //   researchTopic, 
+        //   groupId, 
+          activeStatus };
+
+    console.log(ResearchTopic);
+
+      if (_id) {
+        ResearchTopicService.updateResearchTopic(_id, ResearchTopic)
+          .then((res) => {
+            {
+              console.log(res);
+              history("/SupervisorHome/TopicView");
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        //   ResearchTopicService.createResearchTopic(ResearchTopic).then((response) => {
+        //       history("/StudentHome/TopicRegisterTable");
+        //       console.log(response.data);
+        //     })
+        //   .catch((error) => {
+        //     console.log(error);
+        //   });
+      }
+    };
+
+  return (
+    <div>
+        <div className="card mx-auto" style={{width:600}}>
+      <form onSubmit={(e) => {saveResearchTopic(e); }}>
+
+        <div style={{marginTop: 20,}}  className="mb-3 row">
+        <label className="col-sm-2 col-form-label">Group ID</label>
+        <div class="col-sm-9">
+        <input className="form-control "  name="groupId" type="text" readOnly  />
+        </div>
+        
+        </div>
+
+    
+        <div style={{marginTop: 20,}} className="mb-3 row">
+        <label className="col-sm-3 col-form-label">Active Status</label>
+        <div class="col-sm-9">
+          <select className="form-select" aria-label="Default select example">
+          <option selected>Open this select menu</option>
+              <option {...setActiveStatus()} value="Accepted">Acc</option>
+              <option {...setActiveStatus()} value="Rejected">Rej</option>
+              
+          </select>
+        {/* <input              
+          className="form-control "
+          name="activeStatus"
+          type="text"          
+          onChange={(e) =>{setActiveStatus(e.target.value)}}
+          required
+        /> */}
+        </div>
+      
+        </div>
+
+        <input className="submitButton" type="submit" value="submit" />
+      </form>
+    </div>
+
+    </div>
+  )
+}
+
+export default TopicAcceptorReject

@@ -25,6 +25,11 @@ import StudentGroupHome from './Components/Student/StudentGroupHome';
 import AdminHome from './Components/Admin/AdminHome';
 import ViewStudentGroups from './Components/Admin/ViewStudentGroups';
 import AddPanelMembers from './Components/Admin/AddPanelMembers';
+import AddStudentGroup from './Components/Student/AddStudentGroup';
+import PanelMemberHome from './Components/PanelMember/PanelMemberHome';
+import SupervisorHome from './Components/Supervisor/SupervisorHome';
+import TopicView from './Components/Supervisor/TopicView';
+import TopicAcceptorReject from './Components/Supervisor/TopicAcceptorReject';
 function App() {
   // const  { user,setUser,isAuthenticated,setIsAuthenticated} = useContext(AuthContext);
   // console.log(user);
@@ -59,13 +64,22 @@ function App() {
         
         <Route path='/StudentHome/StudentGroupHome' element={<StudentGroupHome/>}  exact/>
         <Route path='/StudentHome/StudentGroupHome/StudentGroupsTable' element={<StudentGroupTable/>} exact/>
-        
+        <Route path='/StudentHome/StudentGroupHome/AddStudentGroup' element={<AddStudentGroup/>} exact/>
         <Route path="/researchTopic" element={<ResearchTopicForm/>} exact/>
 
         {/* Admin */}
         <Route path='/AdminHome' element={<AdminHome/>} exact/>
         <Route path='/AdminHome/ViewStudentGroups' element={<ViewStudentGroups/>} exact/>
         <Route path='/AdminHome/ViewStudentGroups/AddPanelMembers/:_id' element={<AddPanelMembers/>} exact/>
+
+        {/* supervisor */}
+        <Route path='/SupervisorHome' element={<SupervisorHome/>} exact/>
+        <Route path='/SupervisorHome/TopicView' element={<TopicView/>} exact/>
+        <Route path='/SupervisorHome/TopicView/TopicAcceptorReject/:_id' element={<TopicAcceptorReject/>} exact/>
+
+
+        {/* panel member */}
+        <Route path='/panelMemberHome' element={<PanelMemberHome/>} exact/>
 
         <Route path='/fileUploadHome' element={<FileUploadH/>} exact/>
         <Route path='/fileAdd' element={<AddFile/>} exact/>

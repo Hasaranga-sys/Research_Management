@@ -30,8 +30,17 @@ const Login = (props) => {
                     history('/AdminHome');}
                     else if(user.role === "user"){
                     history('/studentHome');}
+                    else if(user.role ==="panel-member"){
+                        history('/panelMemberHome')}
+                    else if(user.role === "supervisor"){
+                        history('/SupervisorHome')
+                    }
             }else{
                 setMessage(message);
+                function myFunction(){
+                    alert("Error : Wrong Username or Password")
+                }
+                myFunction();
             }
         })
 

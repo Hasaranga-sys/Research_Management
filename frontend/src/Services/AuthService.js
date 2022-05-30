@@ -25,7 +25,7 @@ export default{
     },
 
     logout :  ()=>{
-      fetch('/user/logout')
+      return fetch('/user/logout')
             .then(res => res.json())
             .then(data =>data);
         

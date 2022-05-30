@@ -53,7 +53,7 @@ userRouter.get('/logout',passport.authenticate('jwt',{session : false}),(req,res
     res.json({user:{username : "" , role :""}, success : true});                               
 
 });
-// add
+// add todo
 userRouter.post('/todo',passport.authenticate('jwt',{session : false}),(req,res)=>{
     const todo = new Todo(req.body);
     todo.save(err=>{
@@ -70,6 +70,19 @@ userRouter.post('/todo',passport.authenticate('jwt',{session : false}),(req,res)
             }
     })
 })
+
+//get Users
+userRouter.get('/view',(req,res)=>{
+        
+       User.find().exec((err,document)=>{
+        if(err){
+            return res.status(404).json({message:"No users available"});
+        }else
+        return res.status(200).json({User});
+        });
+})
+
+
 
 //get todo
 userRouter.get('/todos',passport.authenticate('jwt',{session : false}),(req,res)=>{
