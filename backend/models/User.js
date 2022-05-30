@@ -15,10 +15,10 @@ const UserSchema = new mongoose.Schema({
     },
     role : {
         type : String,
-        enum : ['user','admin'],
+        enum : ['user','admin','supervisor','co-supervisor','panel-member' ],
         required : true
     },
-    todos : [{type :mongoose.Schema.Types.ObjectId, ref : 'Todo'}]
+    // todos : [{type :mongoose.Schema.Types.ObjectId, ref : 'Todo'}]
 });
 
 UserSchema.pre('save',function(next){
