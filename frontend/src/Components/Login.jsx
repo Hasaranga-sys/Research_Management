@@ -1,16 +1,16 @@
-import React, { useContext, useState } from 'react'
-import AuthService from '../Services/AuthService'
-import { AuthContext } from '../Context/AuthContext'
-import Message from './Message'
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import AuthService from "../Services/AuthService";
+import { AuthContext } from "../Context/AuthContext";
+import Message from "./Message";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
-    // const {isAuthenticated,userl,setIsAuthenticated,setUserl} = useContext(AuthContext);
+  // const {isAuthenticated,userl,setIsAuthenticated,setUserl} = useContext(AuthContext);
 
-    const [user, setUser] = useState({username:"",password:""});
-    const [message, setMessage] = useState(null);
-    const authContext = useContext(AuthContext);
-    const history = useNavigate()
+  const [user, setUser] = useState({ username: "", password: "" });
+  const [message, setMessage] = useState(null);
+  const authContext = useContext(AuthContext);
+  const history = useNavigate();
 
     const signIn = (e) =>{
            
@@ -46,24 +46,75 @@ const Login = (props) => {
 
     }
 
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  //   AuthService.login(user).then((data) => {
+  //     console.log(data);
+  //     const { isAuthenticated, user, message } = data;
+  //     if (isAuthenticated) {
+  //       authContext.setUser(user);
+  //       authContext.setIsAuthenticated(isAuthenticated);
+  //       if (user.role === "admin") {
+  //         history("/AdminHome");
+  //       } else if (user.role === "user") {
+  //         history("/studentHome");
+  //       }
+  //     } else {
+  //       setMessage(message);
+  //     }
+  //   });
+  // };
 
   return (
-    <div className='container'>
-        <form onSubmit={onSubmit}>
+    <div className="container">
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="card col-md-6 offset-md-3 offset-md-3">
+        <div className="card-body">
+          <div>
             <h2>Login</h2>
-            <label htmlFor='username' className='sr-only'>Username</label>
-            <input type='text' name='username' onChange={signIn}
-                     className='form-control' placeholder='Enter username' />
+          </div>
+          <br />
+          <br />
+          <form onSubmit={onSubmit}>
+            <div className="form-group row">
+              <label className="col-sm-2 col-form-label">Username</label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  name="username"
+                  onChange={signIn}
+                  className="form-control"
+                  placeholder="Enter username"
+                />
+              </div>
+            </div>
+            <br />
+            <div className="form-group row">
+              <label className="col-sm-2 col-form-label">Password</label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  name="password"
+                  onChange={signIn}
+                  className="form-control"
+                  placeholder="Enter Password"
+                />
+              </div>
+            </div>
+            <br />
 
-            <label htmlFor='password' className='sr-only'>Password</label>
-            <input type='text' name='password' onChange={signIn}
-                    className='form-control' placeholder='Enter Password' />
-
-            <button className='btn btn-lg btn-primary btn-block' type='submit'>Login</button>
-        </form>
-        {message ? <Message message={message}/> : null}
+            <button className="btn btn-primary" type="submit">
+              Login
+            </button>
+          </form>
+          {message ? <Message message={message} /> : null}
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
