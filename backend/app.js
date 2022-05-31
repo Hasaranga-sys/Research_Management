@@ -8,7 +8,6 @@ const router2 = require("./routes/ResearchRoute");
 const router3 = require("./routes/StudentGroupRoutes");
 
 //pdf
-const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 // const fileupload = require("express-fileupload");
 
@@ -17,12 +16,16 @@ dotenv.config();
 app.use(cookieParser());
 app.use(express.json());
 
+<<<<<<< HEAD
 app.use(cors({ origin: "*" }));
+=======
+app.use(cors());
+>>>>>>> 51ffbea5f923383ed1c3f91aee8bf431951f1db7
 
 //file upload
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use("/upload", require("./routes/FileUploadRoutes"));
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+// app.use("/upload", require("./routes/FileUploadRoutes"));
 
 //database password - 6qb48qJBagUji7gg
 
@@ -44,16 +47,29 @@ mongoose.connect(
 //   }
 // );
 
+<<<<<<< HEAD
 // mongoose.connect(
 //   "mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority",{
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true,
 //   }).then(()=>{console.log("MongoDB connected successfully")
 // }).catch((err)=> console.log("DB conncetion failed".err))
+=======
+mongoose.connect(
+  "mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority",{
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
+  
+  }).then(()=>{console.log("MongoDB connected successfully")
+}).catch((err)=> console.log("DB conncetion failed".err))
+ 
+
+
+>>>>>>> 51ffbea5f923383ed1c3f91aee8bf431951f1db7
 
 //pdf
-// app.use(cors());
-// app.use("/user", require("./routes/pdf"));
+app.use(cors());
+app.use("/pdf", require("./routes/pdf"));
 
 const userRouter = require("./routes/User");
 app.use("/user", userRouter);

@@ -3,6 +3,9 @@ const pdfSchema = new mongoose.Schema({
     name:{
         type: String,
     },
+    type:{
+        type: String,
+    },
     avatar:{
         type: String,
     },

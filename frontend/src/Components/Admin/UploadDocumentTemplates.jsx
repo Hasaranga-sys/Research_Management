@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-
-const AddFile = () => {
+const UploadDocumentTemplates = () => {
 
     const history = useNavigate();
     const [name, setName] = useState("");
-    const [type, setType] = useState("");
+    const [type, setType] = useState("Document template");
     // const [file, setFile] = useState("");
     const [pdf,setPdf] = useState("");
+
 
     const upload = async (e) =>{
         try {
@@ -33,7 +33,7 @@ const AddFile = () => {
             });
             if(res.ok){
                 setName("");
-                setType("");
+                // setType("");
                 // setFile(null);
                 setPdf(null);
 
@@ -44,8 +44,11 @@ const AddFile = () => {
         }
     }
 
+
   return (
-    <div style={{ maxWidth: 500, margin: "auto" }}>
+    <div className='container'>
+        <h1>Upload Document Template</h1>
+        <div style={{ maxWidth: 500, margin: "auto" }}>
         <Link to="/fileUploadHome">
       <button className='btn btn-primary' variant="contained">file upload home</button>   
       </Link>
@@ -57,11 +60,11 @@ const AddFile = () => {
                             className="form-control" />
                 </div>
                 <br></br>
-                <div className='form-group'>
+                {/* <div className='form-group'>
                     <input type="text"placeholder='Type' value={type} required
                             onChange={e=>{setType(e.target.value)}}
                             className="form-control" />
-                </div>
+                </div> */}
                 {/* Upload Photo
                 <div className='form-group'>
                     <input type="file" multiple required filename="uploaded_Image"
@@ -80,8 +83,9 @@ const AddFile = () => {
             </form>
         }
 
+    </div>        
     </div>
   )
 }
 
-export default AddFile
+export default UploadDocumentTemplates

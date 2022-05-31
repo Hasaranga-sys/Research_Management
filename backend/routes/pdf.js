@@ -13,10 +13,11 @@ const storage=multer.diskStorage({
         cb(null,"uploads")
     },
     filename:(req,file,cb)=>{
+        let filePath=[];
         console.log("MULTER ENTRY ",file.originalname)
         console.log("files",req.files)
 
-        const ext = path.extname(file.originalname);
+      const ext = path.extname(file.originalname);
       const id = uuid();
       filePath = `${id}${ext}`;
       fileInArray.push([(filePath)])  
@@ -42,34 +43,35 @@ const upload=multer({
 })
 
 
-router.post("/", upload.array('upload_Image', 10), async(req,res)=>{
+router.post("/", upload.array('uploaded_Image', 10), async(req,res)=>{
     try{
         console.log(req.files.length)
         console.log("Files",fileInArray)
-        let img;
+        // let img;
 
         let pdff;
 
         for(let i=0;i<fileInArray.length;i++){
             let fileext = fileInArray[i][0].split('.')[1];
             console.log(path.resolve(__dirname, "../uploads"))
-            if(fileext=='jpg' || fileext=='png' || fileext=='jpeg')
-            img = await cloudinary.uploader.upload(`${path.resolve(__dirname, "../uploads")}/${fileInArray[i][0]}`);
+            // if(fileext=='jpg' || fileext=='png' || fileext=='jpeg')
+            // img = await cloudinary.uploader.upload(`${path.resolve(__dirname, "../uploads")}/${fileInArray[i][0]}`);
 
-            else if(fileext=="pdf")
+            if(fileext=="pdf")
             pdff = await cloudinary.uploader.upload(`${path.resolve(__dirname, "../uploads")}/${fileInArray[i][0]}`,{ pages: true });
           
     }
-    let user = new PDF({
+    let pdf = new PDF({
         name:req.body.name,
-        avatar:img.secure_url,
+        type:req.body.type,
+        // avatar:img.secure_url,
         pdf : pdff.secure_url,
-        cloudinary_id_img: img.public_id,
+        // cloudinary_id_img: img.public_id,
         cloudinary_id_pdf:pdff.public_id,
     });
 
-    await user.save();
-    res.json(user);
+    await pdf.save();
+    res.json(pdf);
 }catch(err){
     console.log(err);
 }}
@@ -77,8 +79,8 @@ router.post("/", upload.array('upload_Image', 10), async(req,res)=>{
 
 router.get("/",async(req,res)=>{
     try {
-        let user = await PDF.find();
-        res.json(user);
+        let pdf = await PDF.find();
+        res.json(pdf);
     } catch (err) {
         console.log(err);        
     }
