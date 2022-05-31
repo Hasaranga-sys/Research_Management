@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
 
-const FileUploadH = () => {
-    const [pdfs, setPdf] = useState();
+const PresentationEvaluation = () => {
 
-    useEffect(()=>{
-        const fetchFilers = async () =>{
-            const res = await fetch(`http://localhost:5000/pdf`);
-            const data = await res.json();
-            setPdf(data);
-        };
-        fetchFilers();        
-    },[]);
+  const [pdfs, setPdf] = useState();
 
-
+  useEffect(()=>{
+      const fetchFilers = async () =>{
+          const res = await fetch(`http://localhost:5000/pdf`);
+          const data = await res.json();
+          setPdf(data);
+      };
+      fetchFilers();        
+  },[]);
 
   return (
+    <div className='container'>
+
+      <h1>Presentation Evaluation</h1>
+
       <div>
           <div style={{marginTop: 20,}} className='container'>
             <div className='row'>
@@ -51,26 +53,8 @@ const FileUploadH = () => {
         </div>
       </div>
 
-    
-    // <div className='row'>
-    //     <h1>hello</h1>
-    //     <Link to="/fileAdd">
-    //   <button className='btn btn-primary' variant="contained">add files</button>   
-    //   </Link>
-    //    {pdfs?.map((pdf)=>(
-    //         <div className="col-md-3 card me-3 mt-2 p-0 mb-2 d-flex" key={pdf._id}>
-    //             <img src={pdf.avatar} alt="" width={"100%"} height={200} />
-
-    //             <a href={pdf.pdf} download> Click to download</a>
-    //             <div className='p-2'>
-    //                 <h3>{pdf.name}</h3>
-    //                 <h3>{pdf.type}</h3>
-    //             </div>
-    //         </div>
-    //        ))
-    //        }
-    // </div>
+    </div>
   )
 }
 
-export default FileUploadH
+export default PresentationEvaluation

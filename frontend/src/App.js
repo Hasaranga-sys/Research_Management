@@ -30,6 +30,11 @@ import PanelMemberHome from './Components/PanelMember/PanelMemberHome';
 import SupervisorHome from './Components/Supervisor/SupervisorHome';
 import TopicView from './Components/Supervisor/TopicView';
 import TopicAcceptorReject from './Components/Supervisor/TopicAcceptorReject';
+import UploadDocumentTemplates from "./Components/Admin/UploadDocumentTemplates";
+import GetTemplates from "./Components/Student/GetTemplates";
+import SubmitDocuments from "./Components/Student/SubmitDocuments";
+import GetStudentDocuments from "./Components/Supervisor/GetStudentDocuments";
+import PresentationEvaluation from "./Components/PanelMember/PresentationEvaluation";
 function App() {
   // const  { user,setUser,isAuthenticated,setIsAuthenticated} = useContext(AuthContext);
   // console.log(user);
@@ -56,32 +61,12 @@ function App() {
 
           {/* Student */}
           <Route path="/StudentHome" element={<StudentHome />} exact />
-          <Route
-            path="/StudentHome/TopicRegisterTable"
-            element={<TopicRegisterTable />}
-            exact
-          />
-          <Route
-            path="/StudentHome/TopicRegisterTable/TopicRegisterForm"
-            element={<TopicRegisterForm />}
-            exact
-          />
-          <Route
-            path="/StudentHome/TopicRegisterTable/TopicRegisterForm/:_id"
-            element={<TopicRegisterForm />}
-            exact
-          />
+          <Route path="/StudentHome/TopicRegisterTable" element={<TopicRegisterTable />} exact/>
+          <Route path="/StudentHome/TopicRegisterTable/TopicRegisterForm" element={<TopicRegisterForm />} exact/>
+          <Route path="/StudentHome/TopicRegisterTable/TopicRegisterForm/:_id" element={<TopicRegisterForm />} exact/>
 
-          <Route
-            path="/StudentHome/StudentGroupHome"
-            element={<StudentGroupHome />}
-            exact
-          />
-          <Route
-            path="/StudentHome/StudentGroupHome/StudentGroupsTable"
-            element={<StudentGroupTable />}
-            exact
-          />
+          <Route path="/StudentHome/StudentGroupHome"element={<StudentGroupHome />} exact />
+          <Route path="/StudentHome/StudentGroupHome/StudentGroupsTable" element={<StudentGroupTable />} exact/>
 
         {/* Student */}
         <Route path='/StudentHome' element={<StudentHome/>} exact/>
@@ -92,29 +77,28 @@ function App() {
         <Route path='/StudentHome/StudentGroupHome' element={<StudentGroupHome/>}  exact/>
         <Route path='/StudentHome/StudentGroupHome/StudentGroupsTable' element={<StudentGroupTable/>} exact/>
         <Route path='/StudentHome/StudentGroupHome/AddStudentGroup' element={<AddStudentGroup/>} exact/>
+
         <Route path="/researchTopic" element={<ResearchTopicForm/>} exact/>
+
+        <Route path="/StudentHome/StudentGroupHome/GetTemplates" element={<GetTemplates/>} exact/>
+        <Route path="/StudentHome/StudentGroupHome/SubmitDocuments" element={<SubmitDocuments/>} exact/>
 
           {/* Admin */}
           <Route path="/AdminHome" element={<AdminHome />} exact />
-          <Route
-            path="/AdminHome/ViewStudentGroups"
-            element={<ViewStudentGroups />}
-            exact
-          />
-          <Route
-            path="/AdminHome/ViewStudentGroups/AddPanelMembers/:_id"
-            element={<AddPanelMembers />}
-            exact
-          />
+          <Route path="/AdminHome/ViewStudentGroups" element={<ViewStudentGroups />} exact />
+          <Route path="/AdminHome/ViewStudentGroups/AddPanelMembers/:_id" element={<AddPanelMembers />} exact/>
+          <Route path="/AdminHome/UploadDocumentTemplates" element={<UploadDocumentTemplates/>} exact/>
 
         {/* supervisor */}
         <Route path='/SupervisorHome' element={<SupervisorHome/>} exact/>
         <Route path='/SupervisorHome/TopicView' element={<TopicView/>} exact/>
         <Route path='/SupervisorHome/TopicView/TopicAcceptorReject/:_id' element={<TopicAcceptorReject/>} exact/>
+        <Route path="/SupervisorHome/DocumentEvaluation" element={<GetStudentDocuments/>} exact/>
 
 
         {/* panel member */}
         <Route path='/panelMemberHome' element={<PanelMemberHome/>} exact/>
+        <Route path="/panelMemberHome/PresentationEvaluation" element={<PresentationEvaluation/>} exact/>
 
         <Route path='/fileUploadHome' element={<FileUploadH/>} exact/>
         <Route path='/fileAdd' element={<AddFile/>} exact/>
