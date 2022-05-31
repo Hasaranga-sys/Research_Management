@@ -25,9 +25,12 @@ app.use(express.json());
 //   }
 // );
 
-mongoose.connect("mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority", ()=>{
-    console.log('succeessfully connected to the database');
-});
+mongoose.connect(
+  "mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority",
+  () => {
+    console.log("succeessfully connected to the database");
+  }
+);
 
 //pdf
 app.use(cors());
@@ -41,6 +44,11 @@ app.use('/user',userRouter)
 app.use(cors());
 const todoRouter = require("./routes/TodoRoute");
 app.use("/ading", todoRouter);
+
+//udula-student
+app.use(cors());
+const studentRouter = require("./routes/StudentRoute");
+app.use("/student", studentRouter);
 
 app.use(cors());
 app.use("/researchtopics", router2);
