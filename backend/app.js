@@ -35,10 +35,7 @@ app.use("/user", require("./routes/pdf"));
 
 const userRouter = require('./routes/User');
 app.use('/user',userRouter)
-app.use('/view',userRouter)
 
-// const userVRouter = require('./routes/User');
-// app.use('/view',userVRouter)
 
 //token natuwa crud
 app.use(cors());

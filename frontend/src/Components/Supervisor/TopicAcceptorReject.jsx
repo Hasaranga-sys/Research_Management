@@ -70,8 +70,8 @@ const TopicAcceptorReject = () => {
         <div class="col-sm-9">
           <select className="form-select" aria-label="Default select example">
           <option selected>Open this select menu</option>
-              <option {...setActiveStatus()} value="Accepted">Acc</option>
-              <option {...setActiveStatus()} value="Rejected">Rej</option>
+              <option onChange={(e) =>{setActiveStatus(e.target.value)}} value="Accepted">Acc</option>
+              <option onChange={(e) =>{setActiveStatus(e.target.value)}} value="Rejected">Rej</option>
               
           </select>
         {/* <input              
