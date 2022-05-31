@@ -4,11 +4,15 @@ const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema;
 
 const studentSchema = new Schema({
-  IdNo: {
+  username: {
     type: String,
     required: true,
     min: 4,
     max: 10,
+  },
+  name: {
+    type: String,
+    required: true,
   },
   email: {
     type: String,

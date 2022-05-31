@@ -17,7 +17,7 @@ dotenv.config();
 app.use(cookieParser());
 app.use(express.json());
 
-app.use(cors({ origin:'*'}));
+app.use(cors({ origin: "*" }));
 
 //file upload
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,39 +28,35 @@ app.use("/upload", require("./routes/FileUploadRoutes"));
 
 //udula DB
 
-// mongoose.connect(
-//   "mongodb+srv://udula:udula123@cluster0.ovykurx.mongodb.net/ResearchTool?retryWrites=true&w=majority",
-//   () => {
-//     console.log("succeessfully connected to the database");
-//   }
-// );
+mongoose.connect(
+  "mongodb+srv://udula:udula123@cluster0.ovykurx.mongodb.net/ResearchTool?retryWrites=true&w=majority",
+  () => {
+    console.log("succeessfully connected to the database");
+  }
+);
 
-  //my DB don't delete
+//my DB don't delete
 // mongoose.connect(
 //   "mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority",
 //   () => {
 //     console.log("succeessfully connected to the database");
-   
+
 //   }
 // );
 
-mongoose.connect(
-  "mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority",{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }).then(()=>{console.log("MongoDB connected successfully")
-}).catch((err)=> console.log("DB conncetion failed".err))
- 
-
-
+// mongoose.connect(
+//   "mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority",{
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   }).then(()=>{console.log("MongoDB connected successfully")
+// }).catch((err)=> console.log("DB conncetion failed".err))
 
 //pdf
 // app.use(cors());
 // app.use("/user", require("./routes/pdf"));
 
-const userRouter = require('./routes/User');
-app.use('/user',userRouter)
-
+const userRouter = require("./routes/User");
+app.use("/user", userRouter);
 
 //token natuwa crud
 app.use(cors());
@@ -77,13 +73,11 @@ app.use(cors());
 const staffMemberRouter = require("./routes/staffMemberRoute");
 app.use("/staffMember", staffMemberRouter);
 
-
-
 app.use(cors());
 app.use("/researchtopics", router2);
 app.use("/studentGroup", router3);
 
 app.listen(5000, () => {
   console.log("server started");
-  console.log("App is Running on port 5000")
+  console.log("App is Running on port 5000");
 });

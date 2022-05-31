@@ -25,11 +25,12 @@ const getStudentById = async (req, res, next) => {
 };
 
 const addStudent = async (req, res, next) => {
-  const { IdNo, email, mobileNo, password } = req.body;
+  const { username, name, email, mobileNo, password } = req.body;
   let student;
   try {
     student = new Student({
-      IdNo,
+      username,
+      name,
       email,
       mobileNo,
       password,
@@ -46,11 +47,12 @@ const addStudent = async (req, res, next) => {
 
 const updateStudent = async (req, res, next) => {
   const id = req.params.id;
-  const { IdNo, email, mobileNo, password } = req.body;
+  const { username, name, email, mobileNo, password } = req.body;
   let student;
   try {
     student = await Student.findByIdAndUpdate(id, {
-      IdNo,
+      username,
+      name,
       email,
       mobileNo,
       password,
