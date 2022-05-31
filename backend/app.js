@@ -72,6 +72,13 @@ app.use(cors());
 const studentRouter = require("./routes/StudentRoute");
 app.use("/student", studentRouter);
 
+//lahiru-staffMember
+app.use(cors());
+const staffMemberRouter = require("./routes/staffMemberRoute");
+app.use("/staffMember", staffMemberRouter);
+
+
+
 app.use(cors());
 app.use("/researchtopics", router2);
 app.use("/studentGroup", router3);
