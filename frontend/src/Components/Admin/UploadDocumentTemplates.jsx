@@ -6,7 +6,7 @@ const UploadDocumentTemplates = () => {
 
     const history = useNavigate();
     const [name, setName] = useState("");
-    const [type, setType] = useState("Document template");
+    const [type, setType] = useState("");
     // const [file, setFile] = useState("");
     const [pdf,setPdf] = useState("");
 
@@ -60,21 +60,33 @@ const UploadDocumentTemplates = () => {
                             className="form-control" />
                 </div>
                 <br></br>
-                {/* <div className='form-group'>
-                    <input type="text"placeholder='Type' value={type} required
-                            onChange={e=>{setType(e.target.value)}}
-                            className="form-control" />
-                </div> */}
-                {/* Upload Photo
+
+
+
                 <div className='form-group'>
-                    <input type="file" multiple required filename="uploaded_Image"
-                        className="form-control-file" 
-                        onChange={e => {setFile(e.target.files)}} />
-                </div> */}
+                        <select className="form-select" 
+                        aria-label="Default select example"  
+                        onChange={(e) => setType(e.target.value)}
+                        value={type}  required>
+
+                        <option selected> </option>
+                                <option value="Document Template">Document Template</option>
+                                <option value="Presentation Template">Presentation Template</option>
+                                <option value="Marking Scheme">Marking Scheme</option>
+                            
+                        </select>
+
+
+
+                    {/* <input type="text"placeholder='Type' value={type} required
+                            onChange={e=>{setType(e.target.value)}}
+                            className="form-control" /> */}
+                </div>
+               
                 Upload pdf
                 <div className='form-group'>
                     <input type="file" multiple required filename="uploaded_Image"
-                            className="form-control-file"
+                            className="form-control"
                              onChange={e=>{setPdf(e.target.files)}} />
                 </div>
                 <button className='mt-2'

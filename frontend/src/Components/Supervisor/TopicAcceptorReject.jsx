@@ -68,10 +68,16 @@ const TopicAcceptorReject = () => {
         <div style={{marginTop: 20,}} className="mb-3 row">
         <label className="col-sm-3 col-form-label">Active Status</label>
         <div class="col-sm-9">
-          <select className="form-select" aria-label="Default select example">
-          <option selected>Open this select menu</option>
-              <option onChange={(e) =>{setActiveStatus(e.target.value)}} value="Accepted">Acc</option>
-              <option onChange={(e) =>{setActiveStatus(e.target.value)}} value="Rejected">Rej</option>
+
+          <select className="form-select" 
+                  aria-label="Default select example"  
+                  onChange={(e) => setActiveStatus(e.target.value)}
+                  value={activeStatus}  required>
+
+          <option selected>Accept or Reject</option>
+              <option value="Under Consideration">Under Consideration</option>
+              <option value="Accepted">Accepted</option>
+              <option value="Rejected">Rejected</option>
               
           </select>
         {/* <input              

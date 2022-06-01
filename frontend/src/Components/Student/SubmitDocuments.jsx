@@ -33,7 +33,7 @@ const SubmitDocuments = () => {
               
                 setPdf(null);
 
-                // history("/");
+                history("/StudentHome");
             }
         } catch (error) {
             console.log(error);
@@ -42,7 +42,7 @@ const SubmitDocuments = () => {
 
 
   return (
-    <div className='container'>
+    <div style={{marginTop: 30,width:550}} className='card text-center p-3  mx-auto'>
         <h1>SubmitDocuments</h1>
         <div style={{ maxWidth: 500, margin: "auto" }}>
         <Link to="/fileUploadHome">
@@ -51,8 +51,8 @@ const SubmitDocuments = () => {
         {
             <form onSubmit={upload} encType="multipart/form-data">
                 <div className='form-group'>
-                    <input type="text"placeholder='Name' value={name} required
-                            onChange={e=>{setName(e.target.value)}}
+
+                    <input type="text"placeholder='Group ID' value={name} required onChange={e=>{setName(e.target.value)}}
                             className="form-control" />
                 </div>
                 <br></br>
@@ -65,12 +65,10 @@ const SubmitDocuments = () => {
                 Upload pdf
                 <div className='form-group'>
                     <input type="file" multiple required filename="uploaded_Image"
-                            className="form-control-file"
+                            className="form-control"
                              onChange={e=>{setPdf(e.target.files)}} />
                 </div>
-                <button className='mt-2'
-                        type="submit"
-                        varient="primary" size="lg">Upload</button>
+                <button className='btn btn-primary my-3 ' type="submit" >Upload</button>
             </form>
         }
 

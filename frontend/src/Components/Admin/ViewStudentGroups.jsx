@@ -4,6 +4,7 @@ import StudentGroupService from '../../Services/StudentGroupService';
 
 const ViewStudentGroups = () => {
   const [studentgroup, setStudentGroups] = useState([])
+  const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
   useEffect(()=>{
@@ -30,6 +31,12 @@ const AddPanelMembers = (_id) =>{
                 <div>
                     <h1 className="d-flex justify-content-center">Registerd Groups</h1>
                 </div>
+                <div className="container">
+          <input type="text" placeholder="search.." className="form-control"
+            style={{ marginTop: 20, marginBottom: 20, marginLeft: 360,width: "40%", }}
+            onChange={(e) => {setSearch(e.target.value);}}
+          />
+        </div>
                 <div className="row">
                     <div className="card col-md-11 offset-md-1 offset-md-0">
                         <table className="table table-striped">
@@ -46,7 +53,28 @@ const AddPanelMembers = (_id) =>{
                                 </tr>
                             </thead>
                             <tbody>
-                                {studentgroup.map(
+                                {studentgroup.filter((value) => {
+                                      if (search === "") {
+                                        return value;
+                                      } else if (
+                                        //value.id.toString(includes(search))
+                                        value.panelMember_1.toLowerCase().includes(search.toLowerCase()) ||
+                                        value.panelMember_2.toLowerCase().includes(search.toLowerCase()) ||
+                                        value.groupId.toLowerCase().includes(search.toLowerCase()) ||
+                                        value.leaderName.toLowerCase().includes(search.toLowerCase())  ||
+                                        value.member_2Name.toLowerCase().includes(search.toLowerCase())  ||
+                                        value.member_3Name.toLowerCase().includes(search.toLowerCase()) ||
+
+                                        value.leaderId.toLowerCase().includes(search.toLowerCase()) ||
+                                        value.member_1Id.toLowerCase().includes(search.toLowerCase())||
+                                        value.member_2Id.toLowerCase().includes(search.toLowerCase())||
+                                        value.member_3Id.toLowerCase().includes(search.toLowerCase())
+
+                                      ) {
+                                        return value;
+                                      }
+                                      return 0;
+              }).map(
                                     (student) =>
                                         <tr key={student._id}>
                                             <td>{student.groupId}</td>

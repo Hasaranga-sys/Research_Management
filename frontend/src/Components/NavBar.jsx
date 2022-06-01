@@ -105,7 +105,7 @@ const NavBar = props => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary ">
         <div className="container-fluid">
 {/*     
         <div className="navbar-brand">Research</div> */}

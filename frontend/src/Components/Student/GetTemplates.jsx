@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 const GetTemplates = () => {
 
   const [pdfs, setPdf] = useState();
+  const [search, setSearch] = useState("Template");
 
   useEffect(()=>{
       const fetchFilers = async () =>{
@@ -14,24 +15,34 @@ const GetTemplates = () => {
   },[]);
 
   return (
-    <div className='container'>
-      <h1>Get Templates</h1>
+    <div style={{marginTop: 30,}} className='container'>
+      <h1 className='text-center'>Get Templates</h1>
 
 <div>
-          <div style={{marginTop: 20,}} className='container'>
+          <div style={{marginTop: 30,}} className='container'>
             <div className='row'>
-            <div className='card col-md-10 offset-md-1 offset-md-2'>
+            <div className='shadow card col-md-10 p-1 offset-md-1 offset-md-1'>
 
-                  <table class="table table-striped">
-                      <thead>
+                  <table className="table table-striped">
+                      <thead className='table-primary'>
                         <tr>
-                          <th scope="col">Group Id</th>
+                          <th scope="col">Document Name</th>
                           <th scope="col">Type</th>
                           <th scope="col">Document</th>
                         </tr>
                         </thead>
                         <tbody>
-                          {pdfs?.map((pdf)=>
+                          {pdfs?.filter((value) => {
+                                      if (search === "") {
+                                        return value;
+                                      } else if (
+                                        //value.id.toString(includes(search))
+                                        value.type.toLowerCase().includes(search.toLowerCase())
+                                      ) {
+                                        return value;
+                                      }
+                                      return 0;
+              }).map((pdf)=>
                           <tr key={pdf.id}>
                             <td>{pdf.name}</td>
                             <td>{pdf.type}</td>

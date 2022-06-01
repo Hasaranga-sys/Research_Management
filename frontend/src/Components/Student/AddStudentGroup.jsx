@@ -44,8 +44,9 @@ const AddStudentGroup = () => {
   return (
     <div>
       <div className="container">
+      
         <form onSubmit={onSubmit}>
-          <h2>Add Group</h2>
+          <h2 className="text-center mt-4">Add Group</h2>
           <label className="sr-only">GroupId</label>
                   <input type="text"
                   name="groupId"
