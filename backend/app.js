@@ -16,11 +16,7 @@ dotenv.config();
 app.use(cookieParser());
 app.use(express.json());
 
-<<<<<<< HEAD
-app.use(cors({ origin: "*" }));
-=======
 app.use(cors());
->>>>>>> 51ffbea5f923383ed1c3f91aee8bf431951f1db7
 
 //file upload
 // app.use(bodyParser.urlencoded({ extended: true }));
@@ -47,25 +43,16 @@ mongoose.connect(
 //   }
 // );
 
-<<<<<<< HEAD
+//hasa db
 // mongoose.connect(
 //   "mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority",{
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
+    
+  
 //   }).then(()=>{console.log("MongoDB connected successfully")
 // }).catch((err)=> console.log("DB conncetion failed".err))
-=======
-mongoose.connect(
-  "mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority",{
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
-  
-  }).then(()=>{console.log("MongoDB connected successfully")
-}).catch((err)=> console.log("DB conncetion failed".err))
  
 
 
->>>>>>> 51ffbea5f923383ed1c3f91aee8bf431951f1db7
 
 //pdf
 app.use(cors());
