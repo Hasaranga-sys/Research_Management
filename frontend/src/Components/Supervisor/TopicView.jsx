@@ -18,11 +18,7 @@ const TopicView = () => {
         getResearchTopics();
       }, []);
     
-    //   const addTopic=(e)=>{
-    //     e.preventDefault()
-    //     console.log('clicked add topic');
-    //     history(`/StudentHome/TopicRegisterTable/TopicRegisterForm`)
-    //   }
+   
     
       const UpdateTopic = (_id) => {
         console.log({ _id });
@@ -37,13 +33,6 @@ const TopicView = () => {
         <h2 className="text-center">Research Topics</h2>
         <div className="row ">
           <div className="card w-50 col-4 mx-auto">
-            {/* <Link
-              to="/StudentHome/TopicRegisterTable/TopicRegisterForm"
-              className="btn btn-primary mb-2"
-            >
-              Add Research Topic
-            </Link> */}
-            {/* <button onClick={addTopic}>Add topic</button> */}
 
             <table className="table tav=ble-striped">
               <thead>

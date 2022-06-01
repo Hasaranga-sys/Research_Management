@@ -16,7 +16,7 @@ const PanelMemberHome = () => {
                        <div className="card-block">
                        <img style={{height: 130, width: 130}} className="card-img-top" src="https://www.pinclipart.com/picdir/big/419-4192970_trusted-service-delivery-partner-executive-agreement-clipart-png.png" alt="Card image cap"/>
                        <h4 className="card-title"></h4>
-                       <Link to="/AdminHome/ViewStudentGroups">
+                       <Link to="/panelMemberHome/TopicEvaluation">
                        <button className='btn btn-primary' variant="contained">Evaluate Topics</button>   
                        </Link>             
                        

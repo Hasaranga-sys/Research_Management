@@ -38,6 +38,10 @@ import PresentationEvaluation from "./Components/PanelMember/PresentationEvaluat
 //udula
 import StudentRegister from "./Components/Student/StudentRegister";
 import StaffMemberRegister from "./Components/StaffMemberRegister";
+import GetMarkingSchemeSupervisor from "./Components/Supervisor/GetMarkingSchemeSupervisor";
+import TopicEvaluationPanelMem from "./Components/PanelMember/TopicEvaluationPanelMem";
+import ViewOfMarkingScheme from "./Components/FileUpload/ViewOfMarkingScheme";
+import TopicDocumentSubmission from "./Components/Student/TopicDocumentSubmission";
 function App() {
   // const  { user,setUser,isAuthenticated,setIsAuthenticated} = useContext(AuthContext);
   // console.log(user);
@@ -189,6 +193,16 @@ function App() {
 
           <Route path="/fileUploadHome" element={<FileUploadH />} exact />
           <Route path="/fileAdd" element={<AddFile />} exact />
+
+          {/* hasasranga new */}
+          {/* common */}
+          <Route path="/ViewofMarkingScheme" element={<ViewOfMarkingScheme/>} exact/>
+          {/* supervisor */}
+          <Route path="/SupervisorHome/GetMarkingScheme" element={<GetMarkingSchemeSupervisor/>} exact/>
+          {/* panel member */}
+          <Route path="/panelMemberHome/TopicEvaluation" element={<TopicEvaluationPanelMem/>} exact/>
+          {/* student */}
+          <Route path="/StudentHome/TopicDocumentSubmit" element={<TopicDocumentSubmission/>} exact/>
 
 
            {/* udula */}

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import ViewOfMarkingScheme from '../FileUpload/ViewOfMarkingScheme';
 
 const GetStudentDocuments = () => {
 
     const [pdfs, setPdf] = useState();
+    const [search, setSearch] = useState("Assignment");
+    const [search2,setSearch2] = useState("")
 
     useEffect(()=>{
         const fetchFilers = async () =>{
@@ -15,16 +18,23 @@ const GetStudentDocuments = () => {
 
 
   return (
-    <div className='container'>
-        <h1>Document Evaluation</h1>
+    <div className='row mb-5 mt-5 text-center'>
+      <h1>Document Evaluation</h1>
+    <div style={{width:700}} className='shadow card  mx-5 text-center p-3 mt-5 bg-light'>
+        <h2>Group Submissions</h2>
 
         <div>
-          <div style={{marginTop: 20,}} className='container'>
+          <div className=" container">
+          <input type="text" placeholder="Search By Group ID" className="form-control mx-auto mt-2"
+             style={{width: "40%" }} onChange={(e) => {setSearch2(e.target.value); }} />
+
+        </div>
+          <div className='container p-2 mt-4 mb-4'>
             <div className='row'>
-            <div className='card col-md-10 offset-md-1 offset-md-2'>
+            <div className='shadow card mx-auto w-75'>
 
                   <table class="table table-striped">
-                      <thead>
+                      <thead className='table-primary'>
                         <tr>
                           <th scope="col">Group Id</th>
                           <th scope="col">Type</th>
@@ -32,7 +42,17 @@ const GetStudentDocuments = () => {
                         </tr>
                         </thead>
                         <tbody>
-                          {pdfs?.map((pdf)=>
+                          {pdfs?.filter((value) => {
+                                      if (search === "") {
+                                        return value;
+                                      } else if (
+                                        //value.id.toString(includes(search))
+                                        value.type.toLowerCase().includes(search.toLowerCase()) && value.name.toLowerCase().includes(search2.toLowerCase())
+                                      ) {
+                                        return value;
+                                      }
+                                      return 0;
+              }).map((pdf)=>
                           <tr key={pdf.id}>
                             <td>{pdf.name}</td>
                             <td>{pdf.type}</td>
@@ -53,9 +73,14 @@ const GetStudentDocuments = () => {
         </div>
       </div>
 
+     
 
     
+    
     </div>
+    <ViewOfMarkingScheme/>
+    </div>
+    
   )
 }
 

@@ -12,9 +12,10 @@ const TopicRegisterForm = (props) => {
 
       useEffect(() => {        
             if (_id) {
-                ResearchTopicService.getResearchTopicById(_id).then((Response) => {
-                setGroupId(Response.data.groupId);
-                setResearchTopic(Response.data.researchTopic);
+                ResearchTopicService.getResearchTopicById(_id).then((res) => {
+                  console.log(res.data.researchtopics)
+                setGroupId(res.data.researchtopics.groupId);
+                setResearchTopic(res.data.researchtopics.researchTopic);
               });
             }
       }, []);
@@ -60,32 +61,26 @@ const TopicRegisterForm = (props) => {
 
 
   return (
-    <div className="container">
+    <div className="card shadow w-50 mx-auto mt-5 p-3 text-center">
+      <h1>t</h1>
       <form
         onSubmit={(e) => {
           saveResearchTopic(e);
         }}
       >
-        <label className="col-sm-2 col-form-label">Group ID</label>
-        <input
-          name="groupId"
-          type="text"
-                  
-          onChange={(e) =>{setGroupId(e.target.value)}}
-          required
-        />
+        <div className="row mx-auto">
+        <label className="col-sm-2 col-form-label mx-6 ">Group ID</label>
+        <input name="groupId" type="text" className="form-control w-25" value={groupId}
+                onChange={(e) =>{setGroupId(e.target.value)}} required/>
+                </div>
         <br></br>
-
+        <div style={{width:800}} className="row">
         <label className="col-sm-2 col-form-label">Research Topic</label>
-        <input
-          name="researchTopic"
-          type="text"
-          
-          onChange={(e) =>{setResearchTopic(e.target.value)}}
-          required
-        />
+        <input name="researchTopic" type="text"  className="form-control w-25" value={researchTopic}      
+                onChange={(e) =>{setResearchTopic(e.target.value)}} required />
+                </div>
 
-        <input className="submitButton" type="submit" value="submit" />
+        <input className="btn btn-primary mt-4 mx-auto" type="submit" value="submit" />
       </form>
     </div>
   );

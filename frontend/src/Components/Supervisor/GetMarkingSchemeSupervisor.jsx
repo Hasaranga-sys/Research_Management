@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import ViewOfMarkingScheme from '../FileUpload/ViewOfMarkingScheme';
 
-const PresentationEvaluation = () => {
-  const [pdfs, setPdf] = useState();
-    const [search, setSearch] = useState("Presentation");
+const GetMarkingSchemeSupervisor = () => {
+
+    const [pdfs, setPdf] = useState();
+    const [search, setSearch] = useState("Marking Scheme");
     const [search2,setSearch2] = useState("")
 
     useEffect(()=>{
@@ -15,12 +15,9 @@ const PresentationEvaluation = () => {
         fetchFilers();        
     },[]);
 
- 
   return (
-    <div className='row text-center mt-3'>
-      <h2>Evaluate Presentations</h2>
-    <div style={{width:700}} className='shadow card mx-5 text-center p-3 mt-5 bg-light'>
-    <h2>Student Presentations</h2>
+    <div className='shadow card w-75 mx-auto text-center p-3 mt-5 bg-light'>
+    <h1>Marking Schemes</h1>
 
     <div>
       <div className="container">
@@ -32,7 +29,7 @@ const PresentationEvaluation = () => {
         <div className='row'>
         <div className='shadow card mx-auto w-75'>
 
-              <table class="table table-striped mt-1">
+              <table class="table table-striped">
                   <thead className='table-primary'>
                     <tr>
                       <th scope="col">Group Id</th>
@@ -74,10 +71,8 @@ const PresentationEvaluation = () => {
 
 
 
-</div>  
-<ViewOfMarkingScheme/>
-</div> 
+</div>
   )
 }
 
-export default PresentationEvaluation
+export default GetMarkingSchemeSupervisor

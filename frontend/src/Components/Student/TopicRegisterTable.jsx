@@ -5,6 +5,7 @@ import ResearchTopicService from "../../Services/ResearchTopicService";
 const TopicRegisterTable = () => {
   const [researchtopics, setResearchtopics] = useState([]);
   const history = useNavigate();
+  const [search, setSearch] = useState('');
 
   const getResearchTopics = () => {
     ResearchTopicService.getAllResearchTopics().then((data) => {
@@ -29,21 +30,21 @@ const TopicRegisterTable = () => {
   };
 
   return (
-    <div className="bg-light">
-      <div className="container">
-        <h2>Register Research Topics</h2>
-        <div className="row">
-          <div className="card col-md-10 offset-md-1 offset-md-2">
-            {/* <Link
-              to="/StudentHome/TopicRegisterTable/TopicRegisterForm"
-              className="btn btn-primary mb-2"
-            >
-              Add Research Topic
-            </Link> */}
-            <button onClick={addTopic}>Add topic</button>
+   
+      <div className="shadow card w-75 mx-auto mt-5 mb-5">
+        <h2 className="text-center mt-4">Register Research Topics</h2>
 
-            <table className="table tav=ble-striped">
-              <thead>
+        <input type="text" placeholder="search by Document name" 
+        className="shadow form-control mt-3 w-25 mx-auto"
+                        
+                        onChange={(e) => {setSearch(e.target.value); }} />
+        <div className="row">
+          <div className="shadow card w-75 mx-auto mt-5 mb-5">
+    
+            <button className="btn btn-primary w-25 mx-3 mt-2 mb-2" onClick={addTopic}>Add topic</button>
+
+            <table className="table table-striped">
+              <thead className="table-primary">
                 <tr>
                   <th scope="col">Group ID</th>
                   <th scope="col">Topic</th>
@@ -52,13 +53,26 @@ const TopicRegisterTable = () => {
                 </tr>
               </thead>
               <tbody>
-                {researchtopics.map((researchtopic) => (
+                {researchtopics.filter((value) => {
+                                                        if (search === "") {
+                                                            return value;
+                                                        } else if (
+                                                            //value.id.toString(includes(search))
+                                                            value.groupId.toLowerCase().includes(search.toLowerCase()) ||
+                                                            value.activeStatus.toLowerCase().includes(search.toLowerCase())
+                                                       
+                                                        ) {
+                                                            return value;
+                                                        }
+                                                        return 0;
+                             })
+                .map((researchtopic) => (
                   <tr key={researchtopic._id}>
                     <td>{researchtopic.groupId}</td>
                     <td>{researchtopic.researchTopic}</td>
                     <td>{researchtopic.activeStatus}</td>
                     <td>
-                      <button onClick={() => UpdateTopic(researchtopic._id)}>
+                      <button className="btn btn-warning" onClick={() => UpdateTopic(researchtopic._id)}>
                         Update
                       </button>
                     </td>
@@ -69,12 +83,8 @@ const TopicRegisterTable = () => {
           </div>
         </div>
       </div>
-    </div>
-    // <div>
-    //     <Link to="/StudentHome/TopicRegisterTable/TopicRegisterForm">
-    //         <button>add research topic</button>
-    //     </Link>
-    // </div>
+   
+  
   );
 };
 

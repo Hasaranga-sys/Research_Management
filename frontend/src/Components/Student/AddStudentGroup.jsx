@@ -43,7 +43,7 @@ const AddStudentGroup = () => {
 
   return (
     <div>
-      <div className="container">
+      <div className="shadow card mx-auto w-50 p-4 mt-5 mb-5 bg-light">
       
         <form onSubmit={onSubmit}>
           <h2 className="text-center mt-4">Add Group</h2>
@@ -241,7 +241,7 @@ const AddStudentGroup = () => {
                                                           className='form-control'
                                                           placeholder="Enter group" /> */}
 
-                                                          <br></br>  
+                                                           
 {/* 
                                                                 <label className="sr-only">topic</label>
                                                                 <input type="text"
@@ -251,7 +251,7 @@ const AddStudentGroup = () => {
                                                                 className='form-control'
                                                                 placeholder="Enter group" /> */}
 
-                                                                <br></br>
+                                                                
 
                                     <button className=" btn btn-lg btn-primary btn-block" type="sybmit">Register</button>
         </form>

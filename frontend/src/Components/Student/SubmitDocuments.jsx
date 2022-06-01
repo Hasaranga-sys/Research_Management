@@ -42,7 +42,7 @@ const SubmitDocuments = () => {
 
 
   return (
-    <div style={{marginTop: 30,width:550}} className='card text-center p-3  mx-auto'>
+    <div style={{marginTop: 30,width:550}} className='shadow bg-light card text-center p-3  mx-auto'>
         <h1>SubmitDocuments</h1>
         <div style={{ maxWidth: 500, margin: "auto" }}>
         <Link to="/fileUploadHome">
@@ -56,10 +56,22 @@ const SubmitDocuments = () => {
                             className="form-control" />
                 </div>
                 <br></br>
+                
                 <div className='form-group'>
-                    <input type="text"placeholder='Type' value={type} required
-                            onChange={e=>{setType(e.target.value)}}
-                            className="form-control" />
+                        <select className="form-select" 
+                        aria-label="Default select example"  
+                        onChange={(e) => setType(e.target.value)}
+                        value={type}  required>
+
+                        <option selected> </option>
+                                <option value="Topic Details Document">Topic Details Document</option>
+                                <option value="Assignment 1">Assignment 1</option>
+                                <option value="Assignment 2">Assignment 2</option>
+                                <option value="Presentation 1">Presentation 1</option>
+                                <option value="Presentation 2">Presentation 2</option>
+                            
+                        </select>
+
                 </div>
              
                 Upload pdf

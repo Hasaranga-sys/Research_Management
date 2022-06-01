@@ -104,7 +104,19 @@ const NavBar = (props) => {
               Student Home
             </a>
           </li>
-        ) : null}
+        ) : user.role == "supervisor" || user.role == "co-supervisor" ?(
+          <li className="nav-item nav-link">
+            <a className="nav-link" href="/SupervisorHome">
+              Supervisor Home
+            </a>
+          </li>
+        ) : user.role == "panel-member" ?(
+          <li className="nav-item nav-link">
+            <a className="nav-link" href="/panelMemberHome">
+              Panel Member Home
+            </a>
+          </li>
+        ) :null }
 
         <button
           type="button"

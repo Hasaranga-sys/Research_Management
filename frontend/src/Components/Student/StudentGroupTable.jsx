@@ -5,6 +5,7 @@ import StudentGroupService from "../../Services/StudentGroupService";
 const StudentGroupTable = () => {
         const [studentgroup, setStudentGroups] = useState([])
         const navigate = useNavigate();
+        const [search, setSearch] = useState("");
 
         useEffect(()=>{
             getAlStudentGroups();            
@@ -24,16 +25,20 @@ const StudentGroupTable = () => {
 
   return (
     <div>
-        <div className="container">
+        <div className="shadow card bg-light w-75 mx-auto mt-5 mb-5">
             <br></br>
             <div className="card-body">
                 <div>
                     <h1 className="d-flex justify-content-center">Registerd Groups</h1>
                 </div>
+                <input type="text" placeholder="search by Document name" className="form-control mt-3 mb-3"
+                        style={{marginLeft: 320, width: "40%",}}
+                        onChange={(e) => {setSearch(e.target.value); }} />
+
                 <div className="row">
-                    <div className="card col-md-8 offset-md-1 offset-md-2">
+                    <div className="card col-md-5 mt-3 mb-4  w-75 mx-auto">
                         <table className="table table-striped">
-                            <thead>
+                            <thead className='table-primary'>
                                 <tr>
                                     <th scope="col">groupId</th>
                                     <th scope="col">Members</th>
@@ -43,7 +48,27 @@ const StudentGroupTable = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {studentgroup.map(
+                                {studentgroup?.filter((value) => {
+                                                        if (search === "") {
+                                                            return value;
+                                                        } else if (
+                                                            //value.id.toString(includes(search))
+                                                            value.panelMember_1.toLowerCase().includes(search.toLowerCase()) ||
+                                                            value.panelMember_2.toLowerCase().includes(search.toLowerCase()) ||
+                                                            value.groupId.toLowerCase().includes(search.toLowerCase()) ||
+                                                            value.leaderName.toLowerCase().includes(search.toLowerCase())  ||
+                                                            value.member_2Name.toLowerCase().includes(search.toLowerCase())  ||
+                                                            value.member_3Name.toLowerCase().includes(search.toLowerCase()) ||
+                    
+                                                            value.leaderId.toLowerCase().includes(search.toLowerCase()) ||
+                                                            value.member_1Id.toLowerCase().includes(search.toLowerCase())||
+                                                            value.member_2Id.toLowerCase().includes(search.toLowerCase())||
+                                                            value.member_3Id.toLowerCase().includes(search.toLowerCase())
+                                                        ) {
+                                                            return value;
+                                                        }
+                                                        return 0;
+                             }).map(
                                     (student) =>
                                         <tr key={student._id}>
                                             <td>{student.groupId}</td>
