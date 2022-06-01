@@ -5,17 +5,19 @@ import ResearchTopicService from "../../Services/ResearchTopicService";
 const TopicAcceptorReject = () => {
 
     // const [researchTopic, setResearchTopic] = useState([]);
-    //   const [groupId, setGroupId] = useState("");
+      const [groupId, setGroupId] = useState("");
       const [activeStatus, setActiveStatus] = useState("");
       const history = useNavigate();
       const { _id } = useParams();
 
       useEffect(() => {        
         if (_id) {
-            ResearchTopicService.getResearchTopicById(_id).then((Response) => {
-            // setGroupId(Response.data.groupId);
+            ResearchTopicService.getResearchTopicById(_id).then((res) => {
+              console.log(res.data);
+              console.log(res.data.researchtopics.groupId);
+            setGroupId(res.data.researchtopics.groupId);
             // setResearchTopic(Response.data.researchTopic);
-            setActiveStatus(Response.data.activeStatus);
+            // setActiveStatus(Response.data.activeStatus);
           });
         }
   }, []);
@@ -24,7 +26,7 @@ const TopicAcceptorReject = () => {
     e.preventDefault();
     const ResearchTopic ={ 
         //   researchTopic, 
-        //   groupId, 
+          groupId, 
           activeStatus };
 
     console.log(ResearchTopic);
@@ -54,19 +56,21 @@ const TopicAcceptorReject = () => {
   return (
     <div>
         <div className="card mx-auto" style={{width:600}}>
-      <form onSubmit={(e) => {saveResearchTopic(e); }}>
 
-        <div style={{marginTop: 20,}}  className="mb-3 row">
-        <label className="col-sm-2 col-form-label">Group ID</label>
-        <div class="col-sm-9">
-        <input className="form-control "  name="groupId" type="text" readOnly  />
-        </div>
-        
-        </div>
+            <form onSubmit={(e) => {saveResearchTopic(e); }}>
 
+              <div style={{marginTop: 20,}}  className="mb-3 row">
+
+                <label className="col-sm-2 col-form-label">Group ID</label>
+                  <div class="col-sm-9">
+                   <input className="form-control "  name="groupId" value={groupId} type="text" />
+                  </div>
+             </div>
     
         <div style={{marginTop: 20,}} className="mb-3 row">
-        <label className="col-sm-3 col-form-label">Active Status</label>
+              <label className="col-sm-3 col-form-label">Active Status</label>
+
+
         <div class="col-sm-9">
 
           <select className="form-select" 

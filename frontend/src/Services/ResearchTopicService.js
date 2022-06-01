@@ -14,7 +14,7 @@ class ResearchTopicService{
     }
     async getResearchTopicById(_id){
         const res = await axios.get(URL + '/' + _id);
-        return res.data;
+        return res;
     }
     updateResearchTopic(researchtpoicId, researchtopic){
         return axios.put(URL + '/' + researchtpoicId, researchtopic);
