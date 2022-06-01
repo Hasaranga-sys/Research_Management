@@ -45,7 +45,7 @@ const NavBar = (props) => {
         <a
           className="nav-link active"
           aria-current="page"
-          href="/register-student"
+          href="/student/register-student"
         >
           Student-Register
         </a>
