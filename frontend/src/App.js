@@ -189,9 +189,9 @@ function App() {
 
           <Route path="/fileUploadHome" element={<FileUploadH />} exact />
           <Route path="/fileAdd" element={<AddFile />} exact />
-        </Routes>
 
-        {/* udula */}
+
+           {/* udula */}
         <Route
           path="/student/register-student"
           element={<StudentRegister />}
@@ -202,6 +202,9 @@ function App() {
           element={<StaffMemberRegister />}
           exact
         />
+
+        </Routes>
+
       </main>
     </React.Fragment>
   );
