@@ -27,29 +27,29 @@ app.use(cors());
 
 //udula DB
 
-// mongoose.connect(
-//   "mongodb+srv://udula:udula123@cluster0.ovykurx.mongodb.net/ResearchTool?retryWrites=true&w=majority",
-//   () => {
-//     console.log("succeessfully connected to the database");
-//   }
-// );
+mongoose.connect(
+  "mongodb+srv://udula:udula123@cluster0.ovykurx.mongodb.net/ResearchTool?retryWrites=true&w=majority",
+  () => {
+    console.log("succeessfully connected to the database");
+  }
+);
 
-  //my DB don't delete
+//my DB don't delete
 // mongoose.connect(
 //   "mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority",
 //   () => {
 //     console.log("succeessfully connected to the database");
-   
+
 //   }
 // );
 
-mongoose.connect(
-  "mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority",{
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
+//hasa db
+// mongoose.connect(
+//   "mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority",{
+    
   
-  }).then(()=>{console.log("MongoDB connected successfully")
-}).catch((err)=> console.log("DB conncetion failed".err))
+//   }).then(()=>{console.log("MongoDB connected successfully")
+// }).catch((err)=> console.log("DB conncetion failed".err))
  
 
 
@@ -58,9 +58,8 @@ mongoose.connect(
 app.use(cors());
 app.use("/pdf", require("./routes/pdf"));
 
-const userRouter = require('./routes/User');
-app.use('/user',userRouter)
-
+const userRouter = require("./routes/User");
+app.use("/user", userRouter);
 
 //token natuwa crud
 app.use(cors());
@@ -77,13 +76,11 @@ app.use(cors());
 const staffMemberRouter = require("./routes/staffMemberRoute");
 app.use("/staffMember", staffMemberRouter);
 
-
-
 app.use(cors());
 app.use("/researchtopics", router2);
 app.use("/studentGroup", router3);
 
 app.listen(5000, () => {
   console.log("server started");
-  console.log("App is Running on port 5000")
+  console.log("App is Running on port 5000");
 });

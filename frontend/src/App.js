@@ -9,7 +9,6 @@ import {AuthContext} from './Context/AuthContext';
 import NavBar from './Components/NavBar';
 import { Home } from './Components/Home';
 import Login from './Components/Login';
-import Register from './Components/Register';
 import Todos from './Components/Todos';
 import Admin from './Components/Admin';
 import AuthProvider from './Context/AuthContext';
@@ -55,7 +54,12 @@ function App() {
 
           <Route path="/" element={<Home />} exact />
           <Route path="/login" element={<Login />} exact />
-          <Route path="/register" element={<Register />} exact />
+          {/* <Route path="/register-student" element={<StudentRegister />} exact /> */}
+          <Route
+            path="/register-staff-member"
+            // element={<StaffMemberRegister />}
+            exact
+          />
           <Route path="/todos" element={<Todos />} exact />
           <Route path="/admin" element={<Admin />} exact />
 
@@ -100,13 +104,11 @@ function App() {
         <Route path='/panelMemberHome' element={<PanelMemberHome/>} exact/>
         <Route path="/panelMemberHome/PresentationEvaluation" element={<PresentationEvaluation/>} exact/>
 
-        <Route path='/fileUploadHome' element={<FileUploadH/>} exact/>
-        <Route path='/fileAdd' element={<AddFile/>} exact/>
-    </Routes>
-    </main>   
-    </React.Fragment>   
-    
-   
+          <Route path="/fileUploadHome" element={<FileUploadH />} exact />
+          <Route path="/fileAdd" element={<AddFile />} exact />
+        </Routes>
+      </main>
+    </React.Fragment>
   );
 }
 
