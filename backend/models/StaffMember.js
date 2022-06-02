@@ -34,6 +34,12 @@ const staffMemberSchema = new Schema({
     type: String,
     required: true,
   },
+  grpid: {
+    type: String,
+  },
+  topic: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("StaffMember", staffMemberSchema);

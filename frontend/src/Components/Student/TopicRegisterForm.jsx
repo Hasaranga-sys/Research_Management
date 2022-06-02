@@ -3,61 +3,61 @@ import { useNavigate, useParams } from "react-router-dom";
 import ResearchTopicService from "../../Services/ResearchTopicService";
 
 const TopicRegisterForm = (props) => {
+  const [researchTopic, setResearchTopic] = useState("");
+  const [groupId, setGroupId] = useState("");
+  const [field, setField] = useState("");
+  const [activeStatus, setActiveStatus] = useState("pending");
+  const history = useNavigate();
+  const { _id } = useParams();
 
-      const [researchTopic, setResearchTopic] = useState([]);
-      const [groupId, setGroupId] = useState("");
-      const [activeStatus, setActiveStatus] = useState("pending");
-      const history = useNavigate();
-      const { _id } = useParams();
+  useEffect(() => {
+    if (_id) {
+      ResearchTopicService.getResearchTopicById(_id).then((res) => {
+        console.log(res.data);
+        setGroupId(res.data.researchtopics.groupId);
+        setResearchTopic(res.data.researchtopics.researchTopic);
+        setField(res.data.researchtopics.field);
+      });
+    }
+  }, []);
 
-      useEffect(() => {        
-            if (_id) {
-                ResearchTopicService.getResearchTopicById(_id).then((Response) => {
-                setGroupId(Response.data.groupId);
-                setResearchTopic(Response.data.researchTopic);
-              });
-            }
-      }, []);
+  console.log(groupId);
+  console.log(researchTopic);
+  console.log(field);
 
-        console.log(groupId);
-        console.log(researchTopic);
+  const saveResearchTopic = (e) => {
+    e.preventDefault();
+    const ResearchTopic = {
+      researchTopic,
+      groupId,
+      field,
+      activeStatus,
+    };
 
+    console.log(ResearchTopic);
 
-
-
-      const saveResearchTopic = (e) => {
-        e.preventDefault();
-        const ResearchTopic ={ 
-              researchTopic, 
-              groupId, 
-              activeStatus };
-
-        console.log(ResearchTopic);
-
-          if (_id) {
-            ResearchTopicService.updateResearchTopic(_id, ResearchTopic)
-              .then((res) => {
-                {
-                  console.log(res);
-                  history("/StudentHome/TopicRegisterTable");
-                }
-              })
-              .catch((error) => {
-                console.log(error);
-              });
-          } else {
-              ResearchTopicService.createResearchTopic(ResearchTopic).then((response) => {
-                  history("/StudentHome/TopicRegisterTable");
-                  console.log(response.data);
-                })
-              .catch((error) => {
-                console.log(error);
-              });
+    if (_id) {
+      ResearchTopicService.updateResearchTopic(_id, ResearchTopic)
+        .then((res) => {
+          {
+            console.log(res);
+            history("/StudentHome/TopicRegisterTable");
           }
-        };
-
-      
-
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      ResearchTopicService.createResearchTopic(ResearchTopic)
+        .then((response) => {
+          history("/StudentHome/TopicRegisterTable");
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
 
   return (
     <div className="container">
@@ -70,8 +70,9 @@ const TopicRegisterForm = (props) => {
         <input
           name="groupId"
           type="text"
-                  
-          onChange={(e) =>{setGroupId(e.target.value)}}
+          onChange={(e) => {
+            setGroupId(e.target.value);
+          }}
           required
         />
         <br></br>
@@ -80,8 +81,19 @@ const TopicRegisterForm = (props) => {
         <input
           name="researchTopic"
           type="text"
-          
-          onChange={(e) =>{setResearchTopic(e.target.value)}}
+          onChange={(e) => {
+            setResearchTopic(e.target.value);
+          }}
+          required
+        />
+
+        <label className="col-sm-2 col-form-label">Field</label>
+        <input
+          name="researchTopic"
+          type="text"
+          onChange={(e) => {
+            setField(e.target.value);
+          }}
           required
         />
 

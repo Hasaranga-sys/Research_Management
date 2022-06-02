@@ -25,8 +25,17 @@ const getStaffMemberById = async (req, res, next) => {
 };
 
 const addStaffMember = async (req, res, next) => {
-  const { username, name, role, component, email, mobileNo, password } =
-    req.body;
+  const {
+    username,
+    name,
+    role,
+    component,
+    email,
+    mobileNo,
+    password,
+    grpid,
+    topic,
+  } = req.body;
   let staffMember;
   try {
     staffMember = new StaffMember({
@@ -37,6 +46,8 @@ const addStaffMember = async (req, res, next) => {
       email,
       mobileNo,
       password,
+      grpid,
+      topic,
     });
     await staffMember.save();
   } catch (err) {
@@ -50,8 +61,17 @@ const addStaffMember = async (req, res, next) => {
 
 const updateStaffMember = async (req, res, next) => {
   const id = req.params.id;
-  const { username, name, role, component, email, mobileNo, password } =
-    req.body;
+  const {
+    username,
+    name,
+    role,
+    component,
+    email,
+    mobileNo,
+    password,
+    grpid,
+    topic,
+  } = req.body;
   let staffMember;
   try {
     staffMember = await StaffMember.findByIdAndUpdate(id, {
@@ -62,6 +82,8 @@ const updateStaffMember = async (req, res, next) => {
       email,
       mobileNo,
       password,
+      grpid,
+      topic,
     });
     staffMember = await staffMember.save();
   } catch (err) {

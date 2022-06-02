@@ -17,15 +17,20 @@ const TopicRegisterTable = () => {
     getResearchTopics();
   }, []);
 
-  const addTopic=(e)=>{
-    e.preventDefault()
-    console.log('clicked add topic');
-    history(`/StudentHome/TopicRegisterTable/TopicRegisterForm`)
-  }
+  const addTopic = (e) => {
+    e.preventDefault();
+    console.log("clicked add topic");
+    history(`/StudentHome/TopicRegisterTable/TopicRegisterForm`);
+  };
 
   const UpdateTopic = (_id) => {
     console.log({ _id });
     history(`/StudentHome/TopicRegisterTable/TopicRegisterForm/${_id}`);
+  };
+
+  const reqSuper = (_id) => {
+    console.log({ _id });
+    history(`/req-supervisor/${_id}`);
   };
 
   return (
@@ -47,7 +52,9 @@ const TopicRegisterTable = () => {
                 <tr>
                   <th scope="col">Group ID</th>
                   <th scope="col">Topic</th>
+                  <th scope="col">Field</th>
                   <th scope="col">Status</th>
+
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -56,10 +63,14 @@ const TopicRegisterTable = () => {
                   <tr key={researchtopic._id}>
                     <td>{researchtopic.groupId}</td>
                     <td>{researchtopic.researchTopic}</td>
+                    <td>{researchtopic.field}</td>
                     <td>{researchtopic.activeStatus}</td>
                     <td>
                       <button onClick={() => UpdateTopic(researchtopic._id)}>
                         Update
+                      </button>
+                      <button onClick={() => reqSuper(researchtopic._id)}>
+                        req super
                       </button>
                     </td>
                   </tr>

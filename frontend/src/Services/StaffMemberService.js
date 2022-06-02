@@ -7,9 +7,12 @@ class StaffMemberService {
     return axios.post(`${API_URL}/staffMember/`, member);
   }
 
-  // getLogin(email, password) {
-  //   return axios.get(`${API_URL}/login/${email}/${password}`);
-  // }
+  getAllStaffMembers() {
+    return axios.get(`${API_URL}/staffMember/`);
+  }
+  updateMember(id, staffMember) {
+    return axios.put(`${API_URL}/staffMember/${id}`, staffMember);
+  }
 
   //   login(user) {
   //     return axios.post(`${API_URL}/user/Login`, user);

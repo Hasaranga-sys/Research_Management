@@ -38,6 +38,7 @@ import PresentationEvaluation from "./Components/PanelMember/PresentationEvaluat
 //udula
 import StudentRegister from "./Components/Student/StudentRegister";
 import StaffMemberRegister from "./Components/StaffMemberRegister";
+import ReqSupervisor from "./Components/Student/ReqSupervisor";
 function App() {
   // const  { user,setUser,isAuthenticated,setIsAuthenticated} = useContext(AuthContext);
   // console.log(user);
@@ -190,21 +191,23 @@ function App() {
           <Route path="/fileUploadHome" element={<FileUploadH />} exact />
           <Route path="/fileAdd" element={<AddFile />} exact />
 
-
-           {/* udula */}
-        <Route
-          path="/student/register-student"
-          element={<StudentRegister />}
-          exact
-        />
-        <Route
-          path="/register-staff-member"
-          element={<StaffMemberRegister />}
-          exact
-        />
-
+          {/* udula */}
+          <Route
+            path="/student/register-student"
+            element={<StudentRegister />}
+            exact
+          />
+          <Route
+            path="/register-staff-member"
+            element={<StaffMemberRegister />}
+            exact
+          />
+          <Route
+            path="/req-supervisor/:grpid"
+            element={<ReqSupervisor />}
+            exact
+          />
         </Routes>
-
       </main>
     </React.Fragment>
   );
