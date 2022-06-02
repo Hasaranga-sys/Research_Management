@@ -32,7 +32,7 @@ const TopicView = () => {
      
     <div className="row hidden-md-up">
       
-      <div className="shadow-lg card w-75 p-3 mx-auto mt-5 bg-light "  >
+      <div className="shadow-lg card w-100 p-3 mx-auto mt-5 bg-light "  >
         <h2 className="text-center mt-2 mb-4">Research Topics</h2>
 
               <div className="container">
@@ -51,6 +51,8 @@ const TopicView = () => {
                   <th scope="col">Topic Status</th>
                   <th scope="col">Supervisor</th>
                   <th scope="col">Supervisor Status</th>
+                  <th scope="col">Co-Supervisor</th>
+                  <th scope="col">Co-Supervisor Status</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -76,6 +78,8 @@ const TopicView = () => {
                     <td>{researchtopic.activeStatus}</td>
                     <td>{researchtopic.supervisor}</td>
                     <td>{researchtopic.superStataus}</td>
+                    <td>{researchtopic.coSupervisor}</td>
+                    <td>{researchtopic.coSuperStataus}</td>
                     
                     <td>
                       <button className="btn btn-danger" onClick={() => UpdateTopic(researchtopic._id)}>

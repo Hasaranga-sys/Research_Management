@@ -71,6 +71,7 @@ const TopicRegisterTable = () => {
                 <th scope="col">super-Status</th>
                 <th scope="col">co-supervisor</th>
                 <th scope="col">co-super-Status</th>
+                <th scope="col">Panel Members</th>
 
                 <th scope="col">Action</th>
               </tr>
@@ -103,6 +104,9 @@ const TopicRegisterTable = () => {
                     <td>{researchtopic.superStataus}</td>
                     <td>{researchtopic.coSupervisor}</td>
                     <td>{researchtopic.coSuperStataus}</td>
+                    <td>{researchtopic.panelMember_1}<br></br>
+                        {researchtopic.panelMember_2}
+                    </td>
                     <td>
                       <button
                         className="btn btn-warning"

@@ -34,7 +34,9 @@ const Login = (props) => {
                         history('/panelMemberHome')}
                     else if(user.role === "supervisor"){
                         history('/SupervisorHome')
-                    }
+                    }else if(user.role === "co-supervisor"){
+                      history('/SupervisorHome')
+                  }
             }else{
                 setMessage(message);
                 function myFunction(){

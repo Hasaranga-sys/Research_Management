@@ -11,6 +11,8 @@ const addResearchTopic = async (req, res, next) => {
     superStataus,
     coSupervisor,
     coSuperStataus,
+    panelMember_1 ,
+    panelMember_2,
   } = req.body;
   let researchtopics;
   try {
@@ -23,6 +25,8 @@ const addResearchTopic = async (req, res, next) => {
       superStataus,
       coSupervisor,
       coSuperStataus,
+      panelMember_1 ,
+    panelMember_2,
     });
     await researchtopics.save();
   } catch (err) {
@@ -72,6 +76,8 @@ const updateResearchTopic = async (req, res, nect) => {
     superStataus,
     coSupervisor,
     coSuperStataus,
+    panelMember_1 ,
+    panelMember_2,
   } = req.body;
   let researchtopics;
   try {
@@ -84,6 +90,8 @@ const updateResearchTopic = async (req, res, nect) => {
       superStataus,
       coSupervisor,
       coSuperStataus,
+      panelMember_1 ,
+    panelMember_2,
     });
     researchtopics = await researchtopics.save();
   } catch (err) {

@@ -104,6 +104,7 @@ function StaffMemberRegister() {
                   <option value="supervisor">supervisor</option>
                   <option value="co-supervisor">co-supervisor</option>
                   <option value="panel-member">panel-member</option>
+                  <option value="admin">Admin</option>
                 </select>
               </div>
             </div>

@@ -9,6 +9,9 @@ const TopicAcceptorReject = () => {
       const [activeStatus, setActiveStatus] = useState("");
       const [supervisor, setSupervisor] = useState("");
       const [superStataus, setsuperStataus] = useState("");
+      const [coSupervisor, setCoSupervisor] = useState("");
+      const [coSuperStataus, setCosuperStataus] = useState("");
+      
       const history = useNavigate();
       const { _id } = useParams();
 
@@ -20,6 +23,9 @@ const TopicAcceptorReject = () => {
             setGroupId(res.data.researchtopics.groupId);
             setSupervisor(res.data.researchtopics.supervisor);
             setsuperStataus(res.data.researchtopics.superStataus);
+            setCoSupervisor(res.data.researchtopics.coSupervisor);
+            setCosuperStataus(res.data.researchtopics.coSuperStataus);
+            
 
             // setResearchTopic(Response.data.researchTopic);
             // setActiveStatus(Response.data.activeStatus);
@@ -34,7 +40,9 @@ const TopicAcceptorReject = () => {
           groupId, 
           activeStatus,
           supervisor,
-          superStataus };
+          superStataus,
+          coSupervisor,
+          coSuperStataus };
 
     console.log(ResearchTopic);
 
@@ -106,7 +114,31 @@ const TopicAcceptorReject = () => {
                                 <option value="Accepted">Accepted</option>
                                 <option value="Rejected">Rejected</option>   
                             </select>
-                </div>
+                     </div>  
+
+
+                     <div style={{marginTop: 20,}}  className="mb-2 row">
+                      <label className="col-sm-3 col-form-label">Co-Supervisor Name</label>
+                        <div class="col-sm-9">
+                          <input className="form-control w-50"  name="coSupervisor" value={coSupervisor} type="text" readOnly />
+                        </div>
+                      </div>
+
+                      
+                      <label className=" col-sm-3 col-form-label">Co-Supervisor Status</label>
+                      <div className="col-sm-9">
+                            <select className="form-select w-50" 
+                                    style={{marginLeft:-65}}
+                                    aria-label="Default select example"  
+                                    onChange={(e) => setCosuperStataus(e.target.value)}
+                                    value={coSuperStataus}  required>
+
+                            <option selected>Accept or Reject</option>
+                                <option value="Under Consideration">Under Consideration</option>
+                                <option value="Accepted">Accepted</option>
+                                <option value="Rejected">Rejected</option>   
+                            </select>
+                     </div>                 
       
               </div>
                         <input className="btn btn-primary" type="submit" value="submit" />

@@ -79,16 +79,6 @@ const StudentGroupSchema = new Schema({
                             required:true
                         },
 
-                            panelMember_1 :{
-                                type:String
-                            },
-                            panelMember_2 :{
-                                type:String
-                            },
-                                topic:{
-                                    type:String
-                                },
-
 })
 
 module.exports = mongoose.model("StudentGroup",StudentGroupSchema);

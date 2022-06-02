@@ -30,6 +30,12 @@ const researchTopicSchema = new Schema({
   coSuperStataus: {
     type: String,
   },
+  panelMember_1 :{
+    type:String
+},
+panelMember_2 :{
+    type:String
+},
 });
 
 module.exports = mongoose.model("ResearchTopic", researchTopicSchema);

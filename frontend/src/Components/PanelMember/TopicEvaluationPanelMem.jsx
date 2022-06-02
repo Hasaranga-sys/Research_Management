@@ -40,6 +40,7 @@ const TopicEvaluationPanelMem = () => {
                       <th scope="col">Group Id</th>
                       <th scope="col">Type</th>
                       <th scope="col">Document</th>
+                      <th scope="col">FeedBack</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -58,6 +59,7 @@ const TopicEvaluationPanelMem = () => {
                         <td>{pdf.name}</td>
                         <td>{pdf.type}</td>
                         <td>{ <a href={pdf.pdf} download>{pdf.name}</a>}</td>
+                        <td><button className="btn btn-primary">Feedback</button></td>
                         
                       </tr>
 

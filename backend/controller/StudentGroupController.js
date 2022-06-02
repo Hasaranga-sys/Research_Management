@@ -20,9 +20,7 @@ const createGroup = async (req, res, next) => {
     member_3Id,
     member_3Email,
     member_3ContactNo,
-    panelMember_1,
-    panelMember_2,
-    topic,
+   
   } = req.body;
 
   let studentgroup;
@@ -46,9 +44,7 @@ const createGroup = async (req, res, next) => {
       member_3Id,
       member_3Email,
       member_3ContactNo,
-      panelMember_1,
-      panelMember_2,
-      topic,
+  
     });
     await studentgroup.save();
   } catch (err) {
@@ -122,9 +118,7 @@ const UpdateStudentGroup = async (req, res, next) => {
     member_3Id,
     member_3Email,
     member_3ContactNo,
-    panelMember_1,
-    panelMember_2,
-    topic,
+ 
   } = req.body;
 
   let studentgroup;
@@ -148,9 +142,7 @@ const UpdateStudentGroup = async (req, res, next) => {
       member_3Id,
       member_3Email,
       member_3ContactNo,
-      panelMember_1,
-      panelMember_2,
-      topic,
+    
     });
     studentgroup = await studentgroup.save();
   } catch (err) {
