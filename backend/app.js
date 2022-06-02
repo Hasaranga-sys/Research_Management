@@ -72,6 +72,11 @@ app.use(cors());
 const staffMemberRouter = require("./routes/staffMemberRoute");
 app.use("/staffMember", staffMemberRouter);
 
+// lahiru - chat app
+app.use(cors());
+const chatRoute = require("./routes/chatRoute");
+app.use("/chat", chatRoute);
+
 app.use(cors());
 app.use("/researchtopics", router2);
 app.use("/studentGroup", router3);
