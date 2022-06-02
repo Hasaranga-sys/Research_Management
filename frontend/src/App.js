@@ -43,6 +43,7 @@ import GetMarkingSchemeSupervisor from "./Components/Supervisor/GetMarkingScheme
 import TopicEvaluationPanelMem from "./Components/PanelMember/TopicEvaluationPanelMem";
 import ViewOfMarkingScheme from "./Components/FileUpload/ViewOfMarkingScheme";
 import TopicDocumentSubmission from "./Components/Student/TopicDocumentSubmission";
+import ReqCoSupervisor from "./Components/Student/ReqCoSupervisor";
 function App() {
   // const  { user,setUser,isAuthenticated,setIsAuthenticated} = useContext(AuthContext);
   // console.log(user);
@@ -211,6 +212,13 @@ function App() {
             element={<ReqSupervisor />}
             exact
           />
+
+          <Route
+            path="/req-co-supervisor/:grpid"
+            element={<ReqCoSupervisor />}
+            exact
+          />
+
           {/* hasasranga new */}
           {/* common */}
           <Route

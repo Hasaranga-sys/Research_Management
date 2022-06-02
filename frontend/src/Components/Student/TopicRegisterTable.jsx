@@ -34,6 +34,11 @@ const TopicRegisterTable = () => {
     history(`/req-supervisor/${_id}`);
   };
 
+  const reqCoSuper = (_id) => {
+    console.log({ _id });
+    history(`/req-co-supervisor/${_id}`);
+  };
+
   return (
     <div className="shadow card w-75 mx-auto mt-5 mb-5">
       <h2 className="text-center mt-4">Register Research Topics</h2>
@@ -64,6 +69,8 @@ const TopicRegisterTable = () => {
                 <th scope="col">Status</th>
                 <th scope="col">supervisor</th>
                 <th scope="col">super-Status</th>
+                <th scope="col">co-supervisor</th>
+                <th scope="col">co-super-Status</th>
 
                 <th scope="col">Action</th>
               </tr>
@@ -94,6 +101,8 @@ const TopicRegisterTable = () => {
                     <td>{researchtopic.activeStatus}</td>
                     <td>{researchtopic.supervisor}</td>
                     <td>{researchtopic.superStataus}</td>
+                    <td>{researchtopic.coSupervisor}</td>
+                    <td>{researchtopic.coSuperStataus}</td>
                     <td>
                       <button
                         className="btn btn-warning"
@@ -103,6 +112,9 @@ const TopicRegisterTable = () => {
                       </button>
                       <button onClick={() => reqSuper(researchtopic._id)}>
                         req super
+                      </button>
+                      <button onClick={() => reqCoSuper(researchtopic._id)}>
+                        req co-super
                       </button>
                     </td>
                   </tr>

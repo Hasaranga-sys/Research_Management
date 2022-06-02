@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import StaffMemberService from "../../Services/StaffMemberService";
 import { useParams } from "react-router";
+import StaffMemberService from "../../Services/StaffMemberService";
 import ResearchTopicService from "../../Services/ResearchTopicService";
 
-function ReqSupervisor() {
+function ReqCoSupervisor() {
   const navigate = useNavigate();
   const [list, setList] = useState([]);
   const [topic, setTopic] = useState("");
-  const [supervisor, setSupervisor] = useState("");
-  const [superStataus, setSuperStatus] = useState("pending");
+  const [coSupervisor, setCoSupervisor] = useState("");
+  const [coSuperStataus, setCoSuperStatus] = useState("pending");
 
-  const [search, setSearch] = useState("supervisor");
+  const [search, setSearch] = useState("co-supervisor");
   const [search2, setSearch2] = useState("");
   const { grpid } = useParams();
 
@@ -20,35 +20,28 @@ function ReqSupervisor() {
       setList(response.data.staffMember);
       console.log(response.data.staffMember);
 
-      ResearchTopicService.getResearchTopicById(grpid).then((res) => {
-        setTopic(res.data.researchtopics.researchTopic);
-        console.log(res.data.researchtopics.researchTopic);
-      });
+      // ResearchTopicService.getResearchTopicById(grpid).then((res) => {
+      //   setTopic(res.data.researchtopics.researchTopic);
+      //   console.log(res.data.researchtopics.researchTopic);
+      // });
     });
 
     // filterSuper();
   }, []);
 
-  //   const filterSuper = () => {
-  //     if ((list.role = "supervisor")) {
-  //       setSupervisor(list);
-  //       console.log(supervisor);
-  //     }
-  //   };
-
   const reqClicked = (name) => {
     // name.preventDefault();
 
-    setSupervisor(name);
-    setSuperStatus("pending");
+    setCoSupervisor(name);
+    setCoSuperStatus("pending");
 
     console.log("staffid", name);
-    console.log("super", supervisor);
+    console.log("super", coSupervisor);
     console.log("grpid", grpid);
-    console.log("topic", topic);
+    // console.log("topic", topic);
 
-    if (supervisor == name) {
-      const submitData = { supervisor, superStataus };
+    if (coSupervisor == name) {
+      const submitData = { coSupervisor, coSuperStataus };
       console.log(submitData);
       ResearchTopicService.updateResearchTopic(grpid, submitData).then(
         (res) => {
@@ -158,4 +151,4 @@ function ReqSupervisor() {
   );
 }
 
-export default ReqSupervisor;
+export default ReqCoSupervisor;
