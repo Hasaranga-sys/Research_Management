@@ -46,15 +46,13 @@ const UploadDocumentTemplates = () => {
 
 
   return (
-    <div className='container'>
-        <h1>Upload Document Template</h1>
+    <div className='shadow bg-light card text-center p-4 w-50 mt-5  mx-auto'>
+        <h2>Upload Document Template</h2>
         <div style={{ maxWidth: 500, margin: "auto" }}>
-        <Link to="/fileUploadHome">
-      <button className='btn btn-primary' variant="contained">file upload home</button>   
-      </Link>
+       
         {
             <form onSubmit={upload} encType="multipart/form-data">
-                <div className='form-group'>
+                <div className='form-group '>
                     <input type="text"placeholder='Name' value={name} required
                             onChange={e=>{setName(e.target.value)}}
                             className="form-control" />
@@ -69,18 +67,12 @@ const UploadDocumentTemplates = () => {
                         onChange={(e) => setType(e.target.value)}
                         value={type}  required>
 
-                        <option selected> </option>
+                        <option placeholder='select Document Type' selected> </option>
                                 <option value="Document Template">Document Template</option>
                                 <option value="Presentation Template">Presentation Template</option>
                                 <option value="Marking Scheme">Marking Scheme</option>
                             
                         </select>
-
-
-
-                    {/* <input type="text"placeholder='Type' value={type} required
-                            onChange={e=>{setType(e.target.value)}}
-                            className="form-control" /> */}
                 </div>
                
                 Upload pdf
@@ -89,13 +81,16 @@ const UploadDocumentTemplates = () => {
                             className="form-control"
                              onChange={e=>{setPdf(e.target.files)}} />
                 </div>
-                <button className='mt-2'
+                <button className='btn btn-primary mt-3'
                         type="submit"
                         varient="primary" size="lg">Upload</button>
             </form>
         }
 
-    </div>        
+    </div>  
+    <Link to="/fileUploadHome">
+      <button className='btn btn-primary' variant="contained">file upload home</button>   
+      </Link>      
     </div>
   )
 }
