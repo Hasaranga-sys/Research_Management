@@ -8,7 +8,9 @@ function ReqSupervisor() {
   const navigate = useNavigate();
   const [list, setList] = useState([]);
   const [topic, setTopic] = useState("");
-  //   const [supervisor, setSupervisor] = useState([]);
+  const [supervisor, setSupervisor] = useState("");
+  const [superStataus, setSuperStatus] = useState("pending");
+
   const [search, setSearch] = useState("supervisor");
   const [search2, setSearch2] = useState("");
   const { grpid } = useParams();
@@ -34,14 +36,21 @@ function ReqSupervisor() {
   //     }
   //   };
 
-  const reqClicked = (_id) => {
-    console.log("staffid", _id);
+  const reqClicked = (name) => {
+    setSupervisor(...supervisor, name);
+    setSuperStatus("pending");
+
+    console.log("staffid", name);
     console.log("grpid", grpid);
     console.log("topic", topic);
 
-    const submitData = { grpid, topic };
-    StaffMemberService.updateMember(_id, submitData).then((res) => {
-      console.log(res);
+    setSupervisor(...supervisor, name);
+    setSuperStatus("pending");
+
+    const submitData = { supervisor, superStataus };
+    console.log(submitData);
+    ResearchTopicService.updateResearchTopic(grpid, submitData).then((res) => {
+      console.log(res.data);
     });
     // navigate(`/admin-rooms/${id}`);
   };
@@ -104,7 +113,7 @@ function ReqSupervisor() {
                     <button
                       className="btn btn-success"
                       onClick={() => {
-                        reqClicked(r._id);
+                        reqClicked(r.name);
                       }}
                       style={{ marginRight: 10 }}
                     >

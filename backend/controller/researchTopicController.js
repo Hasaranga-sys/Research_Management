@@ -2,7 +2,14 @@ const ResearchTopic = require("../models/researchTopic");
 
 //add research topic
 const addResearchTopic = async (req, res, next) => {
-  const { researchTopic, groupId, field, activeStatus } = req.body;
+  const {
+    researchTopic,
+    groupId,
+    field,
+    activeStatus,
+    supervisor,
+    superStataus,
+  } = req.body;
   let researchtopics;
   try {
     researchtopics = new ResearchTopic({
@@ -10,6 +17,8 @@ const addResearchTopic = async (req, res, next) => {
       groupId,
       field,
       activeStatus,
+      supervisor,
+      superStataus,
     });
     await researchtopics.save();
   } catch (err) {
@@ -50,7 +59,14 @@ const getTopicById = async (req, res, next) => {
 //update topic
 const updateResearchTopic = async (req, res, nect) => {
   const id = req.params.id;
-  const { researchTopic, groupId, field, activeStatus } = req.body;
+  const {
+    researchTopic,
+    groupId,
+    field,
+    activeStatus,
+    supervisor,
+    superStataus,
+  } = req.body;
   let researchtopics;
   try {
     researchtopics = await ResearchTopic.findByIdAndUpdate(id, {
@@ -58,6 +74,8 @@ const updateResearchTopic = async (req, res, nect) => {
       groupId,
       field,
       activeStatus,
+      supervisor,
+      superStataus,
     });
     researchtopics = await researchtopics.save();
   } catch (err) {

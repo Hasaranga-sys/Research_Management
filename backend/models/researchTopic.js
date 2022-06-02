@@ -14,9 +14,14 @@ const researchTopicSchema = new Schema({
   },
   field: {
     type: String,
-    required: true,
   },
   activeStatus: {
+    type: String,
+  },
+  supervisor: {
+    type: String,
+  },
+  superStataus: {
     type: String,
   },
 });
