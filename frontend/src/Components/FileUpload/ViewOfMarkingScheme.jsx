@@ -21,7 +21,6 @@ const ViewOfMarkingScheme = () => {
       <div className="container">
       <input type="text" placeholder="Search By Group ID" className="form-control mx-auto mt-2"
          style={{width: "40%" }} onChange={(e) => {setSearch2(e.target.value); }} />
-
     </div>
       <div className='container p-2 mt-4 mb-4'>
         <div className='row'>

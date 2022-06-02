@@ -17,7 +17,7 @@ const TopicView = () => {
 
       useEffect(() => {
         getResearchTopics();
-       
+        
       }, []);
     
    
@@ -41,14 +41,16 @@ const TopicView = () => {
               </div>
         
         <div className="row ">
-          <div className=" shadow card w-50 col-4 mb-4 mx-auto">
+          <div className=" shadow card w-75 col-4 mb-4 mx-auto">
 
             <table className="table table-striped mt-3">
               <thead className="table-primary">
                 <tr>
                   <th scope="col">Group ID</th>
                   <th scope="col">Topic</th>
-                  <th scope="col">Status</th>
+                  <th scope="col">Topic Status</th>
+                  <th scope="col">Supervisor</th>
+                  <th scope="col">Supervisor Status</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -59,7 +61,9 @@ const TopicView = () => {
                                   } else if (
                             
                                     value.groupId.toLowerCase().includes(search.toLowerCase())||
-                                    value.activeStatus.toLowerCase().includes(search.toLowerCase())
+                                    value.activeStatus.toLowerCase().includes(search.toLowerCase())||
+                                    value.supervisor.toLowerCase().includes(search.toLowerCase())||
+                                    value.superStataus.toLowerCase().includes(search.toLowerCase())
                                     
                                   ) {
                                     return value;
@@ -70,6 +74,9 @@ const TopicView = () => {
                     <td>{researchtopic.groupId}</td>
                     <td>{researchtopic.researchTopic}</td>
                     <td>{researchtopic.activeStatus}</td>
+                    <td>{researchtopic.supervisor}</td>
+                    <td>{researchtopic.superStataus}</td>
+                    
                     <td>
                       <button className="btn btn-danger" onClick={() => UpdateTopic(researchtopic._id)}>
                         Update

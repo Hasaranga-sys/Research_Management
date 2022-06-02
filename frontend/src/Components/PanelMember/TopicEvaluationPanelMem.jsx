@@ -22,7 +22,7 @@ const TopicEvaluationPanelMem = () => {
     <div className='row text-center mt-3'>
       <h2>Evaluate Research Topics</h2>
     <div style={{width:700}} className='shadow card mx-5 text-center p-3 mt-5 bg-light'>
-    <h2>Student Presentations</h2>
+    <h2>Evaluate Student Topics </h2>
 
     <div>
       <div className="container">
