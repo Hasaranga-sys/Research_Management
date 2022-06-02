@@ -60,7 +60,8 @@ const TopicRegisterForm = (props) => {
   };
 
   return (
-    <div className="container">
+    <div className="card shadow w-50 mx-auto mt-5 p-3 text-center">
+      <h1>t</h1>
       <form
         onSubmit={(e) => {
           saveResearchTopic(e);
@@ -76,16 +77,17 @@ const TopicRegisterForm = (props) => {
           required
         />
         <br></br>
-
-        <label className="col-sm-2 col-form-label">Research Topic</label>
-        <input
-          name="researchTopic"
-          type="text"
-          onChange={(e) => {
-            setResearchTopic(e.target.value);
-          }}
-          required
-        />
+        <div style={{ width: 800 }} className="row">
+          <label className="col-sm-2 col-form-label">Research Topic</label>
+          <input
+            name="researchTopic"
+            type="text"
+            onChange={(e) => {
+              setResearchTopic(e.target.value);
+            }}
+            required
+          />
+        </div>
 
         <label className="col-sm-2 col-form-label">Field</label>
         <input
@@ -97,7 +99,11 @@ const TopicRegisterForm = (props) => {
           required
         />
 
-        <input className="submitButton" type="submit" value="submit" />
+        <input
+          className="btn btn-primary mt-4 mx-auto"
+          type="submit"
+          value="submit"
+        />
       </form>
     </div>
   );

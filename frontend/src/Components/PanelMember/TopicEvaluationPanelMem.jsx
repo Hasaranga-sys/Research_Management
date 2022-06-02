@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import ViewOfMarkingScheme from '../FileUpload/ViewOfMarkingScheme';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import ResearchTopicService from "../../Services/ResearchTopicService";
+import ViewOfMarkingScheme from "../FileUpload/ViewOfMarkingScheme";
 
-const PresentationEvaluation = () => {
+
+const TopicEvaluationPanelMem = () => {
   const [pdfs, setPdf] = useState();
-    const [search, setSearch] = useState("Presentation");
+    const [search, setSearch] = useState("Topic Details Document");
     const [search2,setSearch2] = useState("")
 
     useEffect(()=>{
@@ -15,10 +18,9 @@ const PresentationEvaluation = () => {
         fetchFilers();        
     },[]);
 
- 
   return (
     <div className='row text-center mt-3'>
-      <h2>Evaluate Presentations</h2>
+      <h2>Evaluate Research Topics</h2>
     <div style={{width:700}} className='shadow card mx-5 text-center p-3 mt-5 bg-light'>
     <h2>Student Presentations</h2>
 
@@ -75,9 +77,10 @@ const PresentationEvaluation = () => {
 
 
 </div>  
-<ViewOfMarkingScheme/>
+
 </div> 
+     
   )
 }
 
-export default PresentationEvaluation
+export default TopicEvaluationPanelMem
