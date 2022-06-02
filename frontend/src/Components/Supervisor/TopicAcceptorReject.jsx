@@ -43,19 +43,13 @@ const TopicAcceptorReject = () => {
             console.log(error);
           });
       } else {
-        //   ResearchTopicService.createResearchTopic(ResearchTopic).then((response) => {
-        //       history("/StudentHome/TopicRegisterTable");
-        //       console.log(response.data);
-        //     })
-        //   .catch((error) => {
-        //     console.log(error);
-        //   });
+       
       }
     };
 
   return (
     <div>
-        <div className="card mx-auto" style={{width:600}}>
+        <div className="card shadow-lg w-50 p-3 mx-auto mt-5">
 
             <form onSubmit={(e) => {saveResearchTopic(e); }}>
 
@@ -84,18 +78,12 @@ const TopicAcceptorReject = () => {
               <option value="Rejected">Rejected</option>
               
           </select>
-        {/* <input              
-          className="form-control "
-          name="activeStatus"
-          type="text"          
-          onChange={(e) =>{setActiveStatus(e.target.value)}}
-          required
-        /> */}
+     
         </div>
       
         </div>
 
-        <input className="submitButton" type="submit" value="submit" />
+        <input className="btn btn-primary" type="submit" value="submit" />
       </form>
     </div>
 

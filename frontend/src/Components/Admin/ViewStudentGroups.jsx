@@ -25,9 +25,9 @@ const AddPanelMembers = (_id) =>{
 
   return (
     <div>
-      <div className="container">
+      <div style={{width:1450}} className="card shadow bg-light mx-auto mt-5 mb-5 p-1 ">
             <br></br>
-            <div className="card-body">
+            <div style={{width:1300}} className="card-body mx-auto">
                 <div>
                     <h1 className="d-flex justify-content-center">Registerd Groups</h1>
                 </div>
@@ -38,9 +38,9 @@ const AddPanelMembers = (_id) =>{
           />
         </div>
                 <div className="row">
-                    <div className="card col-md-11 offset-md-1 offset-md-0">
-                        <table className="table table-striped">
-                            <thead>
+                    <div className="shadow card mx-auto">
+                        <table className="table table-striped mt-3">
+                            <thead className="table-primary">
                                 <tr>
                                     <th scope="col">groupId</th>
                                     <th scope="col">Members</th>

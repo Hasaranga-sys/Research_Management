@@ -5,14 +5,14 @@ const AdminHome = () => {
   return (
     <div>
          <div>
-        <div className='bg-light'>
+        <div className='card w-75 mx-auto bg-light text-center mt-5'>
         <h2>Welcome Admin</h2>
             <div className="py-5">
                 <div className="container">
                     <div className="row hidden-md-up">
 
                     <div className="col-md-3">
-                        <div style={{height: 190}} className="card text-center">
+                        <div style={{height: 190}} className="shadow card text-center">
                             <div className="card-block">
                             <img style={{height: 130, width: 130}} className="card-img-top" src="https://www.pinclipart.com/picdir/big/419-4192970_trusted-service-delivery-partner-executive-agreement-clipart-png.png" alt="Card image cap"/>
                             <h4 className="card-title"></h4>
@@ -25,7 +25,7 @@ const AdminHome = () => {
                     </div>
 
                     <div className="col-md-3">
-                        <div style={{height: 190}} className="card text-center">
+                        <div style={{height: 190}} className=" shadow card text-center">
                             <div className="card-block">
                             <img style={{height: 130, width: 130}} className="card-img-top" src="https://www.pinclipart.com/picdir/big/419-4192970_trusted-service-delivery-partner-executive-agreement-clipart-png.png" alt="Card image cap"/>
                             <h4 className="card-title"></h4>
@@ -37,7 +37,7 @@ const AdminHome = () => {
                     </div>
 
                     <div className="col-md-3">
-                        <div style={{height: 190}} className="card text-center">
+                        <div style={{height: 190}} className=" shadow card text-center">
                             <div className="card-block">
                             <img style={{height: 130, width: 130}} className="card-img-top" src="https://www.pinclipart.com/picdir/big/419-4192970_trusted-service-delivery-partner-executive-agreement-clipart-png.png" alt="Card image cap"/>
                             <h4 className="card-title"></h4>
