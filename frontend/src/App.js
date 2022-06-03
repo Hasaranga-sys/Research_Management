@@ -34,6 +34,7 @@ import GetTemplates from "./Components/Student/GetTemplates";
 import SubmitDocuments from "./Components/Student/SubmitDocuments";
 import GetStudentDocuments from "./Components/Supervisor/GetStudentDocuments";
 import PresentationEvaluation from "./Components/PanelMember/PresentationEvaluation";
+import ChatApp from "./Components/chatComponents/chatApp";
 
 //udula
 import StudentRegister from "./Components/Student/StudentRegister";
@@ -247,7 +248,16 @@ function App() {
           />
           {/* admin */}
           <Route path="/AdminHome/ViewProjectGroups" element={<ViewProjectGroups/>} exact/>
+
+          {/* chat */}
+          <Route path="/chat/:username" element={<ChatApp/>} exact/>
+
+
+
+
         </Routes>
+
+        
       </main>
     </React.Fragment>
   );
