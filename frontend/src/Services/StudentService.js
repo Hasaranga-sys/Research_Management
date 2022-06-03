@@ -7,12 +7,20 @@ class StudentService {
     return axios.post(`${API_URL}/student/`, student);
   }
 
-  // getLogin(email, password) {
-  //   return axios.get(`${API_URL}/login/${email}/${password}`);
-  // }
+  viewAllStudent() {
+    return axios.get(`${API_URL}/student/`);
+  }
 
-  //   login(user) {
-  //     return axios.post(`${API_URL}/user/Login`, user);
-  //   }
+  getStudentByID(id) {
+    return axios.get(`${API_URL}/student/${id}`);
+  }
+
+  updateStudent(id, student) {
+    return axios.put(`${API_URL}/student/${id}`, student);
+  }
+
+  deleteStudent(id) {
+    return axios.delete(`${API_URL}/student/${id}`);
+  }
 }
 export default new StudentService();

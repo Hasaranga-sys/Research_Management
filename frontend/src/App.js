@@ -46,6 +46,9 @@ import ViewOfMarkingScheme from "./Components/FileUpload/ViewOfMarkingScheme";
 import TopicDocumentSubmission from "./Components/Student/TopicDocumentSubmission";
 import ReqCoSupervisor from "./Components/Student/ReqCoSupervisor";
 import ViewProjectGroups from "./Components/Admin/ViewProjectGroups";
+import ViewUsers from "./Components/Admin/ViewUsers";
+import UpdateStudent from "./Components/Admin/UpdateStudent";
+import ViewStaff from "./Components/Admin/ViewStaff";
 function App() {
   // const  { user,setUser,isAuthenticated,setIsAuthenticated} = useContext(AuthContext);
   // console.log(user);
@@ -220,6 +223,22 @@ function App() {
             element={<ReqCoSupervisor />}
             exact
           />
+          <Route path="/admin/view-users" element={<ViewUsers />} exact />
+          <Route
+            path="/student/register-student/:id"
+            element={<StudentRegister />}
+            exact
+          />
+          <Route
+            path="/admin/view-staff-member"
+            element={<ViewStaff />}
+            exact
+          />
+          <Route
+            path="/register-staff-member/:id"
+            element={<StaffMemberRegister />}
+            exact
+          />
 
           {/* hasasranga new */}
           {/* common */}
@@ -247,17 +266,15 @@ function App() {
             exact
           />
           {/* admin */}
-          <Route path="/AdminHome/ViewProjectGroups" element={<ViewProjectGroups/>} exact/>
+          <Route
+            path="/AdminHome/ViewProjectGroups"
+            element={<ViewProjectGroups />}
+            exact
+          />
 
           {/* chat */}
-          <Route path="/chat/:username" element={<ChatApp/>} exact/>
-
-
-
-
+          <Route path="/chat/:username" element={<ChatApp />} exact />
         </Routes>
-
-        
       </main>
     </React.Fragment>
   );

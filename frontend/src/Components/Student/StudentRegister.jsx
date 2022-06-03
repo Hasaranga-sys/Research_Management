@@ -3,15 +3,17 @@ import { useNavigate } from "react-router-dom";
 import AuthService from "../../Services/AuthService";
 import StudentService from "../../Services/StudentService";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router";
 
 const StudentRegister = (props) => {
   // const [user, setUser] = useState({ username: "", password: "", role: "" });
 
-  const [username, setIdNo] = useState("");
+  const [username, setUsername] = useState("");
   const [name, setNmae] = useState("");
   const [email, setEmail] = useState("");
   const [mobileNo, setMobileNo] = useState();
   const [password, setPassword] = useState("");
+  const { id } = useParams();
 
   let timerID = useRef(null);
   const history = useNavigate();
@@ -19,6 +21,15 @@ const StudentRegister = (props) => {
   useEffect(() => {
     return () => {
       clearTimeout(timerID);
+
+      StudentService.getStudentByID(id).then((res) => {
+        console.log(res.data.student);
+        setUsername(res.data.student.username);
+        setNmae(res.data.student.name);
+        setEmail(res.data.student.email);
+        setMobileNo(res.data.student.mobileNo);
+        setPassword(res.data.student.password);
+      });
     };
   }, []);
 
@@ -41,14 +52,21 @@ const StudentRegister = (props) => {
 
     console.log(submitData);
 
-    AuthService.register(user).then((res) => {
-      console.log(res);
-
-      StudentService.addStudent(submitData).then((res) => {
+    if (id) {
+      StudentService.updateStudent(id, submitData).then((res) => {
         console.log(res);
-        history("/login");
+        history("/admin/view-users");
       });
-    });
+    } else {
+      AuthService.register(user).then((res) => {
+        console.log(res);
+
+        StudentService.addStudent(submitData).then((res) => {
+          console.log(res);
+          history("/login");
+        });
+      });
+    }
   };
 
   return (
@@ -72,7 +90,7 @@ const StudentRegister = (props) => {
                   type="text"
                   name="username"
                   value={username}
-                  onChange={(e) => setIdNo(e.target.value)}
+                  onChange={(e) => setUsername(e.target.value)}
                   className="form-control"
                   placeholder="Enter IT no"
                   required="required"

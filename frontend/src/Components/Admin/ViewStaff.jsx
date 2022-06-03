@@ -1,37 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import StudentService from "../../Services/StudentService";
+import StaffMemberService from "../../Services/StaffMemberService";
 
-function ViewUsers() {
-  const [studentslist, setStudentslistList] = useState([]);
+function ViewStaff() {
+  const [list, setList] = useState([]);
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    StudentService.viewAllStudent().then((res) => {
-      setStudentslistList(res.data.students);
-      console.log(res.data.students);
+    StaffMemberService.getAllStaffMembers().then((res) => {
+      setList(res.data.staffMember);
+      console.log(res.data.staffMember);
     });
   }, []);
 
   const updateClicked = (_id) => {
     console.log(_id);
-    navigate(`/student/register-student/${_id}`);
+    navigate(`/register-staff-member/${_id}`);
   };
 
   const deleteClicked = (_id) => {
     // alert(id);
     // Swal.fire(" succesfully deleted");
-    StudentService.deleteStudent(_id).then((res) => {
-      setStudentslistList(
-        studentslist.filter((studentslist) => studentslist._id !== _id)
-      );
+    StaffMemberService.deleteStaff(_id).then((res) => {
+      setList(list.filter((list) => list._id !== _id));
     });
   };
 
   return (
     <div style={{ width: 1500 }} className="shadow card mx-auto mt-5 mb-5">
-      <h2 className="text-center mt-4">View Students</h2>
+      <h2 className="text-center mt-4">View Staff</h2>
 
       <input
         type="text"
@@ -51,6 +49,8 @@ function ViewUsers() {
               <tr>
                 <th scope="col">ID no</th>
                 <th scope="col">name</th>
+                <th scope="col">role</th>
+                <th scope="col">area</th>
                 <th scope="col">email</th>
                 <th scope="col">mobile no</th>
 
@@ -58,7 +58,7 @@ function ViewUsers() {
               </tr>
             </thead>
             <tbody>
-              {studentslist
+              {list
                 .filter((value) => {
                   if (search === "") {
                     return value;
@@ -73,18 +73,20 @@ function ViewUsers() {
                   }
                   return 0;
                 })
-                .map((student) => (
-                  <tr key={student._id}>
-                    <td>{student.username}</td>
-                    <td>{student.name}</td>
-                    <td>{student.email}</td>
-                    <td>{student.mobileNo}</td>
+                .map((staff) => (
+                  <tr key={staff._id}>
+                    <td>{staff.username}</td>
+                    <td>{staff.name}</td>
+                    <td>{staff.role}</td>
+                    <td>{staff.component}</td>
+                    <td>{staff.email}</td>
+                    <td>{staff.mobileNo}</td>
 
                     <td>
                       <button
                         type="button"
                         class="btn btn-primary"
-                        onClick={() => updateClicked(student._id)}
+                        onClick={() => updateClicked(staff._id)}
                         style={{ marginRight: 10 }}
                       >
                         update
@@ -92,7 +94,7 @@ function ViewUsers() {
                       <button
                         className="btn btn-warning"
                         onClick={() => {
-                          deleteClicked(student._id);
+                          deleteClicked(staff._id);
                         }}
                       >
                         delete
@@ -108,4 +110,4 @@ function ViewUsers() {
   );
 }
 
-export default ViewUsers;
+export default ViewStaff;
