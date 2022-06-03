@@ -47,9 +47,9 @@ const AddPanelMembers = (_id) =>{
                                     <th scope="col">Student ID</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Contact Number</th>
-                                    <th scope="col">Panel Members</th>
-                                    <th scope="col">Topic</th>
-                                    <th scope="col">Actions</th>
+                                    {/* <th scope="col">Panel Members</th> */}
+                                    {/* <th scope="col">Topic</th>
+                                    <th scope="col">Actions</th> */}
                                 </tr>
                             </thead>
                             <tbody>
@@ -98,15 +98,15 @@ const AddPanelMembers = (_id) =>{
                                                   {student.member_2ContactNo}<br></br>
                                                   {student.member_3ContactNo}
                                             </td>
-                                            <td>{student.panelMember_1}<br></br>
+                                            {/* <td>{student.panelMember_1}<br></br>
                                                 {student.panelMember_2}
-                                            </td>
-                                            <td>{student.topic}</td>
-                                            <td>
+                                            </td> */}
+                                            {/* <td>{student.topic}</td> */}
+                                            {/* <td>
                                               <button type="button"
                                                        class="btn btn-primary"
                                                        onClick={()=>AddPanelMembers(student._id)} >Add Panel Members</button>
-                                            </td>
+                                            </td> */}
                                         </tr>
                                     )
                                 }

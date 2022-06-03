@@ -49,6 +49,7 @@ import ViewProjectGroups from "./Components/Admin/ViewProjectGroups";
 import ViewUsers from "./Components/Admin/ViewUsers";
 import UpdateStudent from "./Components/Admin/UpdateStudent";
 import ViewStaff from "./Components/Admin/ViewStaff";
+import CommunicateSupervisor from "./Components/Student/CommunicateSupervisor";
 function App() {
   // const  { user,setUser,isAuthenticated,setIsAuthenticated} = useContext(AuthContext);
   // console.log(user);
@@ -263,6 +264,11 @@ function App() {
           <Route
             path="/StudentHome/TopicDocumentSubmit"
             element={<TopicDocumentSubmission />}
+            exact
+          />
+          <Route
+            path="StudentHome/Communicate"
+            element={<CommunicateSupervisor />}
             exact
           />
           {/* admin */}

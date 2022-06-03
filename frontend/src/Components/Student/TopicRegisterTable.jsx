@@ -42,7 +42,7 @@ const TopicRegisterTable = () => {
 
   return (
     <div style={{width: 1500}} className="shadow card mx-auto mt-5 mb-5">
-      <h2 className="text-center mt-4">Register Research Topics</h2>
+      <h2 className="text-center mt-4">Research Topic Management</h2>
 
       <input
         type="text"
