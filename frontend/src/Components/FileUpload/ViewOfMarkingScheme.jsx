@@ -14,12 +14,12 @@ const ViewOfMarkingScheme = () => {
         fetchFilers();        
     },[]);
   return (
-    <div style={{width:700}} className='shadow card  mx-1 text-center p-3 mt-5 bg-light'>
-    <h2>Marking Schemes</h2>
+    // <div style={{width:700}} className='shadow card  mx-1 text-center p-3 mt-5 bg-light'>
+    // <h2>Marking Schemes</h2>
 
     <div>
       <div className="container">
-      <input type="text" placeholder="Search By Group ID" className="form-control mx-auto mt-2"
+      <input type="text" placeholder="Search By Submission" className="form-control mx-auto mt-2"
          style={{width: "40%" }} onChange={(e) => {setSearch2(e.target.value); }} />
     </div>
       <div className='container p-2 mt-4 mb-4'>
@@ -29,7 +29,7 @@ const ViewOfMarkingScheme = () => {
               <table class="table table-striped">
                   <thead className='table-primary'>
                     <tr>
-                      <th scope="col">Group Id</th>
+                      <th scope="col">Submission</th>
                       <th scope="col">Type</th>
                       <th scope="col">Document</th>
                     </tr>
@@ -68,7 +68,7 @@ const ViewOfMarkingScheme = () => {
 
 
 
-</div>
+//</div> 
   )
 }
 

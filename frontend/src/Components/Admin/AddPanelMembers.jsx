@@ -1,65 +1,138 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import StudentGroupService from "../../Services/StudentGroupService";
+import ResearchTopicService from "../../Services/ResearchTopicService";
 
 const AddPanelMembers = () => {
-    const[studentgroup, setStudentGroup] = useState("");
-    const [panelMember_1, setPanelMember_1] = useState([])
-    const [panelMember_2, setPanelMember_2] = useState("")
-    const navigate = useNavigate();
-    const{_id} = useParams();
+    const [researchTopic, setResearchTopic] = useState("");
+  const [groupId, setGroupId] = useState("");
+  const [field, setField] = useState("");
+  const [panelMember_1, setPanelMember_1]= useState("");
+  const [panelMember_2, setPanelMember_2]= useState("");
+ 
+  const history = useNavigate();
+  const { _id } = useParams();
 
-    useEffect(()=>{
-        if(_id){
-            StudentGroupService.getStudentGroupById(_id.data).then((res)=>{
-                setPanelMember_1(res.data.panelMember_1)
-                setPanelMember_2(res.data.panelMember_2)
-            })
-        }
-        
-    },[])
+  useEffect(() => {
+    if (_id) {
+      ResearchTopicService.getResearchTopicById(_id).then((res) => {
+        console.log(res.data);
+        setGroupId(res.data.researchtopics.groupId);
+        setResearchTopic(res.data.researchtopics.researchTopic);
+        setField(res.data.researchtopics.field);
+        setPanelMember_1(res.data.researchtopics.panelMember_1);
+        setPanelMember_2(res.data.researchtopics.panelMember_2);
 
-    const AllocatePanelMember = (e) =>{
-        e.preventDefault();
-        
-
-        const studentgroup = {panelMember_1,panelMember_2}
-
-        if(_id){
-            StudentGroupService.UpdateStudentGroup(_id,studentgroup).then((response)=>{
-                navigate('/AdminHome/ViewStudentGroups')
-            })
-        }
+      });
     }
+  }, []);
+  console.log(groupId);
+  console.log(researchTopic);
+  console.log(field);
+  console.log(panelMember_1);
+
+  const saveResearchTopic = (e) => {
+    e.preventDefault();
+    const ResearchTopic = {
+      researchTopic,
+      groupId,
+      field,
+      panelMember_1,
+      panelMember_2
+      
+    };
+
+    console.log(ResearchTopic);
+
+    if (_id) {
+      ResearchTopicService.updateResearchTopic(_id, ResearchTopic)
+        .then((res) => {
+          {
+            console.log(res);
+            // history("/StudentHome/TopicRegisterTable");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      const updateData = {
+      
+      };
+
+      ResearchTopicService.updateResearchTopic(_id, updateData).then((res) => {
+        {
+          console.log(res);
+          history("/AdminHome/ViewProjectGroups");
+        }
+      });
+
+    } else {
+      ResearchTopicService.createResearchTopic(ResearchTopic)
+        .then((response) => {
+          history("/AdminHome/ViewProjectGroups");
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
+  const title = ()=>{
+    if(_id){
+      return <h2 className="text-center"> Update Research Topic</h2>
+    }
+    return <h2 className="text-center"> Add Research Topic</h2>
+  }
 
   return (
-    <div className="container col-md-8 offset-md-1 offset-md-0">
-       
-            <div className="card col-md-8 offset-md-1 offset-md-0 bg-light container">
-           
-                <form onSubmit={AllocatePanelMember}>
-                    <div className="row mb-3">
-                        <label className="col-sm-2 col-form-label">Panel Member 1</label>
-                        <div className="col-sm-9">
-                            <input className="form-control" value={panelMember_1} 
-                                    onChange={(e) =>{setPanelMember_1(e.target.value)}}
-                                    placeholder={`${_id.panelMember_1}`} />
-                        </div>
-                    </div>
+    <div className="card shadow-lg w-50 mx-auto mt-5 p-3 text-center">
+      <h1>{title()}</h1>
+      <form
+        onSubmit={(e) => {
+          saveResearchTopic(e);
+        }}
+      >
+        <div className="card shadow-lg bg-light mb-3 mt-3">
+        <div className="row w-75 mx-auto mt-3">
+        <label className=" col-sm-3 col-form-label">Group ID</label>
+        <input name="groupId" className="form-control w-25" type="text"
+          value={groupId} onChange={(e) => {setGroupId(e.target.value);}} readOnly/>
+        </div>
 
-                    <div className="row mb-3">
-                        <label className="col-sm-2 col-form-label">Panel Member 2</label>
-                        <div className="col-sm-9">
-                            <input className="form-control" value={panelMember_2} 
-                                    onChange={(e) =>{setPanelMember_2(e.target.value)}}
-                                    placeholder="Enter panel Member 2" />
-                        </div>
-                    </div>
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                </form>
-                
-            </div>
+        <div className="row w-75 mx-auto mt-3">
+        <label className=" col-sm-3 col-form-label">Research Topic</label>
+        <input name="researchTopic" className="form-control w-50" type="text"
+          value={researchTopic} onChange={(e) => {setResearchTopic(e.target.value);}} readOnly/>
+        </div>
+
+        <div className="row w-75 mx-auto mt-3">
+        <label className="col-sm-3 col-form-label">Field</label>
+        <input name="field" className="form-control w-50" type="text"
+          value={field} onChange={(e) => {setField(e.target.value);}} readOnly/>
+        </div>
+
+        <div className="row w-75 mx-auto mt-3">
+        <label className="col-sm-3 col-form-label">Panel Member</label>
+        <input name="field" className="form-control w-50" type="text"
+          value={panelMember_1} onChange={(e) => {setPanelMember_1(e.target.value);}} required/>
+        </div>
+
+        <div className="row w-75 mx-auto mt-3">
+        <label className="col-sm-3 col-form-label">Panel Member</label>
+        <input name="field" className="form-control w-50" type="text"
+          value={panelMember_2} onChange={(e) => {setPanelMember_2(e.target.value);}} required/>
+        </div>
         
+        
+        <div className="row w-75 mx-auto mt-3 mb-4">
+        <input className="btn btn-primary mt-4 mx-auto" type="submit"  value="submit" />
+        </div>
+        </div>
+        
+       
+
+      </form>
     </div>
   )
 }

@@ -25,7 +25,7 @@ const StudentGroupTable = () => {
 
   return (
     <div>
-        <div className="shadow card bg-light w-75 mx-auto mt-5 mb-5">
+        <div className="shadow-lg card bg-light w-75 mx-auto mt-5 mb-5">
             <br></br>
             <div className="card-body">
                 <div>
@@ -35,9 +35,9 @@ const StudentGroupTable = () => {
                         style={{marginLeft: 320, width: "40%",}}
                         onChange={(e) => {setSearch(e.target.value); }} />
 
-                <div className="row">
-                    <div className="card col-md-5 mt-3 mb-4  w-75 mx-auto">
-                        <table className="table table-striped">
+                <div className="row mb-3">
+                    <div className="shadow-lg card col-md-5 mt-3 mb-4  w-75 mx-auto">
+                        <table className="table table-striped mt-3">
                             <thead className='table-primary'>
                                 <tr>
                                     <th scope="col">groupId</th>

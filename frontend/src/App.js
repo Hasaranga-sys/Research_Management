@@ -44,6 +44,7 @@ import TopicEvaluationPanelMem from "./Components/PanelMember/TopicEvaluationPan
 import ViewOfMarkingScheme from "./Components/FileUpload/ViewOfMarkingScheme";
 import TopicDocumentSubmission from "./Components/Student/TopicDocumentSubmission";
 import ReqCoSupervisor from "./Components/Student/ReqCoSupervisor";
+import ViewProjectGroups from "./Components/Admin/ViewProjectGroups";
 function App() {
   // const  { user,setUser,isAuthenticated,setIsAuthenticated} = useContext(AuthContext);
   // console.log(user);
@@ -244,6 +245,8 @@ function App() {
             element={<TopicDocumentSubmission />}
             exact
           />
+          {/* admin */}
+          <Route path="/AdminHome/ViewProjectGroups" element={<ViewProjectGroups/>} exact/>
         </Routes>
       </main>
     </React.Fragment>

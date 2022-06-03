@@ -43,7 +43,7 @@ const SubmitDocuments = () => {
 
   return (
     <div style={{marginTop: 30,width:550}} className='shadow bg-light card text-center p-3  mx-auto'>
-        <h1>SubmitDocuments</h1>
+        <h1>Submit Documents</h1>
         <div style={{ maxWidth: 500, margin: "auto" }}>
         <Link to="/fileUploadHome">
       <button className='btn btn-primary' variant="contained">file upload home</button>   
@@ -65,10 +65,11 @@ const SubmitDocuments = () => {
 
                         <option selected> </option>
                                 <option value="Topic Details Document">Topic Details Document</option>
-                                <option value="Assignment 1">Assignment 1</option>
-                                <option value="Assignment 2">Assignment 2</option>
+                                <option value="Evaluation 1">Evaluation 1</option>
+                                <option value="Evaluation 2">Evaluation 2</option>
                                 <option value="Presentation 1">Presentation 1</option>
                                 <option value="Presentation 2">Presentation 2</option>
+                                <option value="Final Thesis">Final Thesis</option>
                             
                         </select>
 

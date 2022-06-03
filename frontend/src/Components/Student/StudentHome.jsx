@@ -6,14 +6,14 @@ const StudentHome = () => {
       <div>
           <div className='row'>
             
-    <div className='card shadow bg-light w-75 mx-auto mt-5 text-center '>
+    <div className='card shadow-lg bg-light w-75 mx-auto mt-5 text-center '>
         <h2>Welcome</h2>
             <div className="py-5">
                 <div className="container">
                     <div className="row hidden-md-up">
 
                     <div className="col-md-3">
-                        <div style={{height: 190}} className="shadow card text-center">
+                        <div style={{height: 190}} className="shadow-lg card text-center">
                             <div className="card-block">
                             <img style={{height: 130, width: 130}} className="card-img-top" src="https://www.pinclipart.com/picdir/big/419-4192970_trusted-service-delivery-partner-executive-agreement-clipart-png.png" alt="Card image cap"/>
                             <h4 className="card-title"></h4>
@@ -26,7 +26,7 @@ const StudentHome = () => {
                     </div>
 
                     <div className="col-md-3">
-                        <div style={{height: 190}} className="card text-center">
+                        <div style={{height: 190}} className=" shadow-lg card text-center">
                             <div className="card-block">
                             <img style={{height: 130, width: 130}} className="card-img-top" src="https://www.pinclipart.com/picdir/big/419-4192970_trusted-service-delivery-partner-executive-agreement-clipart-png.png" alt="Card image cap"/>
                             <h4 className="card-title"></h4>
@@ -40,7 +40,7 @@ const StudentHome = () => {
                     </div>
 
                     <div className="col-md-3">
-                        <div style={{height: 190}} className="card text-center">
+                        <div style={{height: 190}} className="shadow-lg card text-center">
                             <div className="card-block">
                             <img style={{height: 130, width: 130}} className="card-img-top" src="https://www.pinclipart.com/picdir/big/419-4192970_trusted-service-delivery-partner-executive-agreement-clipart-png.png" alt="Card image cap"/>
                             <h4 className="card-title"></h4>
@@ -52,7 +52,7 @@ const StudentHome = () => {
                     </div>
 
                     <div className="col-md-3">
-                        <div style={{height: 190}} className="card text-center">
+                        <div style={{height: 190}} className="shadow-lg card text-center">
                             <div className="card-block">
                             <img style={{height: 130, width: 130}} className="card-img-top" src="https://www.pinclipart.com/picdir/big/419-4192970_trusted-service-delivery-partner-executive-agreement-clipart-png.png" alt="Card image cap"/>
                             <h4 className="card-title"></h4>
@@ -64,7 +64,7 @@ const StudentHome = () => {
                     </div>
 
                     <div className="col-md-3 mt-5">
-                        <div style={{height: 190}} className="card text-center">
+                        <div style={{height: 190}} className="shadow-lg card text-center">
                             <div className="card-block">
                             <img style={{height: 130, width: 130}} className="card-img-top" src="https://www.pinclipart.com/picdir/big/419-4192970_trusted-service-delivery-partner-executive-agreement-clipart-png.png" alt="Card image cap"/>
                             <h4 className="card-title"></h4>

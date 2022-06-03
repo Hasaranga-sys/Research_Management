@@ -2,47 +2,38 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ResearchTopicService from "../../Services/ResearchTopicService";
 
-const TopicRegisterTable = () => {
-  const [researchtopics, setResearchtopics] = useState([]);
-  const history = useNavigate();
-  const [search, setSearch] = useState("");
+const ViewProjectGroups = () => {
+    const [researchtopics, setResearchtopics] = useState([]);
+    const history = useNavigate();
+    const [search, setSearch] = useState("");
 
-  const getResearchTopics = () => {
-    ResearchTopicService.getAllResearchTopics().then((data) => {
-      setResearchtopics(data.researchtopics);
-      console.log(researchtopics);
-    });
-  };
+    const getResearchTopics = () => {
+        ResearchTopicService.getAllResearchTopics().then((data) => {
+          setResearchtopics(data.researchtopics);
+          console.log(researchtopics);
+        });
+      };
 
-  useEffect(() => {
-    getResearchTopics();
-  }, []);
+      useEffect(() => {
+        getResearchTopics();
+      }, []);
+    
+      const UpdateTopic = (_id) => {
+        console.log({ _id });
+    
+        history(`/StudentHome/TopicRegisterTable/TopicRegisterForm/${_id}`);
+      };
 
-  const addTopic = (e) => {
-    e.preventDefault();
-    console.log("clicked add topic");
-    history(`/StudentHome/TopicRegisterTable/TopicRegisterForm`);
-  };
-
-  const UpdateTopic = (_id) => {
-    console.log({ _id });
-
-    history(`/StudentHome/TopicRegisterTable/TopicRegisterForm/${_id}`);
-  };
-
-  const reqSuper = (_id) => {
-    console.log({ _id });
-    history(`/req-supervisor/${_id}`);
-  };
-
-  const reqCoSuper = (_id) => {
-    console.log({ _id });
-    history(`/req-co-supervisor/${_id}`);
-  };
+      const AddPanelMembers = (_id) =>{
+        console.log({_id});
+        history(`/AdminHome/ViewStudentGroups/AddPanelMembers/${_id}`);
+      };
+      
+        
 
   return (
     <div style={{width: 1500}} className="shadow card mx-auto mt-5 mb-5">
-      <h2 className="text-center mt-4">Register Research Topics</h2>
+      <h2 className="text-center mt-4">View Project Groups</h2>
 
       <input
         type="text"
@@ -54,9 +45,6 @@ const TopicRegisterTable = () => {
       />
       <div className="row">
         <div style={{width: 1400}} className="shadow-lg card mx-auto mt-5 mb-5">
-          <button className="shadow-lg btn btn-primary w-25 mx-3 mt-3 mb-3"  onClick={addTopic} >
-            Add topic
-          </button>
 
           <table className="table table-striped">
             <thead className="table-primary">
@@ -66,9 +54,9 @@ const TopicRegisterTable = () => {
                 <th scope="col">Field</th>
                 <th scope="col">Topic Status</th>
                 <th scope="col">supervisor</th>
-                <th scope="col">Supervisor <br></br> Status</th>
+                <th scope="col">super-Status</th>
                 <th scope="col">co-supervisor</th>
-                <th scope="col">co-supervisor<br></br> Status</th>
+                <th scope="col">co-super-Status</th>
                 <th scope="col">Panel Members</th>
 
                 <th scope="col">Action</th>
@@ -108,24 +96,10 @@ const TopicRegisterTable = () => {
                       {researchtopic.panelMember_2}
                     </td>
                     <td>
+                    <button type="button" class="btn btn-primary"
+                            onClick={()=>AddPanelMembers(researchtopic._id)} >Add Panel Members</button>                  
 
-                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                      
-
-                        <div class="btn-group" role="group">
-                          <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Action Dropdown
-                          </button>
-                          <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                          <button
-                                className="dropdown-item" onClick={() => UpdateTopic(researchtopic._id)}>Update Topic</button>
-                                <li><hr className="dropdown-divider"/></li>
-                                <li><button className="dropdown-item" onClick={() => reqSuper(researchtopic._id)}>request supervisor </button></li> 
-                                 <li><button className="dropdown-item" onClick={() => reqCoSuper(researchtopic._id)}>reqest co-supervisor</button></li>
-                        
-                          </ul>
-                        </div>
-                      </div>
+                  
                     </td>
                   </tr>
                 ))}
@@ -134,7 +108,7 @@ const TopicRegisterTable = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TopicRegisterTable;
+export default ViewProjectGroups
