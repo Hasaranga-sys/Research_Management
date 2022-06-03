@@ -43,6 +43,7 @@ function StaffMemberRegister() {
 
       StaffMemberService.addStaffMember(submitData).then((res) => {
         console.log(res);
+        history("/login");
       });
     });
   };
@@ -56,7 +57,7 @@ function StaffMemberRegister() {
       <div className="card col-md-6 offset-md-3 offset-md-3">
         <div className="card-body">
           <center>
-            <h1>Student Registation</h1>
+            <h1>Staff Registation</h1>
           </center>
           <br />
           <br />
@@ -70,7 +71,10 @@ function StaffMemberRegister() {
                   value={username}
                   onChange={(e) => setIdNo(e.target.value)}
                   className="form-control"
-                  placeholder="Enter username"
+                  placeholder="Enter IT no"
+                  required="required"
+                  minlength="4"
+                  title="please enter at least 4 characters"
                 />
               </div>
             </div>
@@ -85,6 +89,9 @@ function StaffMemberRegister() {
                   onChange={(e) => setNmae(e.target.value)}
                   className="form-control"
                   placeholder="Enter username"
+                  required="required"
+                  minlength="4"
+                  title="please enter at least 4 characters"
                 />
               </div>
             </div>
@@ -119,6 +126,9 @@ function StaffMemberRegister() {
                   onChange={(e) => setComponent(e.target.value)}
                   className="form-control"
                   placeholder="Enter Role"
+                  required="required"
+                  minlength="4"
+                  title="please enter at least 4 characters"
                 />
               </div>
             </div>
@@ -127,12 +137,13 @@ function StaffMemberRegister() {
               <label className="col-sm-2 col-form-label">email</label>
               <div className="col-sm-10">
                 <input
-                  type="text"
-                  name="role"
+                  type="email"
+                  name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="form-control"
                   placeholder="Enter Role"
+                  required="required"
                 />
               </div>
             </div>
@@ -141,12 +152,17 @@ function StaffMemberRegister() {
               <label className="col-sm-2 col-form-label">mobile no</label>
               <div className="col-sm-10">
                 <input
-                  type="text"
-                  name="role"
+                  type="mobile"
+                  name="mobile"
                   value={mobileNo}
                   onChange={(e) => setMobileNo(e.target.value)}
                   className="form-control"
-                  placeholder="Enter Role"
+                  placeholder="Enter mobile number"
+                  minlength="10"
+                  maxlength="10"
+                  title="please enter 10 digit mobile number"
+                  pattern="[0-9]*"
+                  required="required"
                 />
               </div>
             </div>
@@ -155,19 +171,28 @@ function StaffMemberRegister() {
               <label className="col-sm-2 col-form-label">Password</label>
               <div className="col-sm-10">
                 <input
-                  type="text"
+                  type="password"
                   name="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="form-control"
                   placeholder="Enter Password"
+                  required="required"
+                  minlength="5"
+                  maxlength="10"
+                  title="please enter at least 5 characters"
                 />
+                <small id="emailHelp" class="form-text text-muted">
+                  please enter at least 5 characters
+                </small>
               </div>
             </div>
-
-            <button className="btn btn-primary" type="submit">
-              Register
-            </button>
+            <br />
+            <center>
+              <button className="btn btn-primary" type="submit">
+                Register
+              </button>
+            </center>
           </form>
           {/* {message ? <Message message={message} /> : null} */}
         </div>

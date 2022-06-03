@@ -26,6 +26,7 @@ const TopicRegisterTable = () => {
 
   const UpdateTopic = (_id) => {
     console.log({ _id });
+
     history(`/StudentHome/TopicRegisterTable/TopicRegisterForm/${_id}`);
   };
 
@@ -104,8 +105,10 @@ const TopicRegisterTable = () => {
                     <td>{researchtopic.superStataus}</td>
                     <td>{researchtopic.coSupervisor}</td>
                     <td>{researchtopic.coSuperStataus}</td>
-                    <td>{researchtopic.panelMember_1}<br></br>
-                        {researchtopic.panelMember_2}
+                    <td>
+                      {researchtopic.panelMember_1}
+                      <br></br>
+                      {researchtopic.panelMember_2}
                     </td>
                     <td>
                       <button

@@ -3,6 +3,7 @@ import AuthService from "../Services/AuthService";
 import { AuthContext } from "../Context/AuthContext";
 import Message from "./Message";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = (props) => {
   // const {isAuthenticated,userl,setIsAuthenticated,setUserl} = useContext(AuthContext);
@@ -12,41 +13,39 @@ const Login = (props) => {
   const authContext = useContext(AuthContext);
   const history = useNavigate();
 
-    const signIn = (e) =>{
-           
-        setUser({...user,[e.target.name] : e.target.value});
-        console.log(user);
-    }
+  const signIn = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+    console.log(user);
+  };
 
-    const onSubmit = (e) =>{
-        e.preventDefault();
-        AuthService.login(user).then(data=>{
-            console.log(data);
-            const {isAuthenticated,user,message} = data;
-            if(isAuthenticated){
-                authContext.setUser(user);
-                authContext.setIsAuthenticated(isAuthenticated);
-                if(user.role === "admin"){            
-                    history('/AdminHome');}
-                    else if(user.role === "user"){
-                    history('/studentHome');}
-                    else if(user.role ==="panel-member"){
-                        history('/panelMemberHome')}
-                    else if(user.role === "supervisor"){
-                        history('/SupervisorHome')
-                    }else if(user.role === "co-supervisor"){
-                      history('/SupervisorHome')
-                  }
-            }else{
-                setMessage(message);
-                function myFunction(){
-                    alert("Error : Wrong Username or Password")
-                }
-                myFunction();
-            }
-        })
-
-    }
+  const onSubmit = (e) => {
+    e.preventDefault();
+    AuthService.login(user).then((data) => {
+      console.log(data);
+      const { isAuthenticated, user, message } = data;
+      if (isAuthenticated) {
+        authContext.setUser(user);
+        authContext.setIsAuthenticated(isAuthenticated);
+        if (user.role === "admin") {
+          history("/AdminHome");
+        } else if (user.role === "user") {
+          history("/studentHome");
+        } else if (user.role === "panel-member") {
+          history("/panelMemberHome");
+        } else if (user.role === "supervisor") {
+          history("/SupervisorHome");
+        } else if (user.role === "co-supervisor") {
+          history("/SupervisorHome");
+        }
+      } else {
+        setMessage(message);
+        function myFunction() {
+          alert("Error : Wrong Username or Password");
+        }
+        myFunction();
+      }
+    });
+  };
 
   return (
     <div className="container">
@@ -56,21 +55,24 @@ const Login = (props) => {
       <br />
       <div className="card col-md-6 offset-md-3 offset-md-3">
         <div className="card-body">
-          <div>
+          <center>
             <h2>Login</h2>
-          </div>
+          </center>
           <br />
           <br />
           <form onSubmit={onSubmit}>
             <div className="form-group row">
-              <label className="col-sm-2 col-form-label">Username</label>
+              <label className="col-sm-2 col-form-label">IT no</label>
               <div className="col-sm-10">
                 <input
                   type="text"
                   name="username"
                   onChange={signIn}
                   className="form-control"
-                  placeholder="Enter username"
+                  placeholder="Enter IT no"
+                  required="required"
+                  // minlength="4"
+                  // title="please enter at least 4 characters"
                 />
               </div>
             </div>
@@ -79,20 +81,31 @@ const Login = (props) => {
               <label className="col-sm-2 col-form-label">Password</label>
               <div className="col-sm-10">
                 <input
-                  type="text"
+                  type="password"
                   name="password"
                   onChange={signIn}
                   className="form-control"
                   placeholder="Enter Password"
+                  required="required"
+                  // minlength="4"
+                  // title="please enter at least 4 characters"
                 />
               </div>
             </div>
             <br />
-
-            <button className="btn btn-primary" type="submit">
-              Login
-            </button>
+            <center>
+              <button className="btn btn-primary" type="submit">
+                Sign in
+              </button>
+            </center>
           </form>
+          <br />
+          <div className="text-center">
+            create an account{" "}
+            <Link to="/student/register-student" className="text-center">
+              Sign up{" "}
+            </Link>
+          </div>
           {message ? <Message message={message} /> : null}
         </div>
       </div>

@@ -41,12 +41,26 @@ const TopicRegisterForm = (props) => {
         .then((res) => {
           {
             console.log(res);
-            history("/StudentHome/TopicRegisterTable");
+            // history("/StudentHome/TopicRegisterTable");
           }
         })
         .catch((error) => {
           console.log(error);
         });
+
+      const updateData = {
+        activeStatus: "no",
+        supervisor: "no",
+        superStataus: "no",
+        coSupervisor: "no",
+        coSuperStataus: "no",
+      };
+      ResearchTopicService.updateResearchTopic(_id, updateData).then((res) => {
+        {
+          console.log(res);
+          history("/StudentHome/TopicRegisterTable");
+        }
+      });
     } else {
       ResearchTopicService.createResearchTopic(ResearchTopic)
         .then((response) => {
@@ -71,6 +85,7 @@ const TopicRegisterForm = (props) => {
         <input
           name="groupId"
           type="text"
+          value={groupId}
           onChange={(e) => {
             setGroupId(e.target.value);
           }}
@@ -82,6 +97,7 @@ const TopicRegisterForm = (props) => {
           <input
             name="researchTopic"
             type="text"
+            value={researchTopic}
             onChange={(e) => {
               setResearchTopic(e.target.value);
             }}
@@ -93,6 +109,7 @@ const TopicRegisterForm = (props) => {
         <input
           name="researchTopic"
           type="text"
+          value={field}
           onChange={(e) => {
             setField(e.target.value);
           }}

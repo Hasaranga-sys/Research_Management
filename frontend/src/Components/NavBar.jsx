@@ -42,21 +42,21 @@ const NavBar = (props) => {
           Login
         </a>
 
-        <a
+        {/* <a
           className="nav-link active"
           aria-current="page"
           href="/student/register-student"
         >
           Student-Register
-        </a>
+        </a> */}
 
-        <a
+        {/* <a
           className="nav-link active"
           aria-current="page"
           href="/register-staff-member"
         >
           Staff-Register
-        </a>
+        </a> */}
 
         {/* <Link to="/login">
               <li className='nav-item nav-link'>
@@ -104,19 +104,19 @@ const NavBar = (props) => {
               Student Home
             </a>
           </li>
-        ) : user.role == "supervisor" || user.role == "co-supervisor" ?(
+        ) : user.role == "supervisor" || user.role == "co-supervisor" ? (
           <li className="nav-item nav-link">
             <a className="nav-link" href="/SupervisorHome">
               Supervisor Home
             </a>
           </li>
-        ) : user.role == "panel-member" ?(
+        ) : user.role == "panel-member" ? (
           <li className="nav-item nav-link">
             <a className="nav-link" href="/panelMemberHome">
               Panel Member Home
             </a>
           </li>
-        ) :null }
+        ) : null}
 
         <button
           type="button"
