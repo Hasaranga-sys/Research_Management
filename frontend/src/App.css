@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+
+/*lahiru chat app css*/
+.newroot {
+  font-family: "Montserrat", sans-serif;
+  background: #209cee;
+  overflow: auto;
+  height: 100vh;
+}
+
+.attendapp {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  height: auto;
+}
+
+.attended-list {
+  background: #e8e8e8;
+  border-radius: 4px;
+  padding: 5px;
+  width: 500px;
+  text-align: center;
+}
+
+.attended-list h1 {
+  color: rgb(172, 172, 172);
+  font-weight: bolder;
+}
+
+.attended {
+  background: #fff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  padding: 3px 10px;
+  font-size: 12px;
+  margin-bottom: 6px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
