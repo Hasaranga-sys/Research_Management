@@ -50,6 +50,7 @@ import ViewUsers from "./Components/Admin/ViewUsers";
 import UpdateStudent from "./Components/Admin/UpdateStudent";
 import ViewStaff from "./Components/Admin/ViewStaff";
 import CommunicateSupervisor from "./Components/Student/CommunicateSupervisor";
+import SendFeedBack from "./Components/PanelMember/SendFeedBack";
 function App() {
   // const  { user,setUser,isAuthenticated,setIsAuthenticated} = useContext(AuthContext);
   // console.log(user);
@@ -238,6 +239,11 @@ function App() {
           <Route
             path="/register-staff-member/:id"
             element={<StaffMemberRegister />}
+            exact
+          />
+          <Route
+            path="/panel-member-feedback/:id"
+            element={<SendFeedBack />}
             exact
           />
 
