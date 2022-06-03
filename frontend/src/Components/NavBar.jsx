@@ -98,7 +98,7 @@ const NavBar = (props) => {
               Admin Home
             </a>
           </li>
-        ) : user.role == "user" ? (
+        ) : user.username == "kulunu" ? (
           <li className="nav-item nav-link">
             <a className="nav-link" href="/StudentHome">
               Student Home

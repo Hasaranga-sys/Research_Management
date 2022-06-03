@@ -46,6 +46,7 @@ import ViewOfMarkingScheme from "./Components/FileUpload/ViewOfMarkingScheme";
 import TopicDocumentSubmission from "./Components/Student/TopicDocumentSubmission";
 import ReqCoSupervisor from "./Components/Student/ReqCoSupervisor";
 import ViewProjectGroups from "./Components/Admin/ViewProjectGroups";
+import CommunicateSupervisor from "./Components/Student/CommunicateSupervisor";
 function App() {
   // const  { user,setUser,isAuthenticated,setIsAuthenticated} = useContext(AuthContext);
   // console.log(user);
@@ -246,11 +247,16 @@ function App() {
             element={<TopicDocumentSubmission />}
             exact
           />
+          <Route path="StudentHome/Communicate" element={<CommunicateSupervisor/>} exact/>
           {/* admin */}
           <Route path="/AdminHome/ViewProjectGroups" element={<ViewProjectGroups/>} exact/>
+          
+          
 
           {/* chat */}
           <Route path="/chat/:username" element={<ChatApp/>} exact/>
+
+
 
 
 
