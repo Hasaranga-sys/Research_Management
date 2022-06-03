@@ -26,18 +26,13 @@ function ReqSupervisor() {
       });
     });
 
-    // filterSuper();
+  
   }, []);
 
-  //   const filterSuper = () => {
-  //     if ((list.role = "supervisor")) {
-  //       setSupervisor(list);
-  //       console.log(supervisor);
-  //     }
-  //   };
+
 
   const reqClicked = (name) => {
-    // name.preventDefault();
+ 
 
     setSupervisor(name);
     setSuperStatus("pending");
@@ -58,104 +53,71 @@ function ReqSupervisor() {
       );
     }
 
-    // setSupervisor(...supervisor, name);
-
-    // navigate(`/admin-rooms/${id}`);
   };
 
   return (
-    <div className="container">
-      <br />
-      <br />
-      <div className="card-body">
-        <div>
-          <h1>supervisor</h1>
-        </div>
-        <div className="container">
-          <input
-            type="text"
-            placeholder="search by "
-            className="form-control"
-            style={{
-              marginTop: 20,
-              marginBottom: 20,
-              marginLeft: 360,
-              width: "40%",
-            }}
-            onChange={(e) => {
-              setSearch2(e.target.value);
-            }}
-          />
-        </div>
-        <br />
-        <br />
+    <div className='shadow card w-75 mx-auto text-center p-3 mt-5 bg-light'>
+      <h1>Supervisor List</h1>
 
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">name</th>
-              <th scope="col">field</th>
-            </tr>
-          </thead>
-          <tbody>
-            {list
-              .filter((value) => {
-                if (search === "") {
-                  return value;
-                } else if (
-                  //value.id.toString(includes(search))
-                  value.role.toLowerCase().includes(search.toLowerCase()) &&
-                  value.component.toLowerCase().includes(search2.toLowerCase())
-                ) {
-                  return value;
-                }
-                return 0;
-              })
-              .map((r) => (
-                <tr key={r._id}>
-                  {/* <td>{r.id}</td> */}
-                  <td>{r.name}</td>
-                  <td>{r.component}</td>
-                  {/* <td>{r.description}</td> */}
-                  <td>
-                    <button
-                      className="btn btn-success"
-                      onClick={() => {
-                        reqClicked(r.name);
-                      }}
-                      style={{ marginRight: 10 }}
-                    >
-                      req
-                    </button>
-                    {/* <button
-                      className="btn btn-warning"
-                      onClick={() => {
-                        deleteClicked(r.id);
-                      }}
-                    >
-                      delete
-                    </button> */}
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
-        <br />
-        <br />
+      <div>
+            <div className="container">
 
-        {/* <button
-          className="btn btn-primary"
-          onClick={clickAddRoom}
-          style={{ marginRight: 10 }}
-        >
-          Add Room
-        </button>
-        <button className="btn btn-primary" onClick={clickViewBooking}>
-          View Booking Details
-        </button> */}
+              <input type="text" placeholder="Search Field" className="form-control mx-auto mt-2"
+                      style={{width: "40%" }} onChange={(e) => {setSearch2(e.target.value); }} />
+            </div>
+
+              <div className='container p-2 mt-4 mb-4'>
+                <div className='row'>
+                  <div className='shadow card mx-auto w-75'>
+                    <table class="table table-striped">
+                      <thead className='table-primary'>
+                        <tr>
+                            <th scope="col">Supervisor Name</th>
+                            <th scope="col">Field</th>
+                            <th scope="col">Request</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {list
+        .filter((value) => {
+          if (search === "") {
+            return value;
+          } else if (
+          
+            value.role.toLowerCase().includes(search.toLowerCase()) &&
+            value.component.toLowerCase().includes(search2.toLowerCase())
+          ) {
+            return value;
+          }
+          return 0;
+        })
+        .map((r) => (
+          <tr key={r._id}>
+          
+            <td>{r.name}</td>
+            <td>{r.component}</td>
+          
+            <td>
+              <button  className="btn btn-success" onClick={() => {reqClicked(r.name);}}style={{ marginRight: 10 }}>
+                Request
+              </button>
+             
+            </td>
+          </tr>
+        ))}
+                      </tbody>
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+
       </div>
+
     </div>
+    
   );
 }
 
 export default ReqSupervisor;
+
