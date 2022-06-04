@@ -23,7 +23,7 @@ const NavBar = (props) => {
     return (    <>
              
         <a className="nav-link active" aria-current="page" href="/login">
-          Login
+          
         </a>
       </>
     );

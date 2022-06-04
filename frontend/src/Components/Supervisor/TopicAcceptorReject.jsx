@@ -70,7 +70,7 @@ const TopicAcceptorReject = () => {
     <div>
 
 <div className="card shadow-lg w-75 mx-auto mt-5 mb-5 p-3 text-center">
-      <h2>Accept or reject</h2>
+      <h2>Group Management</h2>
       <nav>
   <div className="nav nav-tabs" id="nav-tab" role="tablist">
     <button className="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Topic </button>

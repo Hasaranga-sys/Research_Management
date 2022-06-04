@@ -84,7 +84,7 @@ function StaffMemberRegister(props) {
       <br />
       <br />
 
-      <div className="card col-md-6 offset-md-3 offset-md-3">
+      <div className="card shadow-lg bg-light col-md-6 offset-md-3 offset-md-3">
         <div className="card-body">
           <center>
             <h1>{title()}</h1>
