@@ -1,5 +1,4 @@
 import React from "react";
-// import "../chat.css";
 
 const Attendees = ({ chatter}) => {
     const testxtone = "From : "

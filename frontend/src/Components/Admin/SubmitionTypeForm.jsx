@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-// import submitionService from "../../Services/submitionService";
 import submitionService from "../../Services/submitionService";
 
 import { useNavigate } from "react-router-dom";
@@ -43,17 +42,13 @@ function SubmitionTypesForm(props) {
       console.log(_id);
       submitionService.getsubmition(_id).then((response) => {
         setsubmition(response.data);
-        // console.log("submitions1.evaluationName")
-        console.log(submition);
       });
 
-      //   console.log(submitions1.evaluationName);
     }
   }, []);
   return (
     <div>
-      hello
-      {/* console.log(submitions); */}
+      
       <form
         onSubmit={(e) => {
           SubmitsubmitionForm(e);
