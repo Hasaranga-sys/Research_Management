@@ -5,11 +5,14 @@ import { useParams } from 'react-router';
 // import Attendees from "./attendees.js";
 import Attendees from "./attendees.js";
 // import "../chat.css";
+import { useNavigate } from "react-router-dom";
+
 
 function ChatApp(){
     const [chatlist, setchatlist] = useState([]);
     const {username} = useParams();
     const [message,  settextMessage] = useState("");
+    const navigate = useNavigate();
 
     useEffect(()=>{
         chatservice.getAllchats().then(
@@ -18,6 +21,15 @@ function ChatApp(){
                 // console.log(chatlist);
             }
     )},[])
+    
+    function refresh () {
+        chatservice.getAllchats().then(
+            response =>{
+                setchatlist(response.data.chat);
+                // console.log(chatlist);
+            }
+        )
+    }
 
     const submitChat =(e) =>{
         e.preventDefault();
@@ -25,7 +37,10 @@ function ChatApp(){
             username,
             message
         }
-        chatservice.addchat(newchat);
+        chatservice.addchat(newchat).then(
+            refresh()
+            // navigate(`/chat/${username}`)
+        );
     };
     return(
         <div>

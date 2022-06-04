@@ -14,6 +14,13 @@ class StaffMemberService {
     return axios.put(`${API_URL}/staffMember/${id}`, staffMember);
   }
 
+  deleteStaff(id) {
+    return axios.delete(`${API_URL}/staffMember/${id}`);
+  }
+
+  getStaffByID(id) {
+    return axios.get(`${API_URL}/staffMember/${id}`);
+  }
   //   login(user) {
   //     return axios.post(`${API_URL}/user/Login`, user);
   //   }

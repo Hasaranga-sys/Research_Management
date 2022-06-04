@@ -2,15 +2,17 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../Services/AuthService";
 import StaffMemberService from "../Services/StaffMemberService";
+import { useParams } from "react-router";
 
-function StaffMemberRegister() {
-  const [username, setIdNo] = useState("");
+function StaffMemberRegister(props) {
+  const [username, setUsername] = useState("");
   const [name, setNmae] = useState("");
   const [role, setRole] = useState("");
   const [component, setComponent] = useState("");
   const [email, setEmail] = useState("");
   const [mobileNo, setMobileNo] = useState();
   const [password, setPassword] = useState("");
+  const { id } = useParams();
 
   let timerID = useRef(null);
   const history = useNavigate();
@@ -18,6 +20,17 @@ function StaffMemberRegister() {
   useEffect(() => {
     return () => {
       clearTimeout(timerID);
+
+      StaffMemberService.getStaffByID(id).then((res) => {
+        console.log("res", res.data.staffMember);
+        setUsername(res.data.staffMember.username);
+        setNmae(res.data.staffMember.name);
+        setEmail(res.data.staffMember.email);
+        setMobileNo(res.data.staffMember.mobileNo);
+        setPassword(res.data.staffMember.password);
+        setRole(res.data.staffMember.role);
+        setComponent(res.data.staffMember.component);
+      });
     };
   }, []);
 
@@ -38,14 +51,21 @@ function StaffMemberRegister() {
 
     console.log(submitData);
 
-    AuthService.register(user).then((res) => {
-      console.log(res);
-
-      StaffMemberService.addStaffMember(submitData).then((res) => {
+    if (id) {
+      StaffMemberService.updateMember(id, submitData).then((res) => {
         console.log(res);
-        history("/login");
+        history("/view-staff-member");
       });
-    });
+    } else {
+      AuthService.register(user).then((res) => {
+        console.log(res);
+
+        StaffMemberService.addStaffMember(submitData).then((res) => {
+          console.log(res);
+          history("/login");
+        });
+      });
+    }
   };
 
   return (
@@ -69,7 +89,7 @@ function StaffMemberRegister() {
                   type="text"
                   name="username"
                   value={username}
-                  onChange={(e) => setIdNo(e.target.value)}
+                  onChange={(e) => setUsername(e.target.value)}
                   className="form-control"
                   placeholder="Enter IT no"
                   required="required"
