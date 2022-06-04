@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-// import submitionService from "../../Services/submitionService";
 import submitionService from "../../Services/submitionService";
 
 import { useNavigate } from "react-router-dom";

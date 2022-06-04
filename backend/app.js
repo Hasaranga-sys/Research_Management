@@ -95,3 +95,5 @@ app.listen(5000, () => {
   console.log("server started");
   console.log("App is Running on port 5000");
 });
+
+module.exports = app;

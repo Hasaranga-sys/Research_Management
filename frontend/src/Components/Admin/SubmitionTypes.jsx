@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-// import submitionService from "../../Services/submitionService.js";
 import { useNavigate } from "react-router-dom";
 import submitionService from "../../Services/submitionService";
 
@@ -18,13 +17,13 @@ const SubmitionType = (props) => {
 
   const updateClick = (id) => {
     navigate(`/AdminHome/SubmissionTypeTable/${id}`)
-    console.log(id);
+    // console.log(id);
   };
   const deleteClick = (id) => {
     submitionService.deleteSubmition(id).then((response) => {
       // navigate(`/`)
     });
-    console.log(id);
+    // console.log(id);
   };
   return (
     <div>
