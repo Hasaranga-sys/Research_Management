@@ -7,8 +7,7 @@ import { useNavigate } from "react-router";
 const NavBar = (props) => {
   const navigate = useNavigate();
 
-  const { isAuthenticated, user, setIsAuthenticated, setUser } =
-    useContext(AuthContext);
+  const { isAuthenticated, user, setIsAuthenticated, setUser } =  useContext(AuthContext);
 
   const onClickLogoutHandler = () => {
     AuthService.logout().then((data) => {
@@ -21,12 +20,8 @@ const NavBar = (props) => {
   };
 
   const unAuthenticatedNavBar = () => {
-    return (
-      <>
-        <a className="nav-link active" aria-current="page" href="/">
-          Home
-        </a>
-       
+    return (    <>
+             
         <a className="nav-link active" aria-current="page" href="/login">
           Login
         </a>
@@ -38,13 +33,13 @@ const NavBar = (props) => {
     return (
       <>
       
-        {user.role === "admin" ? (
-          <li className="nav-item nav-link">
+        {user.role == "admin" ? (
+          <li className="nav-item nav-link active" aria-current="page">
             <a className="nav-link" href="/AdminHome">
               Admin Home
             </a>
           </li>
-        ) : user.username == "kulunu" ? (
+        ) : user.role == "user" ? (
           <li className="nav-item nav-link">
             <a className="nav-link" href="/StudentHome">
               Student Home
@@ -64,13 +59,9 @@ const NavBar = (props) => {
           </li>
         ) : null}
 
-        <button
-          type="button"
-          className="btn btn-link nav-item nav-link"
-          onClick={onClickLogoutHandler}
-        >
-          Logout
-        </button>
+        <button 
+                type="button"  className="btn btn-link nav-item nav-link"  
+                onClick={onClickLogoutHandler} >  Logout  </button>
       </>
     );
   };
@@ -81,11 +72,11 @@ const NavBar = (props) => {
         <div className="container-fluid">
           {/*     
         <div className="navbar-brand">Research</div> */}
-          <li className="nav-item">
+          
             <span class="fs-5 text-white font-weight-bold">
-              Research Management Tool
+                Research Management Tool
             </span>
-          </li>
+         
 
           <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav mr-auto ">

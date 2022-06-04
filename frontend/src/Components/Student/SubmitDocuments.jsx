@@ -42,15 +42,15 @@ const SubmitDocuments = () => {
 
 
   return (
-    <div style={{marginTop: 30,width:550}} className='shadow bg-light card text-center p-3  mx-auto'>
+    <div style={{marginTop: 30,width:550}} className='shadow bg-light card text-center p-3 mt-5 mx-auto'>
         <h1>Submit Documents</h1>
         <div style={{ maxWidth: 500, margin: "auto" }}>
         <Link to="/fileUploadHome">
-      <button className='btn btn-primary' variant="contained">file upload home</button>   
+      {/* <button className='btn btn-primary' variant="contained">file upload home</button>    */}
       </Link>
         {
             <form onSubmit={upload} encType="multipart/form-data">
-                <div className='form-group'>
+                <div className='form-group mt-3'>
 
                     <input type="text"placeholder='Group ID' value={name} required onChange={e=>{setName(e.target.value)}}
                             className="form-control" />

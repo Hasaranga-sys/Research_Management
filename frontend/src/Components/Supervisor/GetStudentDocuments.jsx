@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import ThesisView from '../FileUpload/ThesisView';
 import ViewOfMarkingScheme from '../FileUpload/ViewOfMarkingScheme';
 
 const GetStudentDocuments = () => {
@@ -96,7 +97,10 @@ const GetStudentDocuments = () => {
   </div>
 
 
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">syp</div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+    <h2>View Final Thesis</h2>
+    <ThesisView/>
+  </div>
 </div>
 
      

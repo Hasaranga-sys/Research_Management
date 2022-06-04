@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const StudentHome = () => {
   return (
       <div>
+
           <div className='row'>
             
     <div className='card shadow-lg bg-light w-75 mx-auto mt-5 text-center '>
@@ -75,6 +76,20 @@ const StudentHome = () => {
                             </div>
                         </div>
                     </div>
+
+                    <div className="col-md-3 mt-5">
+                        <div style={{height: 190}} className="shadow-lg card text-center">
+                            <div className="card-block">
+                            <img style={{height: 130, width: 130}} className="card-img-top" src="https://visualpharm.com/assets/623/File-595b40b65ba036ed117d4085.svg" alt="Card image cap"/>
+                            <h4 className="card-title"></h4>
+                            <Link to="/StudentHome/OtherSubmissions">
+                                <button className='btn btn-primary' variant="contained">Other Submissions </button>
+                            </Link>
+                            </div>
+                        </div>
+                    </div>
+
+
                     
                     </div>
                 </div>

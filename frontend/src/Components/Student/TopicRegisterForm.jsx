@@ -74,6 +74,8 @@ const TopicRegisterForm = (props) => {
         .catch((error) => {
           console.log(error);
         });
+
+        
     }
   };
 

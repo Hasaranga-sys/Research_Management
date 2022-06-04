@@ -1,34 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
-// import submitionService from "../../Services/submitionService.js";
-import { useNavigate } from "react-router-dom";
 import submitionService from "../../Services/submitionService";
+import { useNavigate } from "react-router-dom";
 
-const SubmitionType = (props) => {
-  const [submitions, setsubmitions] = useState([]);
+const StudentOtherSubmissions = () => {
+    const [submitions, setsubmitions] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
     submitionService.getAllsubmitions().then((response) => {
       setsubmitions(response.data.submitionType);
     });
   });
-  const addClick = (id) =>{
-    navigate(`/AdminHome/SubmissionTypeTable/-1`)
-  }
-
+ 
   const updateClick = (id) => {
-    navigate(`/AdminHome/SubmissionTypeTable/${id}`)
-    console.log(id);
-  };
-  const deleteClick = (id) => {
-    submitionService.deleteSubmition(id).then((response) => {
-      // navigate(`/`)
-    });
+    navigate(`/StudentHome/OtherSubmissions/ExtSubmissions/${id}`)
     console.log(id);
   };
   return (
     <div>
-<div className="row text-center mt-3">
+         <div>
+        <div className="row text-center mt-3">
       <h2></h2>
       <div
         style={{ width: 800 }}
@@ -51,15 +41,15 @@ const SubmitionType = (props) => {
           <div className="container p-2 mt-4 mb-4">
             <div className="row">
               <div className="shadow card mx-auto w-75">
-              <button className="btn btn-primary w-50 mt-3 mb-3" onClick={()=>addClick()}>Add New Submission</button>
-                <table class="table table-striped mt-1">
+              
+                <table class="table table-striped mt-2">
                   <thead className="table-primary">
                     <tr>
                       <th scope="col">Evaluation</th>
                       <th scope="col">submission Type</th>
                       <th scope="col">Deadline</th>
                       <th scope="col">Update</th>
-                      <th scope="col">Delete</th>
+                      
                     </tr>
                   </thead>
                   <tbody>
@@ -73,17 +63,10 @@ const SubmitionType = (props) => {
                   className="btn btn-success"
                   onClick={() => updateClick(submitions._id)}
                 >
-                  update
+                  Submit
                 </button>
               </td>
-              <td>
-                <button
-                  className="btn btn-danger"
-                  onClick={() => deleteClick(submitions._id)}
-                >
-                  delete
-                </button>
-              </td>
+            
             </tr>
           ))}
                   </tbody>
@@ -95,6 +78,9 @@ const SubmitionType = (props) => {
       </div>
     </div>
     </div>
-  );
-};
-export default SubmitionType;
+
+    </div>
+  )
+}
+
+export default StudentOtherSubmissions

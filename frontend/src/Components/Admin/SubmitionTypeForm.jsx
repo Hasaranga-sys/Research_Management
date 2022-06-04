@@ -43,61 +43,69 @@ function SubmitionTypesForm(props) {
       console.log(_id);
       submitionService.getsubmition(_id).then((response) => {
         setsubmition(response.data);
-        // console.log("submitions1.evaluationName")
         console.log(submition);
       });
-
-      //   console.log(submitions1.evaluationName);
     }
   }, []);
+
+  const title = ()=>{
+    if(_id =="-1"){
+      return <h2 className="text-center"> Add Submission Type</h2>
+    }
+    return <h2 className="text-center"> Update Submission Type</h2>
+  }
   return (
-    <div>
-      hello
-      {/* console.log(submitions); */}
-      <form
+    <div >
+
+<form
         onSubmit={(e) => {
           SubmitsubmitionForm(e);
         }}
       >
-        <label>evaluationName</label>
-        <br />
-        <input
-          name="evaluationName"
-          type="text"
-          placeholder={submition.evaluationName}
-          onChange={(e) => {
-            setevaluationName(e.target.value);
-          }}
-          required
-        ></input>
-        <br />
-        <label>submittiontype</label>
-        <br />
-        <input
-          name="submittiontype"
-          type="text"
-          placeholder={submition.submittiontype}
-          onChange={(e) => {
-            setsubmittiontype(e.target.value);
-          }}
-          required
-        ></input>
-        <br />
-        <br />
-        <label>deadline</label>
-        <br />
-        <input
-          name="price"
-          type="date"
+        <div className="card w-50 mx-auto shadow-lg bg-light mb-3 mt-5">
+          <h2>{title()}</h2>
+        <div className="row w-75 mx-auto mt-3">
+        <label className=" col-sm-3 col-form-label">Evaluation Name</label>
+        <input name="groupId" className="form-control w-25" type="text"
+        placeholder={submition.evaluationName}
+          value={evaluationName} onChange={(e) => {setevaluationName(e.target.value);}} required/>
+        </div>
+
+        <div className="row w-75 mx-auto mt-3">
+        <label className=" col-sm-3 col-form-label">Submission Type</label>
+        <input name="submittiontype" className="form-control w-50" type="text"
+        placeholder={submition.submittiontype}
+          value={submittiontype} onChange={(e) => {setsubmittiontype(e.target.value);}} required/>
+        </div>
+
+        <div className="row w-75 mx-auto mt-3">
+        <label className="col-sm-3 col-form-label">Deadline</label>
+        <input name="price" className="form-control w-50" type="date"
           placeholder={submition.deadline}
-          onChange={(e) => {
-            setdeadline(e.target.value);
-          }}
-          required
-        ></input>
-        <br />
-        <input className="submitButton" type="submit" value="submit" />
+          
+          value={deadline} onChange={(e) => {setdeadline(e.target.value);}} required/>
+        </div>
+        
+        <div className="row w-75 mx-auto mt-3 mb-4">
+        <input className="btn btn-primary mt-4 mx-auto" type="submit"  value="submit" />
+        </div>
+        </div>
+        
+       
+
       </form>
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
   );
 }

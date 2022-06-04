@@ -62,14 +62,14 @@ const Login = (props) => {
           <br />
           <form onSubmit={onSubmit}>
             <div className="form-group row">
-              <label className="col-sm-2 col-form-label">IT no</label>
+              <label className="col-sm-2 col-form-label">IT number</label>
               <div className="col-sm-10">
                 <input
                   type="text"
                   name="username"
                   onChange={signIn}
                   className="form-control"
-                  placeholder="Enter IT no"
+                  placeholder="Enter IT number"
                   required="required"
                   // minlength="4"
                   // title="please enter at least 4 characters"

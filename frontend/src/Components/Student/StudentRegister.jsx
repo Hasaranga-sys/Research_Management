@@ -69,6 +69,13 @@ const StudentRegister = (props) => {
     }
   };
 
+  const title = ()=>{
+    if(id){
+      return <h2 className="text-center"> Update Student</h2>
+    }
+    return <h2 className="text-center"> Register Student</h2>
+  }
+
   return (
     <div className="container">
       <br />
@@ -78,13 +85,13 @@ const StudentRegister = (props) => {
       <div className="card col-md-6 offset-md-3 offset-md-3">
         <div className="card-body">
           <center>
-            <h1>Student Registation</h1>
+            <h1>{title()}</h1>
           </center>
           <br />
           <br />
           <form onSubmit={clickSubmit}>
             <div className="form-group row">
-              <label className="col-sm-2 col-form-label">IT no</label>
+              <label className="col-sm-2 col-form-label">IT number</label>
               <div className="col-sm-10">
                 <input
                   type="text"
@@ -101,7 +108,7 @@ const StudentRegister = (props) => {
             </div>
             <br />
             <div className="form-group row">
-              <label className="col-sm-2 col-form-label">name</label>
+              <label className="col-sm-2 col-form-label">Full Name</label>
               <div className="col-sm-10">
                 <input
                   type="text"
@@ -133,7 +140,7 @@ const StudentRegister = (props) => {
             </div>
             <br />
             <div className="form-group row">
-              <label className="col-sm-2 col-form-label">mobile no</label>
+              <label className="col-sm-2 col-form-label">Telephone</label>
               <div className="col-sm-10">
                 <input
                   type="mobile"

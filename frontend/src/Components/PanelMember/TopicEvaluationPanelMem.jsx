@@ -25,7 +25,7 @@ const TopicEvaluationPanelMem = () => {
 
   return (
     <div className="row text-center mt-3">
-      <h2>Evaluate Research Topics</h2>
+      <h2></h2>
       <div
         style={{ width: 800 }}
         className="shadow card mx-auto text-center p-3 mt-5 bg-light"

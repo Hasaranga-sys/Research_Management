@@ -19,7 +19,7 @@ const AdminHome = () => {
                       <img
                         style={{ height: 130, width: 130 }}
                         className="card-img-top"
-                        src="https://github.com/Hasaranga-sys/client/blob/master/img/networking.png?raw=true"
+                        src="https://visualpharm.com/assets/830/User%20Groups-595b40b75ba036ed117d9da0.svg"
                         alt="Card image cap"
                       />
                       <h4 className="card-title"></h4>
@@ -98,7 +98,8 @@ const AdminHome = () => {
                   </div>
                 </div>
 
-                <div className="col-md-3">
+
+                <div className="col-md-3 mt-4">
                   <div
                     style={{ height: 190 }}
                     className=" shadow card text-center"
@@ -107,36 +108,53 @@ const AdminHome = () => {
                       <img
                         style={{ height: 130, width: 130 }}
                         className="card-img-top"
-                        src="https://visualpharm.com/assets/998/Add%20User%20Group%20Man%20Man-595b40b65ba036ed117d36fa.svg"
+                        src="https://visualpharm.com/assets/847/Checked%20User%20Male-595b40b65ba036ed117d38e0.svg"
                         alt="Card image cap"
                       />
                       <h4 className="card-title"></h4>
                       <Link to="/admin/view-users">
                         <button className="btn btn-primary" variant="contained">
-                          View students
+                          View Students
                         </button>
                       </Link>
                     </div>
+                  </div>
+                </div>
 
-                    <div className="col-md-3">
-                        <div style={{height: 190}} className=" shadow card text-center">
-                            <div className="card-block">
-                            <img style={{height: 130, width: 130}} className="card-img-top" src="https://visualpharm.com/assets/998/Add%20User%20Group%20Man%20Man-595b40b65ba036ed117d36fa.svg" alt="Card image cap"/>
-                            <h4 className="card-title"></h4>
-                            <Link to="/AdminHome/SubmissionTypeTable">
-                                <button className='btn btn-primary' variant="contained">Create Submission Types</button>
-                            </Link>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    
+                
+                <div className="col-md-3 mt-4">
+                  <div
+                    style={{ height: 190 }}
+                    className=" shadow card text-center"
+                  >
                     <div className="card-block">
                       <img
                         style={{ height: 130, width: 130 }}
                         className="card-img-top"
-                        src="https://visualpharm.com/assets/998/Add%20User%20Group%20Man%20Man-595b40b65ba036ed117d36fa.svg"
+                        src="https://visualpharm.com/assets/926/Create%20Archive-595b40b65ba036ed117d39b1.svg"
+                        alt="Card image cap"
+                      />
+                      <h4 className="card-title"></h4>
+                      <Link to="/AdminHome/SubmissionTypeTable">
+                        <button className="btn btn-primary" variant="contained">
+                          Create Submission Types
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div className="col-md-3 mt-4">
+                  <div
+                    style={{ height: 190 }}
+                    className=" shadow card text-center"
+                  >
+                    <div className="card-block">
+                      <img
+                        style={{ height: 130, width: 130 }}
+                        className="card-img-top"
+                        src="https://visualpharm.com/assets/208/User%20Groups-595b40b85ba036ed117dd43c.svg"
                         alt="Card image cap"
                       />
                       <h4 className="card-title"></h4>

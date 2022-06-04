@@ -68,6 +68,13 @@ function StaffMemberRegister(props) {
     }
   };
 
+  const title = ()=>{
+    if(id){
+      return <h2 className="text-center"> Update Staff Member</h2>
+    }
+    return <h2 className="text-center"> Register as Staff Member</h2>
+  }
+
   return (
     <div className="container">
       <br />
@@ -77,13 +84,13 @@ function StaffMemberRegister(props) {
       <div className="card col-md-6 offset-md-3 offset-md-3">
         <div className="card-body">
           <center>
-            <h1>Staff Registation</h1>
+            <h1>{title()}</h1>
           </center>
           <br />
           <br />
           <form onSubmit={clickSubmit}>
             <div className="form-group row">
-              <label className="col-sm-2 col-form-label">IT no</label>
+              <label className="col-sm-2 col-form-label">IT Number</label>
               <div className="col-sm-10">
                 <input
                   type="text"
@@ -100,7 +107,7 @@ function StaffMemberRegister(props) {
             </div>
             <br />
             <div className="form-group row">
-              <label className="col-sm-2 col-form-label">name</label>
+              <label className="col-sm-2 col-form-label">Full Name</label>
               <div className="col-sm-10">
                 <input
                   type="text"
@@ -118,7 +125,7 @@ function StaffMemberRegister(props) {
             <br />
 
             <div className="form-group row">
-              <label className="col-sm-2 col-form-label">role</label>
+              <label className="col-sm-2 col-form-label">Role</label>
               <div className="col-sm-10">
                 <select
                   className="form-control"
@@ -137,7 +144,7 @@ function StaffMemberRegister(props) {
             </div>
             <br />
             <div className="form-group row">
-              <label className="col-sm-2 col-form-label">area</label>
+              <label className="col-sm-2 col-form-label">Area of Study</label>
               <div className="col-sm-10">
                 <input
                   type="text"
@@ -169,7 +176,7 @@ function StaffMemberRegister(props) {
             </div>
             <br />
             <div className="form-group row">
-              <label className="col-sm-2 col-form-label">mobile no</label>
+              <label className="col-sm-2 col-form-label">mobile number</label>
               <div className="col-sm-10">
                 <input
                   type="mobile"

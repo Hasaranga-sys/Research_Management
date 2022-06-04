@@ -88,9 +88,9 @@ const UploadDocumentTemplates = () => {
         }
 
     </div>  
-    <Link to="/fileUploadHome">
+    {/* <Link to="/fileUploadHome">
       <button className='btn btn-primary' variant="contained">file upload home</button>   
-      </Link>      
+      </Link>       */}
     </div>
   )
 }

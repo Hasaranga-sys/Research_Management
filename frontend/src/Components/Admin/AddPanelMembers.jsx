@@ -80,7 +80,7 @@ const AddPanelMembers = () => {
 
   const title = ()=>{
     if(_id){
-      return <h2 className="text-center"> Update Research Topic</h2>
+      return <h2 className="text-center"> Allocate Panel Members</h2>
     }
     return <h2 className="text-center"> Add Research Topic</h2>
   }

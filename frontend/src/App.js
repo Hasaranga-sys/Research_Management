@@ -53,6 +53,9 @@ import CommunicateSupervisor from "./Components/Student/CommunicateSupervisor";
 import SubmitionTypes from "./Components/Admin/SubmitionTypes";
 import SubmitionTypeForm from "./Components/Admin/SubmitionTypeForm";
 import SendFeedBack from "./Components/PanelMember/SendFeedBack";
+import ThesisView from "./Components/FileUpload/ThesisView";
+import StudentOtherSubmissions from "./Components/Student/StudentOtherSubmissions";
+import ExtSubmissions from "./Components/Student/ExtSubmissions";
 function App() {
   // const  { user,setUser,isAuthenticated,setIsAuthenticated} = useContext(AuthContext);
   // console.log(user);
@@ -274,8 +277,10 @@ function App() {
             element={<TopicDocumentSubmission />}
             exact
           />
-          <Route
-            path="StudentHome/Communicate"
+          <Route path="/StudentHome/OtherSubmissions" element={<StudentOtherSubmissions/>} exact/>
+          <Route path="/StudentHome/OtherSubmissions/ExtSubmissions/:id" element={<ExtSubmissions/>} exact/>
+          <Route path="/ViewThesis" element={<ThesisView/>} exact/>
+          <Route path="StudentHome/Communicate"
             element={<CommunicateSupervisor />}
             exact
           />
