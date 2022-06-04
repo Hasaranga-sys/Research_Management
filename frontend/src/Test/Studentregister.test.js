@@ -21,7 +21,7 @@ describe("student register form unit testing", () => {
         <Login />
       </Router>
     );
-    const nameLabel = getByPlaceholderText("Enter IT no");
+    const nameLabel = getByPlaceholderText("Enter IT number");
     const ageLabel = getByPlaceholderText("Enter Password");
     expect(nameLabel).toBeInTheDocument();
     expect(ageLabel).toBeInTheDocument();
@@ -35,7 +35,7 @@ describe("student register form unit testing", () => {
         <Login />
       </Router>
     );
-    const ITno = screen.getByPlaceholderText("Enter IT no");
+    const ITno = screen.getByPlaceholderText("Enter IT number");
     userEvent.type(ITno, "IT20124526");
     expect(ITno.value).toMatch("IT20124526");
   });
