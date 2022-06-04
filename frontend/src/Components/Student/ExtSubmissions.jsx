@@ -51,7 +51,40 @@ const ExtSubmissions = () => {
     
 
   return (
-    <div>ExtSubmissions</div>
+    <div style={{marginTop: 30,width:550}} className='shadow bg-light card text-center p-3 mt-5 mx-auto'>
+        <h1>Submit Documents</h1>
+        <div style={{ maxWidth: 500, margin: "auto" }}>
+        <Link to="/fileUploadHome">
+      {/* <button className='btn btn-primary' variant="contained">file upload home</button>    */}
+      </Link>
+        {
+            <form onSubmit={upload} encType="multipart/form-data">
+                <div className='form-group mt-3'>
+
+                    <input type="text"placeholder='Group ID' value={name} required onChange={e=>{setName(e.target.value)}}
+                            className="form-control" />
+                </div>
+                <br></br>
+
+                <div className='form-group mt-3'>
+
+                    <input type="text"placeholder='Assignment Name' value={type} required onChange={e=>{setType(e.target.value)}}
+                            className="form-control" />
+                </div>
+                
+             
+                Upload pdf
+                <div className='form-group'>
+                    <input type="file" multiple required filename="uploaded_Image"
+                            className="form-control"
+                             onChange={e=>{setPdf(e.target.files)}} />
+                </div>
+                <button className='btn btn-primary my-3 ' type="submit" >Upload</button>
+            </form>
+        }
+
+    </div>
+    </div>
   )
 }
 
