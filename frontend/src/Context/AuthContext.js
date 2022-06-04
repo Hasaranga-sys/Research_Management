@@ -19,7 +19,35 @@ export default ({ children })=>{
 
     return (
         <div>
-            {!isLoaded ? <h1>Loadingzyf</h1> : 
+            {!isLoaded ? <h1>
+                <div className='container mx-auto w-25'>
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                    </div>
+                    </div>
+
+            </h1> : 
             <AuthContext.Provider value={{user,setUser,isAuthenticated,setIsAuthenticated}}>
                 { children }
                 </AuthContext.Provider>}
