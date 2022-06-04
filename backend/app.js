@@ -34,6 +34,13 @@ app.use(cors());
 //   }
 // );
 
+mongoose.connect(
+  "mongodb+srv://udula:udula123@cluster0.xsbwu.mongodb.net/ResearchTool?retryWrites=true&w=majority",
+  () => {
+    console.log("succeessfully connected to the SLIIT database");
+  }
+);
+
 //my DB don't delete
 // mongoose.connect(
 //   "mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority",
@@ -45,16 +52,15 @@ app.use(cors());
 
 // hasa db
 
-
-mongoose
-  .connect(
-    "mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority",
-    {}
-  )
-  .then(() => {
-    console.log("MongoDB connected successfully");
-  })
-  .catch((err) => console.log("DB conncetion failed".err));
+// mongoose
+//   .connect(
+//     "mongodb+srv://admin:6qb48qJBagUji7gg@cluster0.gt2iz.mongodb.net/ResearchTool?retryWrites=true&w=majority",
+//     {}
+//   )
+//   .then(() => {
+//     console.log("MongoDB connected successfully");
+//   })
+//   .catch((err) => console.log("DB conncetion failed".err));
 
 //pdf
 app.use(cors());
