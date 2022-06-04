@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import AuthService from "../Services/AuthService";
 import StaffMemberService from "../Services/StaffMemberService";
 import { useParams } from "react-router";
+import Swal from "sweetalert2";
 
 function StaffMemberRegister(props) {
   const [username, setUsername] = useState("");
@@ -54,6 +55,7 @@ function StaffMemberRegister(props) {
     if (id) {
       StaffMemberService.updateMember(id, submitData).then((res) => {
         console.log(res);
+        Swal.fire(" succesfully updated");
         history("/view-staff-member");
       });
     } else {
@@ -62,18 +64,19 @@ function StaffMemberRegister(props) {
 
         StaffMemberService.addStaffMember(submitData).then((res) => {
           console.log(res);
+          Swal.fire(" succesfully registered");
           history("/login");
         });
       });
     }
   };
 
-  const title = ()=>{
-    if(id){
-      return <h2 className="text-center"> Update Staff Member</h2>
+  const title = () => {
+    if (id) {
+      return <h1 className="text-center"> Update Staff Member</h1>;
     }
-    return <h2 className="text-center"> Register as Staff Member</h2>
-  }
+    return <h1 className="text-center"> Register as Staff Member</h1>;
+  };
 
   return (
     <div className="container">
@@ -98,10 +101,11 @@ function StaffMemberRegister(props) {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   className="form-control"
-                  placeholder="Enter IT no"
+                  placeholder="Enter IT number"
                   required="required"
-                  minlength="4"
-                  title="please enter at least 4 characters"
+                  minlength="10"
+                  maxlength="10"
+                  title="please enter valid IT number"
                 />
               </div>
             </div>
@@ -115,10 +119,10 @@ function StaffMemberRegister(props) {
                   value={name}
                   onChange={(e) => setNmae(e.target.value)}
                   className="form-control"
-                  placeholder="Enter username"
+                  placeholder="Enter Full Name"
                   required="required"
-                  minlength="4"
-                  title="please enter at least 4 characters"
+                  minlength="5"
+                  title="please enter at least 5 characters"
                 />
               </div>
             </div>
@@ -152,7 +156,7 @@ function StaffMemberRegister(props) {
                   value={component}
                   onChange={(e) => setComponent(e.target.value)}
                   className="form-control"
-                  placeholder="Enter Role"
+                  placeholder="Enter Area of Study"
                   required="required"
                   minlength="4"
                   title="please enter at least 4 characters"
