@@ -66,19 +66,18 @@ function SendFeedBack() {
   return (
     <div className="container">
       <div>
-        SendFeedBack
-        {grpName}
       </div>
       <br />
       <br />
-      <div className="card col-md-6 offset-md-3 offset-md-3">
+      <div className="card shadow-lg bg-light col-md-6 offset-md-3 offset-md-3">
         <div className="card-body">
-          <div>feedback</div>
+          <center><h1 className="mx-auto">feedback</h1></center>
+          
           <br />
           <br />
           <form onSubmit={clickSubmit}>
             <div className="form-group row">
-              <label className="col-sm-2 col-form-label">grp</label>
+              <label className="col-sm-2 mb-5 col-form-label">Group ID</label>
               <div className="col-sm-10">
                 <input
                   type="text"
@@ -112,7 +111,7 @@ function SendFeedBack() {
             <div className="form-group">
               <label>feedback</label>
               <textarea
-                className="form-control"
+                className="form-control mb-4"
                 id="exampleFormControlTextarea1"
                 rows="3"
                 value={feedback}
@@ -131,11 +130,11 @@ function SendFeedBack() {
       </div>
 
       <div
-        style={{ width: 1450 }}
-        className="card shadow bg-light mx-auto mt-5 mb-5 p-1 "
+        style={{ width: 1350 , marginLeft:1}}
+        className="card shadow bg-light  mt-5 mb-5 p-1 "
       >
         <br></br>
-        <div style={{ width: 1300 }} className="card-body mx-auto">
+        <div style={{ width: 1300, }} className="card-body">
           <div>
             <h1 className="d-flex justify-content-center">Registerd Groups</h1>
           </div>
@@ -165,9 +164,7 @@ function SendFeedBack() {
                     <th scope="col">Student ID</th>
                     <th scope="col">Email</th>
                     <th scope="col">Contact Number</th>
-                    {/* <th scope="col">Panel Members</th> */}
-                    {/* <th scope="col">Topic</th>
-                                    <th scope="col">Actions</th> */}
+                  
                   </tr>
                 </thead>
                 <tbody>

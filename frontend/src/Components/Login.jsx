@@ -59,7 +59,7 @@ const Login = (props) => {
       <br />
       <br />
       <br />
-      <div className="card col-md-6 offset-md-3 offset-md-3">
+      <div className="card shadow-lg col-md-6 offset-md-3 offset-md-3">
         <div className="card-body">
           <center>
             <h1>Login</h1>
@@ -77,7 +77,7 @@ const Login = (props) => {
                   className="form-control"
                   placeholder="Enter IT number"
                   required="required"
-                  minlength="10"
+                  minlength="3"
                   maxlength="10"
                   title="please enter valid IT number"
                 />
