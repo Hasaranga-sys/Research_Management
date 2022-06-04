@@ -32,6 +32,12 @@ const TopicRegisterForm = (props) => {
       groupId,
       field,
       activeStatus,
+      supervisor: "Not Assigned",
+      superStataus: "Not Assigned",
+      coSupervisor: "Not Assigned",
+      coSuperStataus: "Not Assigned",
+      panelMember_1: "Not Assigned",
+      panelMember_2: "Not Assigned",
     };
 
     console.log(ResearchTopic);
@@ -50,12 +56,12 @@ const TopicRegisterForm = (props) => {
 
       const updateData = {
         activeStatus: "pending",
-        supervisor: "pending",
-        superStataus: "pending",
-        coSupervisor: "pending",
-        coSuperStataus: "pending",
-        panelMember_1: "Not Yet Allocated",
-        panelMember_2: "Not Yet Allocated",
+        supervisor: "Not Assigned",
+        superStataus: "Not Assigned",
+        coSupervisor: "Not Assigned",
+        coSuperStataus: "Not Assigned",
+        panelMember_1: "Not Assigned",
+        panelMember_2: "Not Assigned",
       };
 
       ResearchTopicService.updateResearchTopic(_id, updateData).then((res) => {
