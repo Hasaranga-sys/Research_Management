@@ -41,20 +41,26 @@ const TopicRegisterTable = () => {
   };
 
   return (
-    <div style={{width: 1500}} className="shadow card mx-auto mt-5 mb-5">
-      <h2 className="text-center mt-4">Research Topic Management</h2>
+    <div style={{ width: 1500 }} className="shadow card mx-auto mt-5 mb-5">
+      <h1 className="text-center mt-4">Research Topic Management</h1>
 
       <input
         type="text"
-        placeholder="search by Document name"
+        placeholder="search by group name"
         className=" form-control mt-3 w-25 mx-auto"
         onChange={(e) => {
           setSearch(e.target.value);
         }}
       />
       <div className="row">
-        <div style={{width: 1400}} className="shadow-lg card mx-auto mt-5 mb-5">
-          <button className="shadow-lg btn btn-primary w-25 mx-3 mt-3 mb-3"  onClick={addTopic} >
+        <div
+          style={{ width: 1400 }}
+          className="shadow-lg card mx-auto mt-5 mb-5"
+        >
+          <button
+            className="shadow-lg btn btn-primary w-25 mx-3 mt-3 mb-3"
+            onClick={addTopic}
+          >
             Add topic
           </button>
 
@@ -66,9 +72,13 @@ const TopicRegisterTable = () => {
                 <th scope="col">Field</th>
                 <th scope="col">Topic Status</th>
                 <th scope="col">supervisor</th>
-                <th scope="col">Supervisor <br></br> Status</th>
+                <th scope="col">
+                  Supervisor <br></br> Status
+                </th>
                 <th scope="col">co-supervisor</th>
-                <th scope="col">co-supervisor<br></br> Status</th>
+                <th scope="col">
+                  co-supervisor<br></br> Status
+                </th>
                 <th scope="col">Panel Members</th>
 
                 <th scope="col">Action</th>
@@ -108,21 +118,50 @@ const TopicRegisterTable = () => {
                       {researchtopic.panelMember_2}
                     </td>
                     <td>
-
-                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                      
-
+                      <div
+                        class="btn-group"
+                        role="group"
+                        aria-label="Button group with nested dropdown"
+                      >
                         <div class="btn-group" role="group">
-                          <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                          <button
+                            id="btnGroupDrop1"
+                            type="button"
+                            class="btn btn-primary dropdown-toggle"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
                             Action Dropdown
                           </button>
-                          <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                          <button
-                                className="dropdown-item" onClick={() => UpdateTopic(researchtopic._id)}>Update Topic</button>
-                                <li><hr className="dropdown-divider"/></li>
-                                <li><button className="dropdown-item" onClick={() => reqSuper(researchtopic._id)}>request supervisor </button></li> 
-                                 <li><button className="dropdown-item" onClick={() => reqCoSuper(researchtopic._id)}>reqest co-supervisor</button></li>
-                        
+                          <ul
+                            class="dropdown-menu"
+                            aria-labelledby="btnGroupDrop1"
+                          >
+                            <button
+                              className="dropdown-item"
+                              onClick={() => UpdateTopic(researchtopic._id)}
+                            >
+                              Update Topic
+                            </button>
+                            <li>
+                              <hr className="dropdown-divider" />
+                            </li>
+                            <li>
+                              <button
+                                className="dropdown-item"
+                                onClick={() => reqSuper(researchtopic._id)}
+                              >
+                                request supervisor{" "}
+                              </button>
+                            </li>
+                            <li>
+                              <button
+                                className="dropdown-item"
+                                onClick={() => reqCoSuper(researchtopic._id)}
+                              >
+                                reqest co-supervisor
+                              </button>
+                            </li>
                           </ul>
                         </div>
                       </div>

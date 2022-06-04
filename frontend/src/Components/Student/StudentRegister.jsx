@@ -4,6 +4,7 @@ import AuthService from "../../Services/AuthService";
 import StudentService from "../../Services/StudentService";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
+import Swal from "sweetalert2";
 
 const StudentRegister = (props) => {
   // const [user, setUser] = useState({ username: "", password: "", role: "" });
@@ -55,6 +56,7 @@ const StudentRegister = (props) => {
     if (id) {
       StudentService.updateStudent(id, submitData).then((res) => {
         console.log(res);
+        Swal.fire(" succesfully updated");
         history("/admin/view-users");
       });
     } else {
@@ -63,18 +65,19 @@ const StudentRegister = (props) => {
 
         StudentService.addStudent(submitData).then((res) => {
           console.log(res);
+          Swal.fire(" succesfully registered");
           history("/login");
         });
       });
     }
   };
 
-  const title = ()=>{
-    if(id){
-      return <h2 className="text-center"> Update Student</h2>
+  const title = () => {
+    if (id) {
+      return <h1 className="text-center"> Update Student</h1>;
     }
-    return <h2 className="text-center"> Register Student</h2>
-  }
+    return <h1 className="text-center"> Register Student</h1>;
+  };
 
   return (
     <div className="container">
@@ -99,10 +102,11 @@ const StudentRegister = (props) => {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   className="form-control"
-                  placeholder="Enter IT no"
+                  placeholder="Enter IT number"
                   required="required"
-                  minlength="4"
-                  title="please enter at least 4 characters"
+                  minlength="10"
+                  maxlength="10"
+                  title="please enter valid IT number"
                 />
               </div>
             </div>
@@ -116,16 +120,16 @@ const StudentRegister = (props) => {
                   value={name}
                   onChange={(e) => setNmae(e.target.value)}
                   className="form-control"
-                  placeholder="Enter username"
+                  placeholder="Enter Full Name"
                   required="required"
-                  minlength="4"
-                  title="please enter at least 4 characters"
+                  minlength="5"
+                  title="please enter at least 5 characters"
                 />
               </div>
             </div>
             <br />
             <div className="form-group row">
-              <label className="col-sm-2 col-form-label">email</label>
+              <label className="col-sm-2 col-form-label">Email</label>
               <div className="col-sm-10">
                 <input
                   type="email"
@@ -140,7 +144,7 @@ const StudentRegister = (props) => {
             </div>
             <br />
             <div className="form-group row">
-              <label className="col-sm-2 col-form-label">Telephone</label>
+              <label className="col-sm-2 col-form-label">Mobile No</label>
               <div className="col-sm-10">
                 <input
                   type="mobile"

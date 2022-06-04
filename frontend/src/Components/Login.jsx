@@ -4,6 +4,7 @@ import { AuthContext } from "../Context/AuthContext";
 import Message from "./Message";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = (props) => {
   // const {isAuthenticated,userl,setIsAuthenticated,setUserl} = useContext(AuthContext);
@@ -40,7 +41,12 @@ const Login = (props) => {
       } else {
         setMessage(message);
         function myFunction() {
-          alert("Error : Wrong Username or Password");
+          // alert("Error : Wrong Username or Password");
+          Swal.fire({
+            icon: "error",
+            title: "Wrong IT No or Password",
+            text: "please enter a valid IT No and Password!",
+          });
         }
         myFunction();
       }
@@ -56,7 +62,7 @@ const Login = (props) => {
       <div className="card col-md-6 offset-md-3 offset-md-3">
         <div className="card-body">
           <center>
-            <h2>Login</h2>
+            <h1>Login</h1>
           </center>
           <br />
           <br />
@@ -71,8 +77,9 @@ const Login = (props) => {
                   className="form-control"
                   placeholder="Enter IT number"
                   required="required"
-                  // minlength="4"
-                  // title="please enter at least 4 characters"
+                  minlength="10"
+                  maxlength="10"
+                  title="please enter valid IT number"
                 />
               </div>
             </div>
