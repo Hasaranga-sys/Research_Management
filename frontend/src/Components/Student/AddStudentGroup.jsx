@@ -49,14 +49,14 @@ const AddStudentGroup = () => {
       <div className="shadow card mx-auto w-50 p-4 mt-5 mb-5 bg-light">
         <form onSubmit={onSubmit}>
           <h1 className="text-center mt-4">Create Group</h1>
-          <label className="sr-only">GroupId</label>
+          <label className="sr-only">Group Id</label>
           <input
             type="text"
             name="groupId"
             value={studentgroup.groupId}
             onChange={RegisterGroup}
             className="form-control"
-            placeholder="Enter group"
+            placeholder="Enter group Id"
           />
 
           <br></br>
@@ -69,208 +69,193 @@ const AddStudentGroup = () => {
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
+            placeholder="Enter leader Name"
           />
 
           <br></br>
 
-          <label className="sr-only">leaderId</label>
+          <label className="sr-only">leader IT Number</label>
           <input
             type="text"
-            name="leaderId"
+            placeholder="leader IT number"
             value={studentgroup.leaderId}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
 
-          <label className="sr-only">leaderEmail</label>
+          <label className="sr-only">leader Email</label>
           <input
             type="text"
-            name="leaderEmail"
+            placeholder="leader Email"
             value={studentgroup.leaderEmail}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
 
-          <label className="sr-only">leaderContactNo</label>
+          <label className="sr-only">leader Contact Number</label>
           <input
             type="text"
-            name="leaderContactNo"
+            placeholder="leader Contact Number"
             value={studentgroup.leaderContactNo}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
 
           {/* Member_1 */}
 
-          <label className="sr-only">member_1Name</label>
+          <label className="sr-only">Member 1 Name</label>
           <input
             type="text"
-            name="member_1Name"
+            placeholder="Member 1 Name"
             value={studentgroup.member_1Name}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
 
-          <label className="sr-only">member_1Id</label>
+          <label className="sr-only">Member 1 IT</label>
           <input
             type="text"
-            name="member_1Id"
+            placeholder="Member 1 IT Number"
             value={studentgroup.member_1Id}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
 
-          <label className="sr-only">member_1Email</label>
+          <label className="sr-only">Member 1 Email</label>
           <input
             type="text"
-            name="member_1Email"
+            placeholder="Member 1 Email"
             value={studentgroup.member_1Email}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
 
-          <label className="sr-only">member_1ContactNo</label>
+          <label className="sr-only">member 1 Contact Number</label>
           <input
             type="text"
-            name="member_1ContactNo"
+            placeholder="Member 1 Contact Number"
             value={studentgroup.member_1ContactNo}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
 
           {/* member_2 */}
 
-          <label className="sr-only">member_2Name</label>
+          <label className="sr-only">member 2 Name</label>
           <input
             type="text"
-            name="member_2Name"
+            placeholder="Member 2 Name"
             value={studentgroup.member_2Name}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
 
-          <label className="sr-only">member_2Id</label>
+          <label className="sr-only">member 2 IT Number</label>
           <input
             type="text"
-            name="member_2Id"
+            placeholder="Member 2 IT Number"
             value={studentgroup.member_2Id}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
 
-          <label className="sr-only">member_2Email</label>
+          <label className="sr-only">member 2 Email</label>
           <input
             type="text"
-            name="member_2Email"
+            placeholder="Member 2 Email"
             value={studentgroup.member_2Email}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
 
-          <label className="sr-only">member_2ContactNo</label>
+          <label className="sr-only">member 2 Contact Number</label>
           <input
             type="text"
-            name="member_2ContactNo"
+            placeholder="Member 2 Contact Number"
             value={studentgroup.member_2ContactNo}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
 
           {/* member_3 */}
 
-          <label className="sr-only">member_3Name</label>
+          <label className="sr-only">Member 3 Name</label>
           <input
             type="text"
-            name="member_3Name"
+            placeholder="Member 3 Name"
             value={studentgroup.member_3Name}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
 
-          <label className="sr-only">member_3Id</label>
+          <label className="sr-only">Member 3 IT Number</label>
           <input
             type="text"
-            name="member_3Id"
+            placeholder="Member 3 IT Number"
             value={studentgroup.member_3Id}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
 
-          <label className="sr-only">member_3Email</label>
+          <label className="sr-only">Member 3 Email</label>
           <input
             type="text"
-            name="member_3Email"
+            placeholder="Member 3 Email"
             value={studentgroup.member_3Email}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
 
-          <label className="sr-only">member_3ContactNo</label>
+          <label className="sr-only">Member 3 Contact Number</label>
           <input
             type="text"
-            name="member_3ContactNo"
+            placeholder="Member 3 Contact Number"
             value={studentgroup.member_3ContactNo}
             onChange={RegisterGroup}
             className="form-control"
             required="required"
-            placeholder="Enter group"
           />
 
           <br></br>
