@@ -47,6 +47,8 @@ import TopicDocumentSubmission from "./Components/Student/TopicDocumentSubmissio
 import ReqCoSupervisor from "./Components/Student/ReqCoSupervisor";
 import ViewProjectGroups from "./Components/Admin/ViewProjectGroups";
 import CommunicateSupervisor from "./Components/Student/CommunicateSupervisor";
+import SubmitionTypes from "./Components/Admin/SubmitionTypes";
+import SubmitionTypeForm from "./Components/Admin/SubmitionTypeForm";
 function App() {
   // const  { user,setUser,isAuthenticated,setIsAuthenticated} = useContext(AuthContext);
   // console.log(user);
@@ -250,6 +252,9 @@ function App() {
           <Route path="StudentHome/Communicate" element={<CommunicateSupervisor/>} exact/>
           {/* admin */}
           <Route path="/AdminHome/ViewProjectGroups" element={<ViewProjectGroups/>} exact/>
+          <Route path="/AdminHome/SubmissionTypeTable" element={<SubmitionTypes/>} exact/>
+          <Route path="/AdminHome/SubmissionTypeTable/:_id" element={<SubmitionTypeForm/>} exact/>
+          
           
           
 

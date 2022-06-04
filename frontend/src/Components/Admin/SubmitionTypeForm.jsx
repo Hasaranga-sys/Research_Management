@@ -1,7 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+// import submitionService from "../../Services/submitionService";
 import submitionService from "../../Services/submitionService";
+
 import { useNavigate } from "react-router-dom";
 
 function SubmitionTypesForm(props) {
@@ -34,7 +36,7 @@ function SubmitionTypesForm(props) {
       submitionService.updateSubmition(_id, submition1);
     }
 
-    // navigate(`/`)
+    navigate(`/AdminHome/SubmissionTypeTable`)
   };
   useEffect(() => {
     if (_id != "-1") {

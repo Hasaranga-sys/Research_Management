@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import submitionService from "../../Services/submitionService.js";
+// import submitionService from "../../Services/submitionService.js";
 import { useNavigate } from "react-router-dom";
+import submitionService from "../../Services/submitionService";
 
 const SubmitionType = (props) => {
   const [submitions, setsubmitions] = useState([]);
@@ -11,8 +12,12 @@ const SubmitionType = (props) => {
       setsubmitions(response.data.submitionType);
     });
   });
+  const addClick = (id) =>{
+    navigate(`/AdminHome/SubmissionTypeTable/-1`)
+  }
+
   const updateClick = (id) => {
-    // navigate(`/form/${id}`)
+    navigate(`/AdminHome/SubmissionTypeTable/${id}`)
     console.log(id);
   };
   const deleteClick = (id) => {
@@ -24,6 +29,7 @@ const SubmitionType = (props) => {
   return (
     <div>
       <h1>submition list</h1>
+      <button className="m-1" onClick={()=>addClick()}   >Add</button>
       <table>
         <thead>
           <tr>

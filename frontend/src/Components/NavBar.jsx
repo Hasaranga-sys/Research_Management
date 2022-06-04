@@ -23,52 +23,13 @@ const NavBar = (props) => {
   const unAuthenticatedNavBar = () => {
     return (
       <>
-        {/* <Link to="/">
-              <li className='nav-item nav-link'>
-                Home
-              </li>
-            </Link> */}
-        {/* <li className='nav-item'>
-              <a className='nav-link active' aria-current="page" href="/login">Login</a>
-            </li>
-           */}
         <a className="nav-link active" aria-current="page" href="/">
           Home
         </a>
-        {/* <a className='nav-link active' aria-current="page" href="/fileAdd">addfile</a>
-            <a className='nav-link active' aria-current="page" href="/fileUploadHome">HomeFile</a>
-             */}
+       
         <a className="nav-link active" aria-current="page" href="/login">
           Login
         </a>
-
-        {/* <a
-          className="nav-link active"
-          aria-current="page"
-          href="/student/register-student"
-        >
-          Student-Register
-        </a> */}
-
-        {/* <a
-          className="nav-link active"
-          aria-current="page"
-          href="/register-staff-member"
-        >
-          Staff-Register
-        </a> */}
-
-        {/* <Link to="/login">
-              <li className='nav-item nav-link'>
-                Login
-              </li>
-            </Link>
-
-            <Link to="/register">
-              <li className='nav-item nav-link'>
-                Register
-              </li>
-            </Link> */}
       </>
     );
   };
@@ -76,22 +37,7 @@ const NavBar = (props) => {
   const AuthenticatedNavBar = () => {
     return (
       <>
-        {/* <a className='nav-link active' aria-current="page" href="/fileAdd">addfile</a>
-            <a className='nav-link active' aria-current="page" href="/fileUploadHome">HomeFile</a> */}
-        {/* <Link to="/">
-            <li className='nav-item nav-link'>
-              Home
-            </li>
-          </Link>   
-          <li className='nav-item'>
-              <a className='nav-link active' aria-current="page" href="/">Home</a>
-            </li>    
-
-          <Link to="/todos">
-            <li className='nav-item nav-link'>
-              Todos
-            </li>
-          </Link> */}
+      
         {user.role === "admin" ? (
           <li className="nav-item nav-link">
             <a className="nav-link" href="/AdminHome">
