@@ -64,7 +64,6 @@ const TopicRegisterForm = (props) => {
           history("/StudentHome/TopicRegisterTable");
         }
       });
-
     } else {
       ResearchTopicService.createResearchTopic(ResearchTopic)
         .then((response) => {
@@ -77,12 +76,12 @@ const TopicRegisterForm = (props) => {
     }
   };
 
-  const title = ()=>{
-    if(_id){
-      return <h2 className="text-center"> Update Research Topic</h2>
+  const title = () => {
+    if (_id) {
+      return <h2 className="text-center"> Update Research Topic</h2>;
     }
-    return <h2 className="text-center"> Add Research Topic</h2>
-  }
+    return <h2 className="text-center"> Add Research Topic</h2>;
+  };
 
   return (
     <div className="card shadow-lg w-50 mx-auto mt-5 p-3 text-center">
@@ -93,31 +92,57 @@ const TopicRegisterForm = (props) => {
         }}
       >
         <div className="card shadow-lg bg-light mb-3 mt-3">
-        <div className="row w-75 mx-auto mt-3">
-        <label className=" col-sm-3 col-form-label">Group ID</label>
-        <input name="groupId" className="form-control w-25" type="text"
-          value={groupId} onChange={(e) => {setGroupId(e.target.value);}} required/>
-        </div>
+          <div className="row w-75 mx-auto mt-3">
+            <label className=" col-sm-3 col-form-label">Group ID</label>
+            <input
+              name="groupId"
+              className="form-control w-25"
+              placeholder="Enter Group ID"
+              type="text"
+              value={groupId}
+              onChange={(e) => {
+                setGroupId(e.target.value);
+              }}
+              required
+            />
+          </div>
 
-        <div className="row w-75 mx-auto mt-3">
-        <label className=" col-sm-3 col-form-label">Research Topic</label>
-        <input name="researchTopic" className="form-control w-50" type="text"
-          value={researchTopic} onChange={(e) => {setResearchTopic(e.target.value);}} required/>
-        </div>
+          <div className="row w-75 mx-auto mt-3">
+            <label className=" col-sm-3 col-form-label">Research Topic</label>
+            <input
+              name="researchTopic"
+              className="form-control w-50"
+              type="text"
+              value={researchTopic}
+              onChange={(e) => {
+                setResearchTopic(e.target.value);
+              }}
+              required
+            />
+          </div>
 
-        <div className="row w-75 mx-auto mt-3">
-        <label className="col-sm-3 col-form-label">Field</label>
-        <input name="field" className="form-control w-50" type="text"
-          value={field} onChange={(e) => {setField(e.target.value);}} required/>
-        </div>
-        
-        <div className="row w-75 mx-auto mt-3 mb-4">
-        <input className="btn btn-primary mt-4 mx-auto" type="submit"  value="submit" />
-        </div>
-        </div>
-        
-       
+          <div className="row w-75 mx-auto mt-3">
+            <label className="col-sm-3 col-form-label">Field</label>
+            <input
+              name="field"
+              className="form-control w-50"
+              type="text"
+              value={field}
+              onChange={(e) => {
+                setField(e.target.value);
+              }}
+              required
+            />
+          </div>
 
+          <div className="row w-75 mx-auto mt-3 mb-4">
+            <input
+              className="btn btn-primary mt-4 mx-auto"
+              type="submit"
+              value="submit"
+            />
+          </div>
+        </div>
       </form>
     </div>
   );
